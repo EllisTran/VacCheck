@@ -9,21 +9,20 @@ class AuthService {
     await _firebaseAuth.signOut();
   }
 
-  Future signIn({String email = '', String password = ''}) async {
+  Future signIn({required String email, required String password}) async {
     try {
       await _firebaseAuth.signInWithEmailAndPassword(
-          email: 'test@test.com', password: 'password');
-      print("Signed in");
+          email: email, password: password);
       return "Signed in";
     } on FirebaseAuthException catch (e) {
       return e.message;
     }
   }
 
-  Future signUp({String email = '', String password = ''}) async {
+  Future signUp({required String email, required String password}) async {
     try {
       await _firebaseAuth.createUserWithEmailAndPassword(
-          email: 'test2@test.com', password: 'password');
+          email: email, password: password);
       return "sign up!";
     } on FirebaseAuthException catch (e) {
       return e.message;

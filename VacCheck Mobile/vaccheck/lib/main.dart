@@ -13,10 +13,18 @@ void main() async {
   await Firebase.initializeApp();
 
   // For local storage
-  runApp(MyApp());
+  runApp(const MyApp());
 }
 
-class MyApp extends StatelessWidget {
+class MyApp extends StatefulWidget {
+
+  const MyApp({Key? key}) : super(key: key);
+
+  @override
+  State<MyApp> createState() => _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   FirebaseWrapper fb = FirebaseWrapper();
 
   @override
@@ -50,22 +58,17 @@ class AuthenticationWrapper extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final fbUser = context.watch<User?>();
-    // ignore: unnecessary_null_comparison
     if (fbUser != null) {
       return Column(children: [
-        Text("Signed in"),
+        const Text("Signed in"),
         TextButton(
           onPressed: () {
-            print("Sign out");
             context.read<AuthService>().signOut();
           },
-          child: Text("Sign out"),
+          child: const Text("Sign out"),
         )
       ]);
-      // return const Text("Signed In");
     }
-    // else {
-    return LoginPage();
-    // }
+    return const LoginPage();
   }
 }

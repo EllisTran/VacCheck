@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
 class AuthController {
-  TextEditingController controller = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
 }
