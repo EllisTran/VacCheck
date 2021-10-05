@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "685620451959",
+    "project_id": "vaccheck-6a24b",
+    "storage_bucket": "vaccheck-6a24b.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:685620451959:android:3a2d3045fde2c8cd550472",
+        "android_client_info": {
+          "package_name": "com.vaccheck.vaccheck"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "685620451959-mol52nk081rnt1d6rthfd7ippa90946u.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.vaccheck.vaccheck",
+            "certificate_hash": "228290edc81c138afbd225f98709203d30c3b2e9"
+          }
+        },
+        {
+          "client_id": "685620451959-5ci12om78sekdmpdcin8mr2hfhj5isio.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBr7qGWAzpdsn9jJ2ADoDuXaieS_sVVw_U"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "685620451959-5ci12om78sekdmpdcin8mr2hfhj5isio.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "685620451959-b685u77g0i4qmceuir9t0pfml237q47k.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.vaccheck.vaccheck"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
