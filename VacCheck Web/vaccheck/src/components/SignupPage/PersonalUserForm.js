@@ -33,6 +33,15 @@ const PersonalUserForm = (props) => {
     setEnteredPassword(event.target.value);
   }
 
+  const clearAccountInfo = () => {
+    setEnteredName("");
+    setEnteredDateOfBirth("");
+    setEnteredIdentityDocumentType("");
+    setEnteredIdentityNumber("");
+    setEnteredEmailAddress("");
+    setEnteredPassword("");
+  }
+
   const submitHandler = (event) => {
       event.preventDefault();
 
@@ -44,7 +53,7 @@ const PersonalUserForm = (props) => {
           email: enteredEmailAddress,
           password: enteredPassword
       }
-
+      clearAccountInfo();
       props.onSignup(accountInfo);
   }
 
@@ -71,6 +80,7 @@ const PersonalUserForm = (props) => {
             value={enteredIdentityDocumentType}
             onChange={identityDocumentTypeChangeHandler}
           >
+            <option value="" diabled selected></option>
             <option value="ssn">Social Security Number</option>
             <option value="dl">Driver's License Number</option>
           </select>

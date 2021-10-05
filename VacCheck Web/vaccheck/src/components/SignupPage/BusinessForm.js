@@ -287,6 +287,18 @@ const BusinessForm = (props) => {
       setPassword(event.target.value);
   }
 
+  const clearAccountInfo = () => {
+      setName("");
+      setEin("");
+      setStreet1("");
+      setStreet2("")
+      setCity("");
+      setState("");
+      setPostalCode("");
+      setEmailAddress("");
+      setPassword("");
+  }
+
   const submitHandler = (event) => {
     event.preventDefault();
     
@@ -303,7 +315,7 @@ const BusinessForm = (props) => {
         email: emailAddress,
         password: password
     }
-
+    clearAccountInfo();
     props.onSignup(accountInfo);
   };
 

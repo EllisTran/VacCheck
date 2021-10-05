@@ -287,21 +287,36 @@ const HealthProfessionalForm = (props) => {
     setPassword(event.target.value);
   };
 
+  const clearAccountInfo = () => {
+    setFullName("");
+    setNip("");
+    setStreet1("");
+    setStreet2("")
+    setCity("");
+    setState("");
+    setPostalCode("");
+    setEmailAddress("");
+    setPassword("");
+}
+
   const submitHandler = (event) => {
     event.preventDefault();
     
     const accountInfo = {
         name: fullName,
         nip: nip,
-        addressStreet1: street1,
-        addressStreet2: street2,
-        addressCity: city,
-        addressState: state,
-        addressPostalCode: postalCode,
+        address: {
+            street1: street1,
+            street2: street2,
+            city: city,
+            state: state,
+            postalCode: postalCode
+        },
         email: emailAddress,
         password: password
     };
 
+    clearAccountInfo();
     props.onSignup(accountInfo);
   };
 
