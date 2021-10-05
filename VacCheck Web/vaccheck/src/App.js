@@ -1,25 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import { onSnapshot, collection, doc } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import SignupPage from "./components/SignupPage/SignupPage";
+import db from "./firebase";
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+  const [users, setUsers] = useState([]);
+
+  console.log(users);
+  
+  useEffect(
+    () =>
+      onSnapshot(collection(db, "users"), (snapshot) => {
+        setUsers(snapshot.docs.map((doc) => ({...doc.data(), id: doc.id})));
+      }),
+    []
   );
+
+  return <SignupPage></SignupPage>;
 }
 
 export default App;
