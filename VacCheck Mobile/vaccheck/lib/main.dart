@@ -5,8 +5,9 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'package:vaccheck/firebase/auth_service.dart';
-import 'package:vaccheck/views/login_page.dart';
+import 'package:vaccheck/views/auth_views/login_view.dart';
 import './firebase/firebase_wrapper.dart';
+import 'views/main_page_view.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,7 +18,6 @@ void main() async {
 }
 
 class MyApp extends StatefulWidget {
-
   const MyApp({Key? key}) : super(key: key);
 
   @override
@@ -45,30 +45,9 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: const AuthenticationWrapper(key: null),
+        home: const MainPageView(
+            key: null),
       ),
     );
-  }
-}
-
-class AuthenticationWrapper extends StatelessWidget {
-  const AuthenticationWrapper({
-    Key? key,
-  }) : super(key: key);
-  @override
-  Widget build(BuildContext context) {
-    final fbUser = context.watch<User?>();
-    if (fbUser != null) {
-      return Column(children: [
-        const Text("Signed in"),
-        TextButton(
-          onPressed: () {
-            context.read<AuthService>().signOut();
-          },
-          child: const Text("Sign out"),
-        )
-      ]);
-    }
-    return const LoginPage();
   }
 }

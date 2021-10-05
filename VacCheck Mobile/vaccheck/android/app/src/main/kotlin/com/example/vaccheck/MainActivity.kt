@@ -1,4 +1,4 @@
-package com.example.vaccheck
+package com.vaccheck.vaccheck
 
 import io.flutter.embedding.android.FlutterActivity
 

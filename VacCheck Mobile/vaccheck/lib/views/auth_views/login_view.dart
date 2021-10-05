@@ -3,15 +3,16 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:provider/src/provider.dart';
 import 'package:vaccheck/controller/auth_controller.dart';
 import 'package:vaccheck/firebase/auth_service.dart';
+import 'package:vaccheck/views/auth_views/signup_view.dart';
 
-class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+class LoginView extends StatefulWidget {
+  const LoginView({Key? key}) : super(key: key);
 
   @override
-  State<LoginPage> createState() => _LoginPageState();
+  State<LoginView> createState() => _LoginViewState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _LoginViewState extends State<LoginView> {
   final authController = AuthController();
 
   @override
@@ -36,6 +37,7 @@ class _LoginPageState extends State<LoginPage> {
             ),
           ),
           TextField(
+            obscureText: true,
             controller: authController.passwordController,
             decoration: const InputDecoration(
               labelText: "Password",
@@ -51,9 +53,10 @@ class _LoginPageState extends State<LoginPage> {
           ),
           TextButton(
             onPressed: () {
-              context.read<AuthService>().signUp(
-                  email: authController.emailController.text,
-                  password: authController.passwordController.text);
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => SignUpView()),
+              );
             },
             child: const Text("Sign Up"),
           )

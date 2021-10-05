@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.vaccheck">
+    package="com.vaccheck.vaccheck">
    <application
         android:label="vaccheck"
         android:icon="@mipmap/ic_launcher">
