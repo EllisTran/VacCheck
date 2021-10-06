@@ -3,16 +3,21 @@ import AccountFilter from "./AccountFilter";
 import BusinessForm from "./BusinessForm";
 import HealthProfessionalForm from "./HealthProfessionalForm";
 import PersonalUserForm from "./PersonalUserForm";
-import { collection, addDoc } from "firebase/firestore";
+import {
+  collection,
+  addDoc,
+  doc,
+  setDoc,
+} from "firebase/firestore";
 import db from "../../firebase";
 
 const SignupPage = () => {
   const [accountType, setAccountType] = useState("");
 
   const userTypes = {
-    personalUser: "Personal User",
-    business: "Business",
-    healthProfessional: "Health Professional",
+    isPersonalUser: false,
+    isBusiness: false,
+    isHealthProfessional: false,
   };
 
   const selectAccountTypeHandler = (selectedAccountType) => {
@@ -21,24 +26,33 @@ const SignupPage = () => {
 
   const createDoc = async (newAccountInfo) => {
     const collectionRef = collection(db, "users");
-    await addDoc(collectionRef, newAccountInfo);
+    await addDoc(collectionRef, newAccountInfo).then(function(result){
+      const docId = result._key.path.segments[1]
+      const docRef = doc(db, "users", docId);
+      setDoc(docRef, {...newAccountInfo, userId: docId});
+    });
+
   };
 
   const personalUserAccountSignupHandler = (personalUserAccountInfo) => {
     const newAccountInfo = {
       ...personalUserAccountInfo,
-      userType: userTypes.personalUser,
+      userType: {
+        ...userTypes,
+        isPersonalUser: true,
+      },
     };
-    console.log(newAccountInfo);
     createDoc(newAccountInfo);
   };
 
   const businessAccountSignupHandler = (businessAccountInfo) => {
     const newAccountInfo = {
       ...businessAccountInfo,
-      userType: userTypes.business,
+      userType: {
+        ...userTypes,
+        isBusiness: true,
+      },
     };
-    console.log(newAccountInfo);
     createDoc(newAccountInfo);
   };
 
@@ -47,7 +61,10 @@ const SignupPage = () => {
   ) => {
     const newAccountInfo = {
       ...healthProfessionalAccountInfo,
-      userType: userTypes.healthProfessional,
+      userType: {
+        ...userTypes,
+        isHealthProfessional: true,
+      },
     };
     createDoc(newAccountInfo);
   };
