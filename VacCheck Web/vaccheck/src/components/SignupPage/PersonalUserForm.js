@@ -3,8 +3,8 @@ import { useState } from "react";
 const PersonalUserForm = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredDateOfBirth, setEnteredDateOfBirth] = useState("");
-  const [enteredIdentityDocumentType, setEnteredIdentityDocumentType] =
-    useState("ssn");
+  // const [enteredIdentityDocumentType, setEnteredIdentityDocumentType] =
+  //   useState("ssn");
   const [enteredIdentityNumber, setEnteredIdentityNumber] = useState("");
   const [enteredEmailAddress, setEnteredEmailAddress] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
@@ -17,9 +17,9 @@ const PersonalUserForm = (props) => {
     setEnteredDateOfBirth(event.target.value);
   };
 
-  const identityDocumentTypeChangeHandler = (event) => {
-    setEnteredIdentityDocumentType(event.target.value);
-  };
+  // const identityDocumentTypeChangeHandler = (event) => {
+  //   setEnteredIdentityDocumentType(event.target.value);
+  // };
 
   const identityNumberChangeHandler = (event) => {
     setEnteredIdentityNumber(event.target.value);
@@ -36,7 +36,7 @@ const PersonalUserForm = (props) => {
   const clearAccountInfo = () => {
     setEnteredName("");
     setEnteredDateOfBirth("");
-    setEnteredIdentityDocumentType("");
+    // setEnteredIdentityDocumentType("");
     setEnteredIdentityNumber("");
     setEnteredEmailAddress("");
     setEnteredPassword("");
@@ -48,7 +48,7 @@ const PersonalUserForm = (props) => {
       const accountInfo = {
           name: enteredName,
           dateOfBirth: new Date(enteredDateOfBirth),
-          identityDocumentType: enteredIdentityDocumentType,
+          // identityDocumentType: enteredIdentityDocumentType,
           identityNumber: enteredIdentityNumber,
           email: enteredEmailAddress,
           password: enteredPassword
@@ -75,15 +75,15 @@ const PersonalUserForm = (props) => {
           />
         </div>
         <div className="">
-          <label>Choose your identity document type</label>
-          <select
+          <label>Social Security Number</label>
+          {/* <select
             value={enteredIdentityDocumentType}
             onChange={identityDocumentTypeChangeHandler}
           >
             <option value="" diabled selected></option>
             <option value="ssn">Social Security Number</option>
             <option value="dl">Driver's License Number</option>
-          </select>
+          </select> */}
           <input
             value={enteredIdentityNumber}
             onChange={identityNumberChangeHandler}
