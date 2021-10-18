@@ -1,29 +1,38 @@
 import 'package:get/get.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:vaccheck/controller/auth_controller.dart';
+import 'package:vaccheck/firebase/auth_service.dart';
 import 'package:vaccheck/model/user_model.dart';
+import 'package:flutter/material.dart';
+
+// Import the firebase_core and cloud_firestore plugin
+import 'package:firebase_core/firebase_core.dart';
 
 class FirebaseWrapper extends GetxController {
   final FirebaseFirestore _db = FirebaseFirestore.instance;
-  Future test() async {
-    var documentRef = await _db.collection('users').add({'name': 'test'});
-    var createdId = documentRef.id;
-    _db.collection('users').doc(createdId).update(
-      {'user_id': createdId},
-    );
-  }
+  AuthController _auth = Get.find();
 
-  Future addNewUser(UserModel newUser, String password) async {
-    var documentRef = await _db.collection('users').add({
+  Future addNewUser(UserModel newUser, String password, String? uid) async {
+    await _db.collection('users').doc(uid).set({
       'name': newUser.name,
       'email': newUser.email,
-      'ssn': newUser.ssn,
       'dateOfBirth': newUser.dateOfBirth,
-      'address': newUser.address
-    });
-    var createdId = documentRef.id;
-    _db.collection('users').doc(createdId).update({
-      'user_id': createdId,
+      'numVac': 0,
+      'userType': {
+        'isBusiness': false,
+        'isPersonalUser': true,
+        'isHealthProfessional': false
+      },
+      'userId': uid
     });
   }
+
+  Future readUser() async {
+    var document = _db.collection('users');
+    await document.doc(_auth.uid).get().then((data) => {
+          _auth.currentUser = UserModel.fromMap(data),
+        });
+  }
+
 }
