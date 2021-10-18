@@ -21,6 +21,7 @@ class _SignUpViewState extends State<SignUpView> {
   String? name;
   String? email;
   String? password;
+  DateTime? dateOfBirth;
   Map<String, String> address = {};
 
   @override
@@ -89,95 +90,40 @@ class _SignUpViewState extends State<SignUpView> {
                 // The validator receives the text that the user has entered.
                 validator: (value) {
                   if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                onSaved: (String? value) {
-                  // name = value;
-                  if (value != null) {
-                    address['city'] = value;
-                  }
-                },
-                decoration: const InputDecoration(
-                  icon: Icon(Icons.location_city),
-                  labelText: 'City',
-                ),
-                // The validator receives the text that the user has entered.
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                onSaved: (String? value) {
-                  // name = value;
-                  if (value != null) {
-                    address['state'] = value;
-                  }
-                },
-                decoration: const InputDecoration(
-                  icon: Icon(Icons.location_city),
-                  labelText: 'State',
-                ),
-                // The validator receives the text that the user has entered.
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                onSaved: (String? value) {
-                  // name = value;
-                  if (value != null) {
-                    address['postalCode'] = value;
-                  }
-                },
-                keyboardType: TextInputType.number,
-                decoration: const InputDecoration(
-                  icon: Icon(Icons.location_city),
-                  labelText: 'Zip Code',
-                ),
-                // The validator receives the text that the user has entered.
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
-                  }
-                  return null;
-                },
-              ),
-              TextFormField(
-                onSaved: (String? value) {
-                  // name = value;
-                  if (value != null) {
-                    address['street'] = value;
-                  }
-                },
-                decoration: const InputDecoration(
-                  icon: Icon(Icons.streetview),
-                  labelText: 'Street',
-                ),
-                // The validator receives the text that the user has entered.
-                validator: (value) {
-                  if (value == null || value.isEmpty) {
-                    return 'Please enter some text';
+                    return 'Please enter a password';
                   }
                   return null;
                 },
               ),
               Center(
+                child: Row(
+                  children: [
+                    dateOfBirth == null ? const Text("Pick Birthday") : Text(dateOfBirth!.toString()),
+                    ElevatedButton(
+                      child: const Text("Pick Birthday"),
+                      onPressed: () async {
+                        final DateTime? dob = await showDatePicker(
+                            context: context,
+                            initialDate: DateTime.now(),
+                            firstDate: DateTime(1900),
+                            lastDate: DateTime(2100));
+                        setState(() {
+                          dateOfBirth = dob;
+                        });
+                      },
+                    ),
+                  ],
+                ),
+              ),
+              Center(
                 child: ElevatedButton(
                   onPressed: () {
                     if (_formKey.currentState!.validate()) {
-                      if (email != null && password != null && name != null) {
-                        UserModel newUser = UserModel(
-                            name!, DateTime.now(), email!, "0000000", address);
+                      if (email != null &&
+                          password != null &&
+                          name != null &&
+                          dateOfBirth != null) {
+                        UserModel newUser = UserModel(name!, dateOfBirth!, email!);
                         try {
                           context
                               .read<AuthService>()
@@ -190,7 +136,7 @@ class _SignUpViewState extends State<SignUpView> {
                       }
                     }
                   },
-                  child: Text('Sign up!'),
+                  child: const Text('Sign up!'),
                 ),
               ),
             ],

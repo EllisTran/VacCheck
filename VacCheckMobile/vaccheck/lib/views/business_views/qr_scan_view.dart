@@ -3,17 +3,16 @@ import 'dart:io';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
-import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:vaccheck/controller/qr_code_controller.dart';
 
-class QRView extends StatefulWidget {
-  const QRView({Key? key, void Function(QRViewController controller)? onQRViewCreated}) : super(key: key);
+class QRScanView extends StatefulWidget {
+  const QRScanView({Key? key, void Function(QRViewController controller)? onQRViewCreated}) : super(key: key);
 
   @override
-  State<StatefulWidget> createState() => _QRViewState();
+  State<StatefulWidget> createState() => _QRScanViewState();
 }
 
-class _QRViewState extends State<QRView> {
+class _QRScanViewState extends State<QRScanView> {
   final GlobalKey qrKey = GlobalKey(debugLabel: 'QR');
   Barcode? result;
   late QRViewController controller;
