@@ -8,6 +8,7 @@ const PersonalUserForm = (props) => {
   const [enteredIdentityNumber, setEnteredIdentityNumber] = useState("");
   const [enteredEmailAddress, setEnteredEmailAddress] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
+  const [enteredNumberOfVaccinations, setEnteredNumberOfVaccinations] = useState("");
 
   const nameChangeHandler = (event) => {
     setEnteredName(event.target.value);
@@ -29,8 +30,12 @@ const PersonalUserForm = (props) => {
     setEnteredEmailAddress(event.target.value);
   }
 
-  const enteredPasswordChangeHandler = (event) => {
-    setEnteredPassword(event.target.value);
+  // const enteredPasswordChangeHandler = (event) => {
+  //   setEnteredPassword(event.target.value);
+  // }
+
+  const enteredNumberOfVaccinationsChangeHandler = (event) => {
+    setEnteredNumberOfVaccinations(event.target.value);
   }
 
   const clearAccountInfo = () => {
@@ -47,12 +52,14 @@ const PersonalUserForm = (props) => {
 
       const accountInfo = {
           name: enteredName,
-          dateOfBirth: new Date(enteredDateOfBirth),
+          dateOfBirth: enteredDateOfBirth,
           // identityDocumentType: enteredIdentityDocumentType,
           identityNumber: enteredIdentityNumber,
           email: enteredEmailAddress,
-          password: enteredPassword
+          numVac: enteredNumberOfVaccinations
+          // password: enteredPassword
       }
+      console.log(accountInfo);
       clearAccountInfo();
       props.onSignup(accountInfo);
   }
@@ -93,9 +100,16 @@ const PersonalUserForm = (props) => {
           <label>Email Address</label>
           <input type="email" value={enteredEmailAddress} onChange={enteredEmailAddressChangeHandler}/> 
         </div>
-        <div>
+        {/* <div>
           <label>Password</label>
           <input type="password" value={enteredPassword} onChange={enteredPasswordChangeHandler}/>
+        </div> */}
+        <div className="">
+          <label>Number of Vaccinations</label>
+          <input
+            value={enteredNumberOfVaccinations}
+            onChange={enteredNumberOfVaccinationsChangeHandler}
+          />
         </div>
         <div>
             <button type="submit">Sign up</button>
