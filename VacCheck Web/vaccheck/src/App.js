@@ -1,10 +1,10 @@
 
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import db from "../src/firebase";
+import {auth} from "../src/firebase";
 import Login from "./components/Login";
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; 
-import { useHistory } from "react-router-dom";
+// import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; 
+// import { useHistory } from "react-router-dom";
 import SignupPage from "../src/components/SignupPage/SignupPage";
 
 const App = () => {
@@ -27,8 +27,7 @@ const App = () => {
 
   const handleLogin = () => {
     clearErrors();
-    db
-      .auth()
+    auth
       .signInWithEmailAndPassword(email, password)
       .catch((err) => {
         // console.log(fire);
@@ -47,18 +46,12 @@ const App = () => {
   };
 
   const handleSignup = () => {
-    // let history = useHistory();
-    // history.push("/SignupPage");
-
     clearErrors();
-    db
-      .auth()
+    auth
       .createUserWithEmailAndPassword(email, password).then(data => {
         console.log("User ID :- ", data.user.uid);
       })  
       .catch((err) => {
-       
-        // catching errors
         switch (err.code) {
           case "auth/email-already-in-use":
           case "auth/invalid-email":
@@ -72,11 +65,11 @@ const App = () => {
   };
 
   const handleLogOut = () => {
-    db.auth().signOut();
+    auth.signOut();
   };
 
   const authListener = () => {
-    db.auth().onAuthStateChanged((user) => {
+    auth.onAuthStateChanged((user) => {
       if (user) {
         clearInputs();
         setUser(user);
@@ -92,12 +85,12 @@ const App = () => {
 
   return (
     <div className="app">
-      <Router>
+      {/* <Router>
       <Switch>
         <Route exact path="/SignupPage">
         </Route>
       </Switch>
-    </Router>
+    </Router> */}
       <Login //props for Login.
         email={email}
         setEmail={setEmail}
@@ -110,6 +103,7 @@ const App = () => {
         emailError={emailError}
         passwordError={passwordError}
       />
+      <SignupPage></SignupPage>
     </div>
   );
 };

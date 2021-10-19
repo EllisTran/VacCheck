@@ -4,13 +4,8 @@ import BusinessForm from "./BusinessForm";
 import HealthProfessionalForm from "./HealthProfessionalForm";
 import PersonalUserForm from "./PersonalUserForm";
 
-import db from "../../firebase";
-import {
-  collection,
-  addDoc,
-  doc,
-  setDoc,
-} from "firebase/firestore";
+import { db } from "../../firebase";
+
 
 
 const SignupPage = () => {
@@ -28,24 +23,23 @@ const SignupPage = () => {
 
   // Replace her docId with authID
   const createDoc = async (newAccountInfo) => {
-    const collectionRef = collection(db, "users");
-    await addDoc(collectionRef, newAccountInfo).then(function(result){
-      const docId = result._key.path.segments[1]
-      const docRef = doc(db, "users", docId);
-      setDoc(docRef, {...newAccountInfo, userId: docId});
+    console.log(newAccountInfo);
+    // Give me Auth id here... replace db.collection("users").doc().set.... with db.collection("users").doc(auth_id).set....
+    db.collection("users").doc("LA").set({
+      ...newAccountInfo,
+      // put userId: auth_id here
     });
 
   };
 
   const personalUserAccountSignupHandler = (personalUserAccountInfo) => {
-    const newAccountInfo = {
+    createDoc({
       ...personalUserAccountInfo,
       userType: {
         ...userTypes,
         isPersonalUser: true,
       },
-    };
-    createDoc(newAccountInfo);
+    });
   };
 
   const businessAccountSignupHandler = (businessAccountInfo) => {
