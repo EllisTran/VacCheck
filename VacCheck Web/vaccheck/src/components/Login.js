@@ -4,9 +4,7 @@ import "./Login.css";
 const Login = (props) => {
   const {
     email,
-    phone,
     setEmail,
-    setPhone,
     password,
     setPassword,
     handleLogin,
@@ -14,7 +12,6 @@ const Login = (props) => {
     hasAccount,
     setHasAccount,
     emailError,
-    phoneError,
     passwordError,
   } = props;
 

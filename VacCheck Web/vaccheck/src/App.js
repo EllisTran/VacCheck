@@ -1,12 +1,11 @@
-// import SignupPage from "./components/SignupPage/SignupPage";
 
-// function App() {
-//   return <SignupPage></SignupPage>;
-// }
 import "./App.css";
 import React, { useState, useEffect } from "react";
-import fire from "./fire";
+import db from "../src/firebase";
 import Login from "./components/Login";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom"; 
+import { useHistory } from "react-router-dom";
+import SignupPage from "../src/components/SignupPage/SignupPage";
 
 const App = () => {
   const [user, setUser] = useState("");
@@ -28,10 +27,11 @@ const App = () => {
 
   const handleLogin = () => {
     clearErrors();
-    fire
+    db
       .auth()
       .signInWithEmailAndPassword(email, password)
       .catch((err) => {
+        // console.log(fire);
         // catching errors
         switch (err.code) {
           case "auth/invalid-email":
@@ -47,11 +47,17 @@ const App = () => {
   };
 
   const handleSignup = () => {
+    // let history = useHistory();
+    // history.push("/SignupPage");
+
     clearErrors();
-    fire
+    db
       .auth()
-      .createUserWithEmailAndPassword(email, password)
+      .createUserWithEmailAndPassword(email, password).then(data => {
+        console.log("User ID :- ", data.user.uid);
+      })  
       .catch((err) => {
+       
         // catching errors
         switch (err.code) {
           case "auth/email-already-in-use":
@@ -66,11 +72,11 @@ const App = () => {
   };
 
   const handleLogOut = () => {
-    fire.auth().signOut();
+    db.auth().signOut();
   };
 
   const authListener = () => {
-    fire.auth().onAuthStateChanged((user) => {
+    db.auth().onAuthStateChanged((user) => {
       if (user) {
         clearInputs();
         setUser(user);
@@ -86,6 +92,12 @@ const App = () => {
 
   return (
     <div className="app">
+      <Router>
+      <Switch>
+        <Route exact path="/SignupPage">
+        </Route>
+      </Switch>
+    </Router>
       <Login //props for Login.
         email={email}
         setEmail={setEmail}

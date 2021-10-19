@@ -3,13 +3,15 @@ import AccountFilter from "./AccountFilter";
 import BusinessForm from "./BusinessForm";
 import HealthProfessionalForm from "./HealthProfessionalForm";
 import PersonalUserForm from "./PersonalUserForm";
+
+import db from "../../firebase";
 import {
   collection,
   addDoc,
   doc,
   setDoc,
 } from "firebase/firestore";
-import db from "../../firebase";
+
 
 const SignupPage = () => {
   const [accountType, setAccountType] = useState("");
@@ -24,6 +26,7 @@ const SignupPage = () => {
     setAccountType(selectedAccountType);
   };
 
+  // Replace her docId with authID
   const createDoc = async (newAccountInfo) => {
     const collectionRef = collection(db, "users");
     await addDoc(collectionRef, newAccountInfo).then(function(result){
