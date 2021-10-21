@@ -37,7 +37,6 @@ const Login = (props) => {
         <p className="ErrorMsg">{passwordError}</p>
 
         <div className="btnContainer">
-          {/* check whether account exists using if-else */}
           {hasAccount ? ( //if true
             <>
               <button onClick={handleLogin}>Sign in</button>

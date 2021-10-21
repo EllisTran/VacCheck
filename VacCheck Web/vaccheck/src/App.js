@@ -2,11 +2,7 @@ import "./App.css";
 import React, { useState, useEffect } from "react";
 import { auth } from "../src/firebase";
 import Login from "./components/Login";
-import {
-  BrowserRouter as Router,
-  Route,
-  useHistory,
-} from "react-router-dom";
+import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
 import SignupPage from "../src/components/SignupPage/SignupPage";
 
 const App = () => {
@@ -47,25 +43,6 @@ const App = () => {
 
   const handleSignup = () => {
     history.push("/SignupPage");
-    clearErrors();
-    auth
-      .createUserWithEmailAndPassword(email, password)
-      .then((data) => {
-        console.log("User ID :- ", data.user.uid);
-        //call
-      })
-      .catch((err) => {
-        // catching errors
-        switch (err.code) {
-          case "auth/email-already-in-use":
-          case "auth/invalid-email":
-            setEmailError(err.message);
-            break;
-          case "auth/weak-password":
-            setPasswordError(err.message);
-            break;
-        }
-      });
   };
 
   const handleLogOut = () => {

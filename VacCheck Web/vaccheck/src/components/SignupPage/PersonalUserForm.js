@@ -3,12 +3,13 @@ import { useState } from "react";
 const PersonalUserForm = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredDateOfBirth, setEnteredDateOfBirth] = useState("");
-  // const [enteredIdentityDocumentType, setEnteredIdentityDocumentType] =
-  //   useState("ssn");
   const [enteredIdentityNumber, setEnteredIdentityNumber] = useState("");
   const [enteredEmailAddress, setEnteredEmailAddress] = useState("");
   const [enteredPassword, setEnteredPassword] = useState("");
-  const [enteredNumberOfVaccinations, setEnteredNumberOfVaccinations] = useState("");
+  const [
+    enteredNumberOfVaccinations,
+    setEnteredNumberOfVaccinations,
+  ] = useState("");
 
   const nameChangeHandler = (event) => {
     setEnteredName(event.target.value);
@@ -18,51 +19,43 @@ const PersonalUserForm = (props) => {
     setEnteredDateOfBirth(event.target.value);
   };
 
-  // const identityDocumentTypeChangeHandler = (event) => {
-  //   setEnteredIdentityDocumentType(event.target.value);
-  // };
-
   const identityNumberChangeHandler = (event) => {
     setEnteredIdentityNumber(event.target.value);
   };
 
   const enteredEmailAddressChangeHandler = (event) => {
     setEnteredEmailAddress(event.target.value);
-  }
+  };
 
   const enteredPasswordChangeHandler = (event) => {
     setEnteredPassword(event.target.value);
-  }
+  };
 
   const enteredNumberOfVaccinationsChangeHandler = (event) => {
     setEnteredNumberOfVaccinations(event.target.value);
-  }
+  };
 
   const clearAccountInfo = () => {
     setEnteredName("");
     setEnteredDateOfBirth("");
-    // setEnteredIdentityDocumentType("");
-    // setEnteredIdentityNumber("");
     setEnteredEmailAddress("");
     setEnteredPassword("");
-  }
+  };
 
   const submitHandler = (event) => {
-      event.preventDefault();
+    event.preventDefault();
 
-      const accountInfo = {
-          name: enteredName,
-          dateOfBirth: enteredDateOfBirth,
-          // identityDocumentType: enteredIdentityDocumentType,
-          // identityNumber: enteredIdentityNumber,
-          email: enteredEmailAddress,
-          numVac: enteredNumberOfVaccinations,
-          password: enteredPassword
-      }
-      console.log(accountInfo);
-      clearAccountInfo();
-      props.onSignup(accountInfo);
-  }
+    const accountInfo = {
+      name: enteredName,
+      dateOfBirth: enteredDateOfBirth,
+      email: enteredEmailAddress,
+      numVac: enteredNumberOfVaccinations,
+      password: enteredPassword,
+    };
+    console.log(accountInfo);
+    clearAccountInfo();
+    props.onSignup(accountInfo);
+  };
 
   return (
     <form onSubmit={submitHandler}>
@@ -81,28 +74,22 @@ const PersonalUserForm = (props) => {
             onChange={dateOfBirthChangeHandler}
           />
         </div>
-        {/* <div className="">
-          <label>Social Security Number</label>
-          <select
-            value={enteredIdentityDocumentType}
-            onChange={identityDocumentTypeChangeHandler}
-          >
-            <option value="" diabled selected></option>
-            <option value="ssn">Social Security Number</option>
-            <option value="dl">Driver's License Number</option>
-          </select>
-          <input
-            value={enteredIdentityNumber}
-            onChange={identityNumberChangeHandler}
-          />
-        </div> */}
+
         <div>
           <label>Email Address</label>
-          <input type="email" value={enteredEmailAddress} onChange={enteredEmailAddressChangeHandler}/> 
+          <input
+            type="email"
+            value={enteredEmailAddress}
+            onChange={enteredEmailAddressChangeHandler}
+          />
         </div>
         <div>
           <label>Password</label>
-          <input type="password" value={enteredPassword} onChange={enteredPasswordChangeHandler}/>
+          <input
+            type="password"
+            value={enteredPassword}
+            onChange={enteredPasswordChangeHandler}
+          />
         </div>
         <div className="">
           <label>Number of Vaccinations</label>
@@ -112,7 +99,7 @@ const PersonalUserForm = (props) => {
           />
         </div>
         <div>
-            <button type="submit">Sign up</button>
+          <button type="submit">Sign up</button>
         </div>
       </div>
     </form>
