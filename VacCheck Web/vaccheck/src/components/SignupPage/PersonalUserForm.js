@@ -42,7 +42,7 @@ const PersonalUserForm = (props) => {
     setEnteredName("");
     setEnteredDateOfBirth("");
     // setEnteredIdentityDocumentType("");
-    setEnteredIdentityNumber("");
+    // setEnteredIdentityNumber("");
     setEnteredEmailAddress("");
     setEnteredPassword("");
   }
@@ -54,7 +54,7 @@ const PersonalUserForm = (props) => {
           name: enteredName,
           dateOfBirth: enteredDateOfBirth,
           // identityDocumentType: enteredIdentityDocumentType,
-          identityNumber: enteredIdentityNumber,
+          // identityNumber: enteredIdentityNumber,
           email: enteredEmailAddress,
           numVac: enteredNumberOfVaccinations,
           password: enteredPassword
@@ -81,21 +81,21 @@ const PersonalUserForm = (props) => {
             onChange={dateOfBirthChangeHandler}
           />
         </div>
-        <div className="">
+        {/* <div className="">
           <label>Social Security Number</label>
-          {/* <select
+          <select
             value={enteredIdentityDocumentType}
             onChange={identityDocumentTypeChangeHandler}
           >
             <option value="" diabled selected></option>
             <option value="ssn">Social Security Number</option>
             <option value="dl">Driver's License Number</option>
-          </select> */}
+          </select>
           <input
             value={enteredIdentityNumber}
             onChange={identityNumberChangeHandler}
           />
-        </div>
+        </div> */}
         <div>
           <label>Email Address</label>
           <input type="email" value={enteredEmailAddress} onChange={enteredEmailAddressChangeHandler}/> 
