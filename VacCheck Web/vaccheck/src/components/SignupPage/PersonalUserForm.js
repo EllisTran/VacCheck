@@ -30,9 +30,9 @@ const PersonalUserForm = (props) => {
     setEnteredEmailAddress(event.target.value);
   }
 
-  // const enteredPasswordChangeHandler = (event) => {
-  //   setEnteredPassword(event.target.value);
-  // }
+  const enteredPasswordChangeHandler = (event) => {
+    setEnteredPassword(event.target.value);
+  }
 
   const enteredNumberOfVaccinationsChangeHandler = (event) => {
     setEnteredNumberOfVaccinations(event.target.value);
@@ -57,7 +57,7 @@ const PersonalUserForm = (props) => {
           identityNumber: enteredIdentityNumber,
           email: enteredEmailAddress,
           numVac: enteredNumberOfVaccinations
-          // password: enteredPassword
+          password: enteredPassword
       }
       console.log(accountInfo);
       clearAccountInfo();
@@ -100,10 +100,10 @@ const PersonalUserForm = (props) => {
           <label>Email Address</label>
           <input type="email" value={enteredEmailAddress} onChange={enteredEmailAddressChangeHandler}/> 
         </div>
-        {/* <div>
+        <div>
           <label>Password</label>
           <input type="password" value={enteredPassword} onChange={enteredPasswordChangeHandler}/>
-        </div> */}
+        </div>
         <div className="">
           <label>Number of Vaccinations</label>
           <input
