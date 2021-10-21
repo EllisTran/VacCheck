@@ -21,7 +21,7 @@ const SignupPage = () => {
   // Replace her docId with authID
   const createDoc = async (newAccountInfo) => {
     // Give me Auth id here... replace db.collection("users").doc().set.... with db.collection("users").doc(auth_id).set....
-    db.collection("users").doc("LA").set({ //instead of LA put auth_id 
+    db.collection("users").doc(newAccountInfo.userId).set({ //instead of LA put auth_id 
       ...newAccountInfo,
       // put userId: auth_id here
     });
@@ -61,6 +61,29 @@ const SignupPage = () => {
     };
     createDoc(newAccountInfo);
   };
+
+  const handleSignup = () => {
+      history.push("/SignupPage");
+      clearErrors();
+      auth
+        .createUserWithEmailAndPassword(email, password)
+        .then((data) => {
+          console.log("User ID :- ", data.user.uid);
+          //call
+        })
+        .catch((err) => {
+          // catching errors
+          switch (err.code) {
+            case "auth/email-already-in-use":
+            case "auth/invalid-email":
+              setEmailError(err.message);
+              break;
+            case "auth/weak-password":
+              setPasswordError(err.message);
+              break;
+          }
+        });
+    };
 
   return (
     <div>

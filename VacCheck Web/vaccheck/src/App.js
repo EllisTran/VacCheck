@@ -52,6 +52,7 @@ const App = () => {
       .createUserWithEmailAndPassword(email, password)
       .then((data) => {
         console.log("User ID :- ", data.user.uid);
+        //call
       })
       .catch((err) => {
         // catching errors
