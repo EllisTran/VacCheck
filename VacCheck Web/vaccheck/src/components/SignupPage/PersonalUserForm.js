@@ -56,7 +56,7 @@ const PersonalUserForm = (props) => {
           // identityDocumentType: enteredIdentityDocumentType,
           identityNumber: enteredIdentityNumber,
           email: enteredEmailAddress,
-          numVac: enteredNumberOfVaccinations
+          numVac: enteredNumberOfVaccinations,
           password: enteredPassword
       }
       console.log(accountInfo);
