@@ -266,7 +266,7 @@ class _LoginViewState extends State<LoginView> {
             },
             child: const Text("Sign Up"),
           ),
-        ],
+        ),
       ),
     );
   }
