@@ -47,9 +47,9 @@ const PersonalUserForm = (props) => {
 
     const accountInfo = {
       name: enteredName,
-      dateOfBirth: enteredDateOfBirth,
+      dateOfBirth: new Date(enteredDateOfBirth),
       email: enteredEmailAddress,
-      numVac: enteredNumberOfVaccinations,
+      numVac: parseInt(enteredNumberOfVaccinations),
       password: enteredPassword,
     };
     console.log(accountInfo);
