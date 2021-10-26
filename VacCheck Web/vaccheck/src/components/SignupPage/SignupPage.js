@@ -66,7 +66,6 @@ const SignupPage = () => {
   };
 
   const handleSignup = (newAccountInfo) => {
-    console.log(newAccountInfo);
     clearErrors();
     auth
       .createUserWithEmailAndPassword(
@@ -74,11 +73,18 @@ const SignupPage = () => {
         newAccountInfo.password
       )
       .then((data) => {
-        console.log("User ID :- ", data.user.uid);
-        personalUserAccountSignupHandler({
-          ...newAccountInfo,
-          userId: data.user.uid
-        });
+        delete newAccountInfo["password"];
+        if (accountType === "PersonalUser") {
+          personalUserAccountSignupHandler({
+            ...newAccountInfo,
+            userId: data.user.uid
+          });
+        } else if (accountType === "Business") {
+          businessAccountSignupHandler({ ...newAccountInfo, userId: data.user.uid });
+        } else if (accountType === "HealthProfessional") {
+          healthProfessionalAccountSignupHandler({ ...newAccountInfo, userId: data.user.uid });
+        }
+
       })
       .catch((err) => {
         switch (err.code) {
@@ -88,6 +94,8 @@ const SignupPage = () => {
             break;
           case "auth/weak-password":
             setPasswordError(err.message);
+            break;
+          default:
             break;
         }
       });
@@ -103,11 +111,11 @@ const SignupPage = () => {
         <PersonalUserForm onSignup={handleSignup} />
       )}
       {accountType === "Business" && (
-        <BusinessForm onSignup={businessAccountSignupHandler} />
+        <BusinessForm onSignup={handleSignup} />
       )}
       {accountType === "HealthProfessional" && (
         <HealthProfessionalForm
-          onSignup={healthProfessionalAccountSignupHandler}
+          onSignup={handleSignup}
         />
       )}
     </div>
