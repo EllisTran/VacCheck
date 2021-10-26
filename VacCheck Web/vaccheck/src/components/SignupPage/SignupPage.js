@@ -3,17 +3,16 @@ import AccountFilter from "./AccountFilter";
 import BusinessForm from "./BusinessForm";
 import HealthProfessionalForm from "./HealthProfessionalForm";
 import PersonalUserForm from "./PersonalUserForm";
-import {
-  collection,
-  addDoc,
-  doc,
-  setDoc,
-} from "firebase/firestore";
-import db from "../../firebase";
+import { db, auth } from "../../firebase";
 
 const SignupPage = () => {
   const [accountType, setAccountType] = useState("");
-
+  const [emailError, setEmailError] = useState(""); //for error-case(email)
+  const [passwordError, setPasswordError] = useState(""); //for error-case(password)Ï
+  const clearErrors = () => {
+    setEmailError("");
+    setPasswordError("");
+  };
   const userTypes = {
     isPersonalUser: false,
     isBusiness: false,
@@ -25,24 +24,21 @@ const SignupPage = () => {
   };
 
   const createDoc = async (newAccountInfo) => {
-    const collectionRef = collection(db, "users");
-    await addDoc(collectionRef, newAccountInfo).then(function(result){
-      const docId = result._key.path.segments[1]
-      const docRef = doc(db, "users", docId);
-      setDoc(docRef, {...newAccountInfo, userId: docId});
-    });
-
+    db.collection("users")
+      .doc(newAccountInfo.userId)
+      .set({
+        ...newAccountInfo,
+      });
   };
 
   const personalUserAccountSignupHandler = (personalUserAccountInfo) => {
-    const newAccountInfo = {
+    createDoc({
       ...personalUserAccountInfo,
       userType: {
         ...userTypes,
         isPersonalUser: true,
       },
-    };
-    createDoc(newAccountInfo);
+    });
   };
 
   const businessAccountSignupHandler = (businessAccountInfo) => {
@@ -69,6 +65,34 @@ const SignupPage = () => {
     createDoc(newAccountInfo);
   };
 
+  const handleSignup = (newAccountInfo) => {
+    console.log(newAccountInfo);
+    clearErrors();
+    auth
+      .createUserWithEmailAndPassword(
+        newAccountInfo.email,
+        newAccountInfo.password
+      )
+      .then((data) => {
+        console.log("User ID :- ", data.user.uid);
+        personalUserAccountSignupHandler({
+          ...newAccountInfo,
+          userId: data.user.uid
+        });
+      })
+      .catch((err) => {
+        switch (err.code) {
+          case "auth/email-already-in-use":
+          case "auth/invalid-email":
+            setEmailError(err.message);
+            break;
+          case "auth/weak-password":
+            setPasswordError(err.message);
+            break;
+        }
+      });
+  };
+
   return (
     <div>
       <AccountFilter
@@ -76,7 +100,7 @@ const SignupPage = () => {
         onSelectAccountType={selectAccountTypeHandler}
       />
       {accountType === "PersonalUser" && (
-        <PersonalUserForm onSignup={personalUserAccountSignupHandler} />
+        <PersonalUserForm onSignup={handleSignup} />
       )}
       {accountType === "Business" && (
         <BusinessForm onSignup={businessAccountSignupHandler} />
