@@ -13,7 +13,6 @@ class UserModel {
   }
 
   factory UserModel.fromMap(dynamic data) {
-    print(data['numVac']);
     UserModel user = UserModel(
         data['name'] ?? '',
         data['dateOfBirth']?.toDate() ?? DateTime(2000, 1, 1),
