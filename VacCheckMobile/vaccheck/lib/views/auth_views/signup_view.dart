@@ -2,7 +2,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/route_manager.dart';
 import 'package:provider/src/provider.dart';
-import 'package:vaccheck/views/main_page_view.dart';
 import 'package:vaccheck/controller/auth_controller.dart';
 import 'package:vaccheck/firebase/auth_service.dart';
 import 'package:vaccheck/model/user_model.dart';
@@ -123,7 +122,7 @@ class _SignUpViewState extends State<SignUpView> {
                           password != null &&
                           name != null &&
                           dateOfBirth != null) {
-                        UserModel newUser = UserModel(name!, dateOfBirth!, email!);
+                        UserModel newUser = UserModel(name!, email!, dateOfBirth!);
                         try {
                           context
                               .read<AuthService>()
