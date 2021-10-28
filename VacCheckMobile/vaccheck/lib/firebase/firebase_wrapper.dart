@@ -31,8 +31,13 @@ class FirebaseWrapper extends GetxController {
   Future readUser() async {
     var document = _db.collection('users');
     await document.doc(_auth.uid).get().then((data) => {
-          _auth.currentUser = UserModel.fromMap(data),
+          if (data['userType']['isPersonalUser'])
+            {
+              _auth.currentUser = UserModel.UserMap(data),
+            }
+            else {
+              _auth.currentUser = UserModel.BusinessMap(data)
+            },
         });
   }
-
 }

@@ -11,7 +11,6 @@ import 'package:vaccheck/firebase/auth_service.dart';
 import 'package:vaccheck/views/auth_views/login_view.dart';
 import './firebase/firebase_wrapper.dart';
 import 'controller/auth_controller.dart';
-import 'views/main_page_view.dart';
 import 'dart:typed_data';
 
 void main() async {
@@ -50,7 +49,7 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: MainPageView(key: null),
+        home: const LoginView(),
       ),
     );
   }
