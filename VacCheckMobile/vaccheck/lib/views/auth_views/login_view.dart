@@ -22,7 +22,6 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   final authController = AuthController();
-  final AuthController _auth = Get.find();
   final qrController = QRCodeController();
   late DateTime currentTime = DateTime.now();
   FirebaseWrapper fb = FirebaseWrapper();
@@ -34,60 +33,46 @@ class _LoginViewState extends State<LoginView> {
     super.dispose();
   }
 
-  Future getUser() async {
-    await fb.readUser();
-    return _auth.currentUser;
-  }
-
   @override
   Widget build(BuildContext context) {
-    final fbUser = context.watch<User?>();
-    if (fbUser != null) {
-      _auth.uid = fbUser.uid;
-      print(_auth.uid);
-      return DeciderView(
-        user: getUser(),
-      );
-    } else {
-      return Scaffold(
-        appBar: AppBar(
-          title: const Text('Firebase Authentication'),
-        ),
-        body: Column(
-          children: [
-            TextField(
-              controller: authController.emailController,
-              decoration: const InputDecoration(
-                labelText: "Email",
-              ),
+    return Scaffold(
+      appBar: AppBar(
+        title: const Text('Firebase Authentication'),
+      ),
+      body: Column(
+        children: [
+          TextField(
+            controller: authController.emailController,
+            decoration: const InputDecoration(
+              labelText: "Email",
             ),
-            TextField(
-              obscureText: true,
-              controller: authController.passwordController,
-              decoration: const InputDecoration(
-                labelText: "Password",
-              ),
+          ),
+          TextField(
+            obscureText: true,
+            controller: authController.passwordController,
+            decoration: const InputDecoration(
+              labelText: "Password",
             ),
-            TextButton(
-              onPressed: () {
-                context.read<AuthService>().signIn(
-                    email: authController.emailController.text,
-                    password: authController.passwordController.text);
-              },
-              child: const Text("Sign In"),
-            ),
-            TextButton(
-              onPressed: () {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(builder: (context) => const SignUpView()),
-                );
-              },
-              child: const Text("Sign Up"),
-            ),
-          ],
-        ),
-      );
-    }
+          ),
+          TextButton(
+            onPressed: () {
+              context.read<AuthService>().signIn(
+                  email: authController.emailController.text,
+                  password: authController.passwordController.text);
+            },
+            child: const Text("Sign In"),
+          ),
+          TextButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => const SignUpView()),
+              );
+            },
+            child: const Text("Sign Up"),
+          ),
+        ],
+      ),
+    );
   }
 }

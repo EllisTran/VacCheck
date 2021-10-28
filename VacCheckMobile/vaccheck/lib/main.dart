@@ -9,6 +9,7 @@ import 'package:provider/provider.dart';
 import 'package:vaccheck/firebase/auth_service.dart';
 // import 'package:aes_crypt/aes_crypt.dart';
 import 'package:vaccheck/views/auth_views/login_view.dart';
+import 'package:vaccheck/views/splashscreen_view/splashscreen.dart';
 import './firebase/firebase_wrapper.dart';
 import 'controller/auth_controller.dart';
 import 'dart:typed_data';
@@ -49,7 +50,7 @@ class _MyAppState extends State<MyApp> {
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: const LoginView(),
+        home: const SplashScreen(),
       ),
     );
   }

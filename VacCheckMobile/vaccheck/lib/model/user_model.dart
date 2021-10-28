@@ -6,6 +6,7 @@ class UserModel {
   Map<String, dynamic>? userType;
   int? numVac;
   UserModel(this.name, this.email, [dateOfBirth, userId, userType, numVac]);
+  
   String generateUniqueCode() {
     String genCode = "${numVac}${name}+${userId}${DateTime.now()}";
     return genCode;
