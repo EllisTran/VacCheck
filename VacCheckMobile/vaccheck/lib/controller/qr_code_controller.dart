@@ -22,10 +22,10 @@ class QRCodeController {
         DateTime.now().difference(DateTime.parse(parsedMessage['dateTime']!));
     if (difference.inSeconds <= 15) {
       print("CONGRATS YOU CAN COME IN");
-      return decrypted + "Can come in!";
+      return decrypted + "*Can come in!";
     } else {
       print("OLD CODE, FAKE ASS HOE CANT COME IN BITCH");
-      return decrypted + "Can't Come in!";
+      return decrypted + "*Can't Come in!";
     }
   }
 

@@ -19,7 +19,6 @@ class _BusinessViewState extends State<BusinessView> {
   void dispose() {
     super.dispose();
   }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -33,19 +32,7 @@ class _BusinessViewState extends State<BusinessView> {
               icon: const Icon(Icons.exit_to_app))
         ],
       ),
-      body: Column(
-        children: [
-          TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const QRScanView()),
-              );
-            },
-            child: const Text("Go to QR Scan"),
-          ),
-        ],
-      ),
+      body: const QRScanView()
     );
   }
 }

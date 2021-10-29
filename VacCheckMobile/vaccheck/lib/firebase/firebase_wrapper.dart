@@ -24,6 +24,7 @@ class FirebaseWrapper extends GetxController {
         'isPersonalUser': true,
         'isHealthProfessional': false
       },
+      'imageUrl': '',
       'userId': uid
     });
   }
@@ -33,11 +34,19 @@ class FirebaseWrapper extends GetxController {
     await document.doc(_auth.uid).get().then((data) => {
           if (data['userType']['isPersonalUser'])
             {
-              _auth.currentUser = UserModel.UserMap(data),
+              _auth.currentUser = UserModel.userMap(data),
             }
-            else {
-              _auth.currentUser = UserModel.BusinessMap(data)
-            },
+          else
+            {_auth.currentUser = UserModel.businessMap(data)},
         });
+  }
+
+  Future readUserById(String uid) async {
+    var document = _db.collection('users');
+    var user;
+    await document.doc(uid).get().then((data) => {
+          user = UserModel.userMap(data),
+        });
+    return user;
   }
 }

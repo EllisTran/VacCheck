@@ -49,8 +49,9 @@ const PersonalUserForm = (props) => {
       name: enteredName,
       dateOfBirth: new Date(enteredDateOfBirth),
       email: enteredEmailAddress,
-      numVac: parseInt(enteredNumberOfVaccinations),
+      numVac: 0,
       password: enteredPassword,
+      imageUrl: "",
     };
     console.log(accountInfo);
     clearAccountInfo();
@@ -89,13 +90,6 @@ const PersonalUserForm = (props) => {
             type="password"
             value={enteredPassword}
             onChange={enteredPasswordChangeHandler}
-          />
-        </div>
-        <div className="">
-          <label>Number of Vaccinations</label>
-          <input
-            value={enteredNumberOfVaccinations}
-            onChange={enteredNumberOfVaccinationsChangeHandler}
           />
         </div>
         <div>

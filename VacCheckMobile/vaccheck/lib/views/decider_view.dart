@@ -7,7 +7,7 @@ import 'package:vaccheck/views/business_views/business_view.dart';
 import 'package:vaccheck/views/user_views/user_view.dart';
 
 // Decides between User and Business View
-class DeciderView extends StatelessWidget {
+ class DeciderView extends StatelessWidget {
   final Future user;
   const DeciderView({Key? key, required this.user}) : super(key: key);
   @override

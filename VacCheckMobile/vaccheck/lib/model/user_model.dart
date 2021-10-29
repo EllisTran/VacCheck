@@ -5,23 +5,21 @@ class UserModel {
   String? userId;
   Map<String, dynamic>? userType;
   int? numVac;
-  UserModel(this.name, this.email, [dateOfBirth, userId, userType, numVac]);
-  
-  String generateUniqueCode() {
-    String genCode = "${numVac}${name}+${userId}${DateTime.now()}";
-    return genCode;
-  }
+  String? imageUrl;
+  UserModel(this.name, this.email,
+      [dateOfBirth, userId, userType, numVac, imageUrl]);
 
-  factory UserModel.UserMap(dynamic data) {
+  factory UserModel.userMap(dynamic data) {
     UserModel user = UserModel(data['name'] ?? '', data['email'] ?? '');
     user.dateOfBirth = data['dateOfBirth']?.toDate() ?? DateTime(2000, 1, 1);
     user.numVac = data['numVac'] ?? 0;
     user.userId = data['userId'] ?? '';
     user.userType = data['userType'] ?? {};
+    user.imageUrl = data['imageUrl'] ?? "";
     return user;
   }
 
-  factory UserModel.BusinessMap(dynamic data) {
+  factory UserModel.businessMap(dynamic data) {
     UserModel business = UserModel(data['name'] ?? '', data['email'] ?? '');
     business.userId = data['userId'] ?? '';
     business.userType = data['userType'] ?? {};
