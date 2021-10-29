@@ -1,0 +1,190 @@
+.btn{
+    position: absolute;
+    width: 140px;
+    height: 30px;
+    left: 330px;
+    top: 750px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 175%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 10px 710px;
+    background: #3A57E8;
+    border-radius: 4px;
+
+}
+.ssn{
+    position: absolute;
+    left: 288px;
+    top: 560px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 710px;
+}
+.fn{
+    position: absolute;
+    width: 83px;
+    height: 28px;
+    left: 288px;
+    top: 450px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 710px;
+}
+.put1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+
+    position: absolute;
+    width: 250px;
+    height: 33px;
+    left: 288px;
+    top: 475px;
+    background: #FFFFFF;
+    border: 1px solid #3A57E8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 710px;
+}
+
+.dateofbirth{
+    position: absolute;
+    left: 290px;
+    top: 505px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 710px;
+}
+.put2{
+    position: absolute;
+    left: 288px;
+    top: 530px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    border: 1px solid #3A57E8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 710px;
+}
+.put3{
+    position: absolute;
+    left: 288px;
+    top: 585px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    border: 1px solid #3A57E8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 710px;
+}
+.EM{
+    position: absolute;
+    left: 290px;
+    top: 615px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 710px;
+}
+.put4{
+    position: absolute;
+    left: 288px;
+    top: 640px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    border: 1px solid #3A57E8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 710px;
+}
+.pass{
+    position: absolute;
+    left: 290px;
+    top: 670px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    margin: 0px 710px;
+}
+.put5
+{
+    position: absolute;
+    left: 288px;
+    top: 700px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    border: 1px solid #3A57E8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    margin: 0px 710px;
+}

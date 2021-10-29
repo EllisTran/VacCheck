@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './BussinessForm.css'
 
 const BusinessForm = (props) => {
   const states = [
@@ -321,36 +322,39 @@ const BusinessForm = (props) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <div className="">
-        <div className="">
-          <label>Company Name</label>
-          <input type="text" value={name} onChange={nameChangeHandler} />
+      <div >
+        <div >
+          <label className = "cn">Company Name</label>
+          <input className = "putb1" type="text" value={name} onChange={nameChangeHandler} />
         </div>
-        <div className="">
-          <label>Company Identification Number</label>
-          <input type="text" value={ein} onChange={einChangeHandler} />
+        <div >
+          <label className = "cnn">Company Identification Number</label>
+          <input className = "putb2" type="text" value={ein} onChange={einChangeHandler} />
         </div>
-        <div className="">
-          <label>Business Address</label>
+        <div >
+          <label className = "ba" >Business Address</label>
           <input
+            className = "putb3"
             type="text"
             value={street1}
             onChange={street1ChangeHandler}
             placeholder="Street Address 1"
           />
           <input
+            className = "putb4"
             type="text"
             value={street2}
             onChange={street2ChangeHandler}
             placeholder="Street Address 2"
           />
           <input
+            className = "putb5"
             type="text"
             value={city}
             onChange={cityChangeHandler}
             placeholder="City"
           ></input>
-          <select value={state} onChange={stateChangeHandler}>
+          <select className = "putb6" value={state} onChange={stateChangeHandler}>
             <option value="" disabled selected>
               State
             </option>
@@ -359,6 +363,7 @@ const BusinessForm = (props) => {
             ))}
           </select>
           <input
+            className = "putb7"
             type="number"
             value={postalCode}
             onChange={postalCodeChangeHandler}
@@ -366,16 +371,16 @@ const BusinessForm = (props) => {
           />
         </div>
         <div>
-          <label>Email Address</label>
-          <input type="email" value={emailAddress} onChange={emailAddressChangeHandler}/> 
+          <label className = "ea">Email Address</label>
+          <input className = "putb8" type="email" value={emailAddress} onChange={emailAddressChangeHandler}/> 
         </div>
         <div>
-          <label>Password</label>
-          <input type="password" value={password} onChange={passwordChangeHandler}/>
+          <label className = "pass1" >Password</label>
+          <input className = "putb9" type="password" value={password} onChange={passwordChangeHandler}/>
         </div>
       </div>
       <div>
-        <button type="submit">Sign up</button>
+        <button className = "btn3" type="submit">Sign up</button>
       </div>
     </form>
   );

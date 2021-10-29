@@ -1,4 +1,5 @@
 import { useState } from "react";
+import './PersonalUserForm.css';
 
 const PersonalUserForm = (props) => {
   const [enteredName, setEnteredName] = useState("");
@@ -59,14 +60,15 @@ const PersonalUserForm = (props) => {
 
   return (
     <form onSubmit={submitHandler}>
-      <div className="">
-        <div className="">
-          <label>Full Name</label>
-          <input type="text" value={enteredName} onChange={nameChangeHandler} />
+      <div>
+        <div>
+          <label className="fn" >Full Name</label>
+          <input className = 'put1' type="text" value={enteredName} onChange={nameChangeHandler} />
         </div>
-        <div className="">
-          <label>Date of Birth</label>
+        <div>
+          <label className="dateofbirth" >Date of Birth</label>
           <input
+            className = "put2"
             type="date"
             min="1900-1-1"
             max="2021-12-31"
@@ -74,8 +76,8 @@ const PersonalUserForm = (props) => {
             onChange={dateOfBirthChangeHandler}
           />
         </div>
-        <div className="">
-          <label>Social Security Number</label>
+        <div >
+          <label className = "ssn">Social Security Number</label>
           {/* <select
             value={enteredIdentityDocumentType}
             onChange={identityDocumentTypeChangeHandler}
@@ -85,20 +87,21 @@ const PersonalUserForm = (props) => {
             <option value="dl">Driver's License Number</option>
           </select> */}
           <input
+            className = "put3"
             value={enteredIdentityNumber}
             onChange={identityNumberChangeHandler}
           />
         </div>
         <div>
-          <label>Email Address</label>
-          <input type="email" value={enteredEmailAddress} onChange={enteredEmailAddressChangeHandler}/> 
+          <label className = "EM">Email Address</label>
+          <input className = "put4" type="email" value={enteredEmailAddress} onChange={enteredEmailAddressChangeHandler}/> 
         </div>
         <div>
-          <label>Password</label>
-          <input type="password" value={enteredPassword} onChange={enteredPasswordChangeHandler}/>
+          <label className = "pass" >Password</label>
+          <input className = "put5" type="password" value={enteredPassword} onChange={enteredPasswordChangeHandler}/>
         </div>
         <div>
-            <button type="submit">Sign up</button>
+            <button className = 'btn' type="submit">Sign up</button>
         </div>
       </div>
     </form>
