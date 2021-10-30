@@ -66,6 +66,7 @@ const SignupPage = () => {
   };
 
   const handleSignup = (newAccountInfo) => {
+    console.log(newAccountInfo);
     clearErrors();
     auth
       .createUserWithEmailAndPassword(
