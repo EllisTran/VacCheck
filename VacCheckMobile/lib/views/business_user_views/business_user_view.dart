@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/src/provider.dart';
 import 'package:vaccheck/firebase/auth_service.dart';
 import 'package:vaccheck/model/user_models/user_model.dart';
-import '../business_views/qr_scan_view.dart';
+import '../business_user_views/qr_scan_view.dart';
 import '../../controller/qr_code_controller.dart';
 
 class BusinessUserView extends StatefulWidget {

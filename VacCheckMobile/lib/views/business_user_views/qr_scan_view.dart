@@ -5,8 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:vaccheck/controller/qr_code_controller.dart';
 import 'package:vaccheck/firebase/firebase_wrapper.dart';
+import 'package:vaccheck/model/user_models/personal_user_model.dart';
 import 'package:vaccheck/model/user_models/user_model.dart';
-import 'package:vaccheck/views/business_views/scanned_user.dart';
+import 'package:vaccheck/views/business_user_views/scanned_user.dart';
 
 class QRScanView extends StatefulWidget {
   const QRScanView(
@@ -22,12 +23,14 @@ class _QRScanViewState extends State<QRScanView> {
   Barcode? result;
   late QRViewController controller;
   QRCodeController qrCodeController = QRCodeController();
-  String decryptedMessage = "";
+  Map<String, dynamic> decryptedMessage = {};
 
-  late String name;
-  late String dateTime;
-  late String numVac;
-  late String userId;
+  String? name;
+  String? dateTime;
+  String? dateOfBirth;
+  String? numVac;
+  String? userId;
+  String? isValidCode;
   // In order to get hot reload to work we need to pause the camera if the platform
   // is android, or resume the camera if the platform is iOS.
   @override
@@ -66,15 +69,18 @@ class _QRScanViewState extends State<QRScanView> {
               ? Container(
                   color: Colors.white,
                   width: MediaQuery.of(context).size.width,
-                  child: Column(
-                    children: [
-                      Text('Name: $name'),
-                      Text('Date of Birth: $dateTime'),
-                      Text('Number of times Vaccinated: $numVac'),
-                      ScannedUser(user: readScannedUser(userId)) // Gets image... maybe i need to move this im not sure yet
-              
-                    ],
-                  ))
+                  child: (isValidCode == "true")
+                      ? Column(
+                          children: [
+                            Text('Name: $name'),
+                            Text('Date of Birth: $dateOfBirth'),
+                            Text('Number of times Vaccinated: $numVac'),
+                            ScannedUser(
+                                user: readScannedUser(
+                                    userId!)) // Gets image... maybe i need to move this im not sure yet
+                          ],
+                        )
+                      : const Center(child: Text("Invalid Code!")))
               : const Text('Scan a code'),
         ),
       ],
@@ -96,41 +102,22 @@ class _QRScanViewState extends State<QRScanView> {
         result = scanData;
         if (result != null) {
           decryptedMessage = qrCodeController.decryptString(result!.code);
-          print(decryptedMessage);
           _parseMessage(decryptedMessage);
-          readScannedUser(userId);
+          if (userId != null) {
+            readScannedUser(userId!);
+          }
         }
       });
     });
   }
 
-  void _parseMessage(String message) {
-    String parsedMessage = "";
-
-    for (var char in message.runes) {
-      var character = String.fromCharCode(char);
-      if (character == '&') {
-        numVac = parsedMessage;
-        parsedMessage = "";
-      } else if (character == '+') {
-        name = parsedMessage;
-        parsedMessage = "";
-      } else if (character == '%') {
-        userId = parsedMessage;
-        parsedMessage = "";
-      } else if (character == '*') {
-        dateTime = parsedMessage;
-        parsedMessage = "";
-      } else {
-        parsedMessage = parsedMessage + character;
-      }
-      // print(parsedMessage);
-    }
-    print(name);
-    print(numVac);
-    print(userId);
-    print(dateTime);
-    // USE USERID TO query for specific document in database and then use that to display image.
+  void _parseMessage(Map<String, dynamic> parsedMessage) {
+    name = parsedMessage['name'];
+    numVac = parsedMessage['numVac'];
+    userId = parsedMessage['UUID'];
+    dateTime = parsedMessage['dateTime'];
+    dateOfBirth = parsedMessage['dateOfBirth'];
+    isValidCode = parsedMessage['isValidCode'];
   }
 
   @override

@@ -8,8 +8,8 @@ import 'package:vaccheck/controller/auth_controller.dart';
 import 'package:vaccheck/firebase/auth_service.dart';
 import 'package:vaccheck/firebase/firebase_wrapper.dart';
 import 'package:vaccheck/views/auth_views/signup_view.dart';
-import 'package:vaccheck/views/business_views/business_user_view.dart';
-import 'package:vaccheck/views/user_views/personal_user_view.dart';
+import 'package:vaccheck/views/business_user_views/business_user_view.dart';
+import 'package:vaccheck/views/personal_user_views/personal_user_view.dart';
 import 'package:vaccheck/views/decider_view.dart';
 import '../../controller/qr_code_controller.dart';
 

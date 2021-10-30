@@ -5,8 +5,8 @@ import 'package:flutter/material.dart';
 import 'package:vaccheck/model/user_models/business_user_model.dart';
 import 'package:vaccheck/model/user_models/personal_user_model.dart';
 import 'package:vaccheck/model/user_models/user_model.dart';
-import 'package:vaccheck/views/business_views/business_user_view.dart';
-import 'package:vaccheck/views/user_views/personal_user_view.dart';
+import 'package:vaccheck/views/business_user_views/business_user_view.dart';
+import 'package:vaccheck/views/personal_user_views/personal_user_view.dart';
 
 // Decides between PersonalUser and Business View
 class DeciderView extends StatelessWidget {
