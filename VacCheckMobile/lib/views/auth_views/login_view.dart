@@ -249,23 +249,7 @@ class _LoginViewState extends State<LoginView> {
               ],
             ),
           ),
-          TextButton(
-            onPressed: () {
-              context.read<AuthService>().signIn(
-                  email: authController.emailController.text,
-                  password: authController.passwordController.text);
-            },
-            child: const Text("Sign In"),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => const SignUpView()),
-              );
-            },
-            child: const Text("Sign Up"),
-          ),
+        
         ),
       ),
     );

@@ -65,28 +65,28 @@ class _SignUpViewState extends State<SignUpView> {
                     ),
                   ],
                 ),
-              ),
-              Center(
-                child: ElevatedButton(
-                  onPressed: () {
-                    if (_formKey.currentState!.validate()) {
-                      if (email != null &&
-                          password != null &&
-                          name != null &&
-                          dateOfBirth != null) {
-                        PersonalUserModel newUser =
-                            PersonalUserModel.initalSignup(
-                                name: name!,
-                                email: email!,
-                                dateOfBirth: dateOfBirth!);
-                        try {
-                          context
-                              .read<AuthService>()
-                              .signUp(newUser: newUser, password: password!)
-                              .then((value) => Navigator.pop(context));
-                        } catch (e) {
-                          // I need to make an error check for this if the user is already in db
-                          print(e);
+                Center(
+                  child: ElevatedButton(
+                    onPressed: () {
+                      if (_formKey.currentState!.validate()) {
+                        if (email != null &&
+                            password != null &&
+                            name != null &&
+                            dateOfBirth != null) {
+                          PersonalUserModel newUser =
+                              PersonalUserModel.initalSignup(
+                                  name: name!,
+                                  email: email!,
+                                  dateOfBirth: dateOfBirth!);
+                          try {
+                            context
+                                .read<AuthService>()
+                                .signUp(newUser: newUser, password: password!)
+                                .then((value) => Navigator.pop(context));
+                          } catch (e) {
+                            // I need to make an error check for this if the user is already in db
+                            print(e);
+                          }
                         }
                         return null;
                       },
