@@ -1,6 +1,7 @@
 import 'dart:async';
 
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
@@ -33,6 +34,8 @@ class _LoginViewState extends State<LoginView> {
   void dispose() {
     authController.emailController.dispose();
     authController.passwordController.dispose();
+    authController.tapGestureSignUpRecognizer.dispose();
+    authController.tapGestureBusinessRecognizer.dispose();
     super.dispose();
   }
 
@@ -132,7 +135,7 @@ class _LoginViewState extends State<LoginView> {
                     ),
                   ),
                 ),
-                SizedBox(height: size.height * 0.04),
+                SizedBox(height: size.height * 0.03),
                 Container(
                   margin: const EdgeInsets.symmetric(vertical: 5),
                   padding:
@@ -153,21 +156,54 @@ class _LoginViewState extends State<LoginView> {
                         color: kPrimaryLightColor,
                         fontFamily: "SF",
                         fontSize: 17,
+                        fontWeight: FontWeight.w600,
                         // fontWeight: FontWeight.w400,
                       ),
                     ),
                   ),
                 ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const SignUpView()),
-                    );
-                  },
-                  child: const Text("Sign Up"),
+
+                SizedBox(height: size.height * 0.01),
+
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                      text: "Don't have an account? ",
+                      style: const TextStyle(
+                        color: kWhiteColor,
+                        fontSize: 14,
+                        fontFamily: 'SF',
+                      ),
+                      children: [
+                        TextSpan(
+                            text: " Sign Up",
+                            recognizer: authController.tapGestureSignUpRecognizer
+                              ..onTap = () {
+                                Navigator.push(
+                                  context,
+                                  MaterialPageRoute(
+                                      builder: (context) => const SignUpView()),
+                                );
+                              },
+                            style: const TextStyle(
+                                color: kWhiteColor,
+                                fontWeight: FontWeight.w800,
+                                fontFamily: 'SF',
+                                fontSize: 16))
+                      ]),
                 ),
+
+                // TextButton(
+                //   onPressed: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //           builder: (context) => const SignUpView()),
+                //     );
+                //   },
+                //   child: const Text("Sign Up"),
+                // ),
+
                 // TextButton(
                 //   onPressed: () {
                 //     Navigator.push(
@@ -177,16 +213,39 @@ class _LoginViewState extends State<LoginView> {
                 //   },
                 //   child: const Text("Go to QR Gen Page"),
                 // ),
-                TextButton(
-                  onPressed: () {
-                    Navigator.push(
-                      context,
-                      MaterialPageRoute(
-                          builder: (context) => const MainBusinessView()),
-                    );
-                  },
-                  child: const Text("Go to Business View"),
+
+                SizedBox(height: size.height * 0.04),
+
+                RichText(
+                  textAlign: TextAlign.center,
+                  text: TextSpan(
+                      text: "Switch to Business ",
+                      style: const TextStyle(
+                        color: kWhiteColor,
+                        fontSize: 16,
+                        fontFamily: 'SF',
+                        fontWeight: FontWeight.w800,
+                      ),
+                      recognizer: authController.tapGestureBusinessRecognizer
+                        ..onTap = () {
+                          Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) => const MainBusinessView()),
+                          );
+                        },),
                 ),
+
+                // TextButton(
+                //   onPressed: () {
+                //     Navigator.push(
+                //       context,
+                //       MaterialPageRoute(
+                //           builder: (context) => const MainBusinessView()),
+                //     );
+                //   },
+                //   child: const Text("Go to Business View"),
+                // ),
               ],
             ),
           ),
