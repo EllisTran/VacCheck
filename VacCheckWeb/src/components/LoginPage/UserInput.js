@@ -28,7 +28,6 @@ const UserInput = () => {
     clearErrors();
     auth.signInWithEmailAndPassword(email, password)
     .then((user) => {
-      // console.log(user);
       db.collection("users").where('email', '==', email).get().then(result => {
         result.docs.forEach(doc => {
             if (doc.data().userType.isHealthProfessional) {

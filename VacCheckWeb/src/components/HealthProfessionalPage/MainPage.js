@@ -1,5 +1,4 @@
 import { useContext, useEffect, useState } from "react";
-import { AuthContext, useAuth } from "../../contexts/AuthContext";
 import { auth, db } from "../../firebase";
 import UserInfoForm from "./UserInfoForm";
 
@@ -63,10 +62,6 @@ const MainPage = () => {
         setIsModificationSuccessful(true);
     }
 
-    // const handleFinishedRendering = () => {
-    //     setDoesPatientExist(false);
-    // }
-
     return (
     <div>
         <div>
@@ -84,9 +79,7 @@ const MainPage = () => {
                 <button type="submit">Search</button>
             </div>
         </form>
-        {/* <UserInfoForm userData={searchedUser}></UserInfoForm> */}
         {doesPatientExist === true && <UserInfoForm userData={searchedUser} onModifyPatient={handleModifiedPatient}></UserInfoForm>}
-        {/* {doesPatientExist === false && <div><p>User does not exist.</p></div>} */}
         {isModificationSuccessful && <div><p>Patient has been modified!</p></div>}
     </div>);
 };

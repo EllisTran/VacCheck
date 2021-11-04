@@ -275,10 +275,6 @@ const UserInfoForm = (props) => {
         setPostalCode((props.userData && props.userData.address) ? props.userData.address.postalCode : "");
     }, [props.userData]);
 
-    // useEffect(() => {
-    //     props.onRendered();
-    // })
-
     const handleImageAsFile = (e) => {
         const image = e.target.files[0];
         console.log(image);
