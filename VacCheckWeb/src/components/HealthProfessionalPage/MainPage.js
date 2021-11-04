@@ -1,8 +1,9 @@
-import { useContext, useEffect, useState } from "react";
+import { useContext, useEffect, useRef, useState } from "react";
 import { auth, db } from "../../firebase";
 import UserInfoForm from "./UserInfoForm";
 
 const MainPage = () => {
+    const childRef = useRef();
     const [currentUser, setCurrentUser] = useState();
     const [enteredEmailAddress, setEnteredEmailAddress] = useState("");
     const [searchedUser, setSearchedUser] = useState();
@@ -60,6 +61,7 @@ const MainPage = () => {
           ...newPatientInfo,
         });
         setIsModificationSuccessful(true);
+        childRef.current.updateImageUrl();
     }
 
     return (
@@ -79,7 +81,7 @@ const MainPage = () => {
                 <button type="submit">Search</button>
             </div>
         </form>
-        {doesPatientExist === true && <UserInfoForm userData={searchedUser} onModifyPatient={handleModifiedPatient}></UserInfoForm>}
+        {doesPatientExist === true && <UserInfoForm userData={searchedUser} onModifyPatient={handleModifiedPatient} ref={childRef}></UserInfoForm>}
         {isModificationSuccessful && <div><p>Patient has been modified!</p></div>}
     </div>);
 };

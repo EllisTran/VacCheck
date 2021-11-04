@@ -1,7 +1,7 @@
-import { useEffect, useState } from 'react';
+import { forwardRef, useEffect, useImperativeHandle, useState } from 'react';
 import { storage } from '../../firebase';
 
-const UserInfoForm = (props) => {
+const UserInfoForm = forwardRef((props, ref) => {
     const states = [
         {
           name: "Alabama",
@@ -275,6 +275,16 @@ const UserInfoForm = (props) => {
         setPostalCode((props.userData && props.userData.address) ? props.userData.address.postalCode : "");
     }, [props.userData]);
 
+    useImperativeHandle(ref, () => ({
+
+        updateImageUrl() {
+        storage.ref().child(imageAsFile.name).getDownloadURL()
+           .then(fireBaseUrl => {
+               setImageUrl(fireBaseUrl);
+           });
+        }
+    }));
+
     const handleImageAsFile = (e) => {
         const image = e.target.files[0];
         console.log(image);
@@ -446,6 +456,7 @@ const UserInfoForm = (props) => {
 
     </form>
     );
-};
+
+});
 
 export default UserInfoForm;
