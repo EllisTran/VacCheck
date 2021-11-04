@@ -2,7 +2,7 @@ import React, { useState, useEffect, useContext } from "react";
 import Login from "./Login";
 import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
 import SignupPage from "../SignupPage/SignupPage";
-import { auth } from "../../firebase";
+import { auth, db } from "../../firebase";
 import MainPage from "../HealthProfessionalPage/MainPage";
 
 const UserInput = () => {
@@ -29,7 +29,13 @@ const UserInput = () => {
     auth.signInWithEmailAndPassword(email, password)
     .then((user) => {
       // console.log(user);
-      history.push("/healthprofessional");
+      db.collection("users").where('email', '==', email).get().then(result => {
+        result.docs.forEach(doc => {
+            if (doc.data().userType.isHealthProfessional) {
+              history.push("/healthprofessional");
+            }
+        })
+    });
     }).catch((err) => {
       // catching errors
       switch (err.code) {
