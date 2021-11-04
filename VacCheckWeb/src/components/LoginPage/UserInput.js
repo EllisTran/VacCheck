@@ -1,8 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useContext } from "react";
 import Login from "./Login";
 import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
 import SignupPage from "../SignupPage/SignupPage";
 import { auth } from "../../firebase";
+import MainPage from "../HealthProfessionalPage/MainPage";
 
 const UserInput = () => {
   const history = useHistory();
@@ -25,7 +26,11 @@ const UserInput = () => {
 
   const handleLogin = () => {
     clearErrors();
-    auth.signInWithEmailAndPassword(email, password).catch((err) => {
+    auth.signInWithEmailAndPassword(email, password)
+    .then((user) => {
+      // console.log(user);
+      history.push("/healthprofessional");
+    }).catch((err) => {
       // catching errors
       switch (err.code) {
         case "auth/invalid-email":
@@ -66,6 +71,7 @@ const UserInput = () => {
   return (
     <div className="userinput">
       <switch>
+        <Route exact path="/healthprofessional" component={MainPage}/>
         <Route exact path="/" component={Login}>
           <Login //props for Login.
             email={email}
