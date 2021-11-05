@@ -284,245 +284,306 @@
 
 @media screen and (max-width: 859px) and (min-width:768px){
     .btn2{
-        left: -12%;
-        top: 100%;
+        left: -14%;
+        top: 78%;
     }
     .wa{
-      left: -12%;
-        top: 100%;
+        left: -15%;
+        top: 56%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
     }
     .full{
-        left: -12%;
-        top: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -15%;
+        top: 44%;
     }
     .puth1{
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 8px 16px;
-    
-        position: absolute;
-        width: 250px;
-        height: 33px;
-        left: 320px;
-        top: 475px;
-        background: #FFFFFF;
-        border: 1px solid #3A57E8;
-        box-sizing: border-box;
-        border-radius: 4px;
-        flex: none;
-        order: 0;
-        flex-grow: 0;
-        margin: 0px 710px;
+        left: -15%;
+        top: 47%;
+        width: 150px;
     }
     
     .npi{
-        position: absolute;
-        left: 320px;
-        top: 505px;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 175%;
-        color: #8A92A6;
-        flex: none;
-        order: 0;
-        flex-grow: 0;
-        margin: 0px 710px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -15%;
+        top: 50%;
     }
     .puth2{
-        position: absolute;
-        left: 320px;
-        top: 530px;
-        width: 250px;
-        height: 33px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 8px 16px;
-        background: #FFFFFF;
-        border: 1px solid #3A57E8;
-        box-sizing: border-box;
-        border-radius: 4px;
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-        margin: 0px 710px;
+        left: -15%;
+        top: 53%;
+        width: 150px;
+       
     }
     .puth3{
-        position: absolute;
-        left: 320px;
-        top: 585px;
-        width: 250px;
-        height: 33px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 8px 16px;
-        background: #FFFFFF;
-        border: 1px solid #3A57E8;
-        box-sizing: border-box;
-        border-radius: 4px;
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-        margin: 0px 710px;
+        left: -15%;
+        top: 59%;
+        width: 150px;
     }
     
     .puth4{
-        position: absolute;
-        left: 580px;
-        top: 585px;
-        width: 250px;
-        height: 33px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 8px 16px;
-        background: #FFFFFF;
-        border: 1px solid #3A57E8;
-        box-sizing: border-box;
-        border-radius: 4px;
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-        margin: 0px 710px;
+        left: 5%;
+        top: 59%;
+        width: 150px;
     }
     
     .puth5
     {
-        position: absolute;
-        left: 840px;
-        top: 585px;
-        width: 250px;
-        height: 33px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 8px 16px;
-        background: #FFFFFF;
-        border: 1px solid #3A57E8;
-        box-sizing: border-box;
-        border-radius: 4px;
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-        margin: 0px 710px;
+        left: 25%;
+        top: 59%;
+        width: 150px;
+       
     }
     
     .ea1{
-        position: absolute;
-        left: 320px;
-        top: 650px;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 175%;
-        color: #8A92A6;
-        flex: none;
-        order: 0;
-        flex-grow: 0;
-        margin: 0px 710px;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -15%;
+        top: 65%;
     }
     
     .pass3{
-        position: absolute;
-        left: 320px;
-        top: 705px;
-        font-family: Inter;
-        font-style: normal;
-        font-weight: normal;
-        font-size: 16px;
-        line-height: 175%;
-        color: #8A92A6;
-        flex: none;
-        order: 0;
-        flex-grow: 0;
-        margin: 0px 710px;
+        left: -15%;
+        top: 71%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
     }
     
     .puth6
-    {
-        position: absolute;
-        left: 320px;
-        top: 620px;
-        width: 250px;
-        height: 33px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 8px 16px;
-        background: #FFFFFF;
-        border: 1px solid #3A57E8;
-        box-sizing: border-box;
-        border-radius: 4px;
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-        margin: 0px 710px;
+    {   
+        left: -15%;
+        top: 62%;
+        width: 150px;
     }
     .puth7
     {
-        position: absolute;
-        left: 580px;
-        top: 620px;
-        width: 250px;
-        height: 33px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 8px 16px;
-        background: #FFFFFF;
-        border: 1px solid #3A57E8;
-        box-sizing: border-box;
-        border-radius: 4px;
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-        margin: 0px 710px;
+        left: 5%;
+        top: 62%;
+        width: 150px;
     }
     
     .puth8
     {
-        position: absolute;
-        left: 320px;
-        top: 675px;
-        width: 250px;
-        height: 33px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 8px 16px;
-        background: #FFFFFF;
-        border: 1px solid #3A57E8;
-        box-sizing: border-box;
-        border-radius: 4px;
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-        margin: 0px 710px;
+        left: -15%;
+        top: 68%;
+        width: 150px;
     }
     .puth9
     {
-        position: absolute;
-        left: 320px;
-        top: 730px;
-        width: 250px;
-        height: 33px;
-        display: flex;
-        flex-direction: row;
-        align-items: center;
-        padding: 8px 16px;
-        background: #FFFFFF;
-        border: 1px solid #3A57E8;
-        box-sizing: border-box;
-        border-radius: 4px;
-        flex: none;
-        order: 1;
-        flex-grow: 0;
-        margin: 0px 710px;
+        left: -15%;
+        top: 74%;
+        width: 150px;
+    }
+
+}
+@media screen and (max-width: 1024px) and (min-width:860px)
+{
+    .btn2{
+        left: -24%;
+        top: 74%;
+    }
+    .wa{
+        left: -26%;
+        top: 52%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+    .full{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -26%;
+        top: 40%;
+    }
+    .puth1{
+        left: -26%;
+        top: 43%;
+        width: 150px;
+    }
+    
+    .npi{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -26%;
+        top: 46%;
+    }
+    .puth2{
+        left: -26%;
+        top: 49%;;
+        width: 150px;
+       
+    }
+    .puth3{
+        left: -26%;
+        top: 55%;
+        width: 150px;
+    }
+    
+    .puth4{
+        left: -8%;
+        top: 55%;
+        width: 150px;
+    }
+    
+    .puth5
+    {
+        left: 10%;
+        top: 55%;
+        width: 150px;
+       
+    }
+    
+    .ea1{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -26%;
+        top: 61%;
+    }
+    
+    .pass3{
+        left: -26%;
+        top: 67%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+    
+    .puth6
+    {   
+        left: -26%;
+        top: 58%;
+        width: 150px;
+    }
+    .puth7
+    {
+        left: -8%;
+        top: 58%;
+        width: 150px;
+    }
+    
+    .puth8
+    {
+        left: -26%;
+        top: 64%;
+        width: 150px;
+    }
+    .puth9
+    {
+        left: -26%;
+        top: 70%;
+        width: 150px;
+    }
+
+}
+@media screen and (max-width: 1200px) and (min-width:1024px)
+{
+    .btn2{
+        left: 5%;
+        top: 78%;
+    }
+    .wa{
+        left: 5%;
+        top: 56%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+    .full{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 5%;
+        top: 44%;
+    }
+    .puth1{
+        left: 5%;
+        top: 47%;
+        width: 150px;
+    }
+    
+    .npi{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 5%;
+        top: 50%;
+    }
+    .puth2{
+        left: 5%;
+        top: 53%;
+        width: 150px;
+       
+    }
+    .puth3{
+        left: 5%;
+        top: 59%;
+        width: 150px;
+    }
+    
+    .puth4{
+        left: 20%;
+        top: 59%;
+        width: 150px;
+    }
+    
+    .puth5
+    {
+        left: 35%;
+        top: 59%;
+        width: 150px;
+       
+    }
+    
+    .ea1{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 5%;
+        top: 65%;
+    }
+    
+    .pass3{
+        left: 5%;
+        top: 71%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+    
+    .puth6
+    {   
+        left: 5%;
+        top: 62%;
+        width: 150px;
+    }
+    .puth7
+    {
+        left: 20%;
+        top: 62%;
+        width: 150px;
+    }
+    
+    .puth8
+    {
+        left: 5%;
+        top: 68%;
+        width: 150px;
+    }
+    .puth9
+    {
+        left: 5%;
+        top: 74%;
+        width: 150px;
     }
 
 }
