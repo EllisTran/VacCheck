@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { auth, db } from "../../firebase";
 import UserInfoForm from "./UserInfoForm";
 
-const MainPage = () => {
+const MainPage = (props) => {
     const childRef = useRef();
     const [currentUser, setCurrentUser] = useState();
     const [enteredEmailAddress, setEnteredEmailAddress] = useState("");
@@ -69,7 +69,7 @@ const MainPage = () => {
     <div>
         <div>
             <h1>VacCheck</h1>
-            <button onClick={() => auth.signOut()}>Sign Out</button>
+            <button onClick={props.handleLogout}>Sign Out</button>
         </div>
         <form onSubmit={submitHandler}>
             <div>

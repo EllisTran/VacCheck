@@ -34,7 +34,7 @@ const UserInput = () => {
               history.push("/healthprofessional");
             }
         })
-    });
+      });
     }).catch((err) => {
       // catching errors
       switch (err.code) {
@@ -54,8 +54,16 @@ const UserInput = () => {
     history.push("/SignupPage");
   };
 
+  const handleSignupSuccess = () => {
+    history.push("/");
+  }
+
   const handleLogOut = () => {
-    auth.signOut();
+    auth.signOut().then(function() {
+      console.log('Signed Out');
+    }, function(error) {
+      console.error('Sign Out Error', error);
+    });;
   };
 
   const authListener = () => {
@@ -76,7 +84,9 @@ const UserInput = () => {
   return (
     <div className="userinput">
       <switch>
-        <Route exact path="/healthprofessional" component={MainPage}/>
+        <Route exact path="/healthprofessional" component={MainPage}>
+          <MainPage handleLogOut={handleLogOut}/>
+        </Route>
         <Route exact path="/" component={Login}>
           <Login //props for Login.
             email={email}
@@ -91,7 +101,9 @@ const UserInput = () => {
             passwordError={passwordError}
           />
         </Route>
-        <Route exact path="/SignupPage" component={SignupPage} />
+        <Route exact path="/SignupPage" component={SignupPage}>
+          <SignupPage handleSignupSuccess={handleSignupSuccess}/>
+        </Route>
       </switch>
     </div>
   );
