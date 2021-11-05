@@ -58,6 +58,7 @@ const MainPage = () => {
         db.collection("users")
         .doc(searchedUserId)
         .set({
+          ...searchedUser,
           ...newPatientInfo,
         });
         setIsModificationSuccessful(true);
