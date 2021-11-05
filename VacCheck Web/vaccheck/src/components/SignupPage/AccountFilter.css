@@ -8,9 +8,10 @@
     left: 54%;
     top: 30%;
     display:flex;
-
+  
 
 }
+
 
 
 .logo
@@ -84,7 +85,6 @@
     order: 0;
     flex-grow: 0;
     margin: 0px 0px;
-
 
 
 
@@ -383,4 +383,189 @@
         
             
     }
+
+
+    @media screen and (max-width: 1340px) and (min-width:1201px){
+        .title
+        {
+            left: 65%;
+            top: 30%;
+            font-size:25px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: clip;
+        
+        }
+        .logo
+        {
+        
+            left: 65%;
+            top: 20%;
+            
+            font-family: Inter;
+            font-weight: normal;
+            font-size: 33px;
+            line-height: 130%;
+        
+            color: #232d42;
+            flex: none;
+            order: 1;
+            flex-grow: 0;
+            margin: 0px 10px;
+            display:block;
+        
+        }
+        
+        .select
+        {
+            color: rgb(0, 110, 255);
+            display:flex;
+            height: 40px;
+            width: 450px;
+            margin: 0px 710px;
+            position: absolute;
+            left: 5%;
+            top: 40%;
+            display:block;
+        
+        
+        }
+        .Vector1
+        {
+        
+            left: 90%;
+            top: -10%;
+            transform: rotate(90deg);
+            display:block;
+        
+        }
+        .Vector2
+        {
+            position: absolute;
+            left: 60%;
+            top: 20%;
+            transform: rotate(0deg);
+        
+        }
+        .Vector3
+        {
+            /* Graphic Side */
+        
+        
+            width: 800px;
+            height: 900px;
+            background: radial-gradient(50% 50% at 50% 50%, #3B8AFF 0%, #0048B3 100%);
+            transform: rotate(0deg);
+            position: absolute;
+            left: -20%;
+            top: 0%;
+        
+        
+        
+        
+        }
+        .Vector4
+        {
+        
+            left: 90%;
+            top: -1%;
+            transform: rotate(85deg);
+            display:block;
+        
+        }
+        
+
+    }
+    @media screen and (max-width: 1440px) and (min-width:1341px){
+        .title
+        {
+            left: 55%;
+            top: 30%;
+            font-size:25px;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: clip;
+        
+        }
+        .logo
+        {
+        
+            left: 50%;
+            top: 20%;
+            
+            font-family: Inter;
+            font-weight: normal;
+            font-size: 33px;
+            line-height: 130%;
+        
+            color: #232d42;
+            flex: none;
+            order: 1;
+            flex-grow: 0;
+            margin: 0px 10px;
+            display:block;
+        
+        }
+        
+        .select
+        {
+            color: rgb(0, 110, 255);
+            display:flex;
+            height: 40px;
+            width: 450px;
+            margin: 0px 710px;
+            position: absolute;
+            left: 5%;
+            top: 40%;
+            display:block;
+        
+        
+        }
+        .Vector1
+        {
+        
+            left: 90%;
+            top: -10%;
+            transform: rotate(90deg);
+            display:block;
+        
+        }
+        .Vector2
+        {
+            position: absolute;
+            left: 45%;
+            top: 20%;
+            transform: rotate(0deg);
+        
+        }
+        .Vector3
+        {
+            /* Graphic Side */
+        
+        
+            width: 800px;
+            height: 900px;
+            background: radial-gradient(50% 50% at 50% 50%, #3B8AFF 0%, #0048B3 100%);
+            transform: rotate(0deg);
+            position: absolute;
+            left: -20%;
+            top: 0%;
+        
+        
+        
+        
+        }
+        .Vector4
+        {
+        
+            left: 90%;
+            top: -1%;
+            transform: rotate(85deg);
+            display:block;
+        
+        }
+        
+
+    }
+    
     
