@@ -23,7 +23,7 @@
 }
 .wa{
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 560px;
     font-family: Inter;
     font-style: normal;
@@ -38,7 +38,7 @@
 }
 .full{
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 450px;
     font-family: Inter;
     font-style: normal;
@@ -60,7 +60,7 @@
     position: absolute;
     width: 250px;
     height: 33px;
-    left: 288px;
+    left: 320px;
     top: 475px;
     background: #FFFFFF;
     border: 1px solid #3A57E8;
@@ -74,7 +74,7 @@
 
 .npi{
     position: absolute;
-    left: 290px;
+    left: 320px;
     top: 505px;
     font-family: Inter;
     font-style: normal;
@@ -89,7 +89,7 @@
 }
 .puth2{
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 530px;
     width: 250px;
     height: 33px;
@@ -108,7 +108,7 @@
 }
 .puth3{
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 585px;
     width: 250px;
     height: 33px;
@@ -128,7 +128,7 @@
 
 .puth4{
     position: absolute;
-    left: 540px;
+    left: 580px;
     top: 585px;
     width: 250px;
     height: 33px;
@@ -149,7 +149,7 @@
 .puth5
 {
     position: absolute;
-    left: 792px;
+    left: 840px;
     top: 585px;
     width: 250px;
     height: 33px;
@@ -169,7 +169,7 @@
 
 .ea1{
     position: absolute;
-    left: 290px;
+    left: 320px;
     top: 650px;
     font-family: Inter;
     font-style: normal;
@@ -185,7 +185,7 @@
 
 .pass3{
     position: absolute;
-    left: 290px;
+    left: 320px;
     top: 705px;
     font-family: Inter;
     font-style: normal;
@@ -202,7 +202,7 @@
 .puth6
 {
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 620px;
     width: 250px;
     height: 33px;
@@ -222,7 +222,7 @@
 .puth7
 {
     position: absolute;
-    left: 540px;
+    left: 580px;
     top: 620px;
     width: 250px;
     height: 33px;
@@ -243,7 +243,7 @@
 .puth8
 {
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 675px;
     width: 250px;
     height: 33px;
@@ -263,7 +263,7 @@
 .puth9
 {
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 730px;
     width: 250px;
     height: 33px;
@@ -282,3 +282,247 @@
 }
 
 
+@media screen and (max-width: 859px) and (min-width:768px){
+    .btn2{
+        left: -12%;
+        top: 100%;
+    }
+    .wa{
+      left: -12%;
+        top: 100%;
+    }
+    .full{
+        left: -12%;
+        top: 100%;
+    }
+    .puth1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 16px;
+    
+        position: absolute;
+        width: 250px;
+        height: 33px;
+        left: 320px;
+        top: 475px;
+        background: #FFFFFF;
+        border: 1px solid #3A57E8;
+        box-sizing: border-box;
+        border-radius: 4px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+    
+    .npi{
+        position: absolute;
+        left: 320px;
+        top: 505px;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 175%;
+        color: #8A92A6;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+    .puth2{
+        position: absolute;
+        left: 320px;
+        top: 530px;
+        width: 250px;
+        height: 33px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 16px;
+        background: #FFFFFF;
+        border: 1px solid #3A57E8;
+        box-sizing: border-box;
+        border-radius: 4px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+    .puth3{
+        position: absolute;
+        left: 320px;
+        top: 585px;
+        width: 250px;
+        height: 33px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 16px;
+        background: #FFFFFF;
+        border: 1px solid #3A57E8;
+        box-sizing: border-box;
+        border-radius: 4px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+    
+    .puth4{
+        position: absolute;
+        left: 580px;
+        top: 585px;
+        width: 250px;
+        height: 33px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 16px;
+        background: #FFFFFF;
+        border: 1px solid #3A57E8;
+        box-sizing: border-box;
+        border-radius: 4px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+    
+    .puth5
+    {
+        position: absolute;
+        left: 840px;
+        top: 585px;
+        width: 250px;
+        height: 33px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 16px;
+        background: #FFFFFF;
+        border: 1px solid #3A57E8;
+        box-sizing: border-box;
+        border-radius: 4px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+    
+    .ea1{
+        position: absolute;
+        left: 320px;
+        top: 650px;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 175%;
+        color: #8A92A6;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+    
+    .pass3{
+        position: absolute;
+        left: 320px;
+        top: 705px;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 175%;
+        color: #8A92A6;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+    
+    .puth6
+    {
+        position: absolute;
+        left: 320px;
+        top: 620px;
+        width: 250px;
+        height: 33px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 16px;
+        background: #FFFFFF;
+        border: 1px solid #3A57E8;
+        box-sizing: border-box;
+        border-radius: 4px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+    .puth7
+    {
+        position: absolute;
+        left: 580px;
+        top: 620px;
+        width: 250px;
+        height: 33px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 16px;
+        background: #FFFFFF;
+        border: 1px solid #3A57E8;
+        box-sizing: border-box;
+        border-radius: 4px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+    
+    .puth8
+    {
+        position: absolute;
+        left: 320px;
+        top: 675px;
+        width: 250px;
+        height: 33px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 16px;
+        background: #FFFFFF;
+        border: 1px solid #3A57E8;
+        box-sizing: border-box;
+        border-radius: 4px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+    .puth9
+    {
+        position: absolute;
+        left: 320px;
+        top: 730px;
+        width: 250px;
+        height: 33px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 16px;
+        background: #FFFFFF;
+        border: 1px solid #3A57E8;
+        box-sizing: border-box;
+        border-radius: 4px;
+        flex: none;
+        order: 1;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+
+}

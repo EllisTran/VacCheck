@@ -23,7 +23,7 @@
 }
 .ba{
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 560px;
     font-family: Inter;
     font-style: normal;
@@ -38,7 +38,7 @@
 }
 .cn{
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 450px;
     font-family: Inter;
     font-style: normal;
@@ -60,7 +60,7 @@
     position: absolute;
     width: 250px;
     height: 33px;
-    left: 288px;
+    left: 320px;
     top: 475px;
     background: #FFFFFF;
     border: 1px solid #3A57E8;
@@ -74,7 +74,7 @@
 
 .cnn{
     position: absolute;
-    left: 290px;
+    left: 320px;
     top: 505px;
     font-family: Inter;
     font-style: normal;
@@ -89,7 +89,7 @@
 }
 .putb2{
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 530px;
     width: 250px;
     height: 33px;
@@ -108,7 +108,7 @@
 }
 .putb3{
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 585px;
     width: 250px;
     height: 33px;
@@ -127,7 +127,7 @@
 }
 .EM{
     position: absolute;
-    left: 290px;
+    left: 320px;
     top: 615px;
     font-family: Inter;
     font-style: normal;
@@ -142,7 +142,7 @@
 }
 .putb4{
     position: absolute;
-    left: 540px;
+    left: 580px;
     top: 585px;
     width: 250px;
     height: 33px;
@@ -159,25 +159,10 @@
     flex-grow: 0;
     margin: 0px 710px;
 }
-.pass{
-    position: absolute;
-    left: 290px;
-    top: 670px;
-    font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
-    font-size: 16px;
-    line-height: 175%;
-    color: #8A92A6;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
-    margin: 0px 710px;
-}
 .putb5
 {
     position: absolute;
-    left: 792px;
+    left: 840px;
     top: 585px;
     width: 250px;
     height: 33px;
@@ -197,7 +182,7 @@
 
 .ea{
     position: absolute;
-    left: 290px;
+    left: 320px;
     top: 650px;
     font-family: Inter;
     font-style: normal;
@@ -213,7 +198,7 @@
 
 .pass1{
     position: absolute;
-    left: 290px;
+    left: 320px;
     top: 705px;
     font-family: Inter;
     font-style: normal;
@@ -230,7 +215,7 @@
 .putb6
 {
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 620px;
     width: 250px;
     height: 33px;
@@ -250,7 +235,7 @@
 .putb7
 {
     position: absolute;
-    left: 540px;
+    left: 580px;
     top: 620px;
     width: 250px;
     height: 33px;
@@ -271,7 +256,7 @@
 .putb8
 {
     position: absolute;
-    left: 288px;
+    left:320px;
     top: 675px;
     width: 250px;
     height: 33px;
@@ -291,7 +276,7 @@
 .putb9
 {
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 730px;
     width: 250px;
     height: 33px;
@@ -310,3 +295,341 @@
 }
 
 
+@media screen and (max-width: 859px) and (min-width:768px){
+    .btn3{
+
+       
+        left: -12%;
+        top: 78%;
+    
+    }
+    .ba{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -15%;
+        top: 57%;
+        
+    }
+    .cn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -15%;
+        top: 45%;
+  
+    }
+    .putb1{
+   
+        left: -15%;
+        top: 48%;
+        width: 150px;
+     
+    }
+    
+    .cnn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -15%;
+        top: 51%;
+        
+       
+    }
+    .putb2{
+        left: -15%;
+        top: 54%;
+        width: 150px;
+        
+    }
+    .putb3{
+        left: -15%;
+        top: 60%;
+        width: 150px;
+    }
+ 
+    .putb4{
+        left: 5%;
+        top: 60%;
+        width: 150px;
+
+    }
+    .putb5
+    {
+        left: 25%;
+        top: 60%;
+        width: 150px;
+    }
+    
+    .ea{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -15%;
+        top: 66%;
+        
+    }
+    
+    .pass1{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -15%;
+        top: 72%;
+        
+    }
+    
+    .putb6
+    {
+        left: -15%;
+        top: 63%;
+        width: 150px;
+    }
+    .putb7
+    {
+        left: 5%;
+        top: 63%;
+        width: 150px;
+    }
+    
+    .putb8
+    {
+
+        left: -15%;
+        top: 69%;
+        width: 150px;
+    }
+    .putb9
+    {
+        left: -15%;
+        top: 75%;
+        width: 150px;
+    }
+    
+}
+@media screen and (max-width: 1023px) and (min-width:860px){
+    .btn3{
+
+       
+        left: -26%;
+        top: 75%;
+    
+    }
+    .ba{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -26%;
+        top: 52%;
+        
+    }
+    .cn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -26%;
+        top: 40%;
+  
+    }
+    .putb1{
+   
+        left: -26%;
+        top: 43%;
+        width: 150px;
+     
+    }
+    
+    .cnn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -26%;
+        top: 46%;
+        
+       
+    }
+    .putb2{
+        left: -15%;
+        top: 54%;
+        width: 150px;
+        left: -26%;
+        top: 49%;
+        
+    }
+    .putb3{
+        left: -26%;
+        top: 55%;
+        width: 150px;
+    }
+ 
+    .putb4{
+        left: -8%;
+        top: 55%;
+        width: 150px;
+
+    }
+    .putb5
+    {
+        left: 10%;
+        top: 55%;
+        width: 150px;
+    }
+    
+    .ea{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -26%;
+        top: 61%;
+        
+    }
+    
+    .pass1{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -26%;
+        top: 67%;
+        
+    }
+    
+    .putb6
+    {
+        left: -26%;
+        top: 58%;
+        width: 150px;
+    }
+    .putb7
+    {
+        left: -8%;
+        top: 58%;
+        width: 150px;
+    }
+    
+    .putb8
+    {
+
+        left: -26%;
+        top: 64%;
+        width: 150px;
+    }
+    .putb9
+    {
+        left: -26%;
+        top: 70%;
+        width: 150px;
+    }
+    
+}
+@media screen and (max-width: 1200px) and (min-width:1024px){
+    .btn3{
+
+       
+        left: 6%;
+        top: 78%;
+    
+    }
+    .ba{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 5%;
+        top: 56%;
+        
+    }
+    .cn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 5%;
+        top: 44%;
+  
+    }
+    .putb1{
+   
+        left: 5%;
+        top: 47%;
+        width: 150px;
+     
+    }
+    
+    .cnn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 5%;
+        top: 50%;
+        
+       
+    }
+    .putb2{
+        left: -15%;
+        top: 54%;
+        width: 150px;
+        left: 5%;
+        top: 53%;
+        
+    }
+    .putb3{
+        left: 5%;
+        top: 59%;
+        width: 150px;
+    }
+ 
+    .putb4{
+        left: 20%;
+        top: 59%;
+        width: 150px;
+
+    }
+    .putb5
+    {
+        left: 35%;
+        top: 59%;
+        width: 150px;
+    }
+    
+    .ea{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 5%;
+        top: 65%;
+        
+    }
+    
+    .pass1{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 5%;
+        top: 71%;
+    }
+    
+    .putb6
+    {
+        left: 5%;
+        top: 62%;
+        width: 150px;
+    }
+    .putb7
+    {
+        left: 20%;
+        top: 62%;
+        width: 150px;
+    }
+    
+    .putb8
+    {
+
+        left: 5%;
+        top: 68%;
+        width: 150px;
+    }
+    .putb9
+    {
+        left: 5%;
+        top: 74%;
+        width: 150px;
+    }
+}

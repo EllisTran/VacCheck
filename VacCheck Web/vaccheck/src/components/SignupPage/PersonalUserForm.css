@@ -23,7 +23,7 @@
 }
 .ssn{
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 560px;
     font-family: Inter;
     font-style: normal;
@@ -38,19 +38,11 @@
 }
 .fn{
     position: absolute;
-    width: 83px;
-    height: 28px;
-    left: 288px;
+    left: 320px;
     top: 450px;
     font-family: Inter;
-    font-style: normal;
-    font-weight: normal;
     font-size: 16px;
-    line-height: 175%;
     color: #8A92A6;
-    flex: none;
-    order: 0;
-    flex-grow: 0;
     margin: 0px 710px;
 }
 .put1{
@@ -62,7 +54,7 @@
     position: absolute;
     width: 250px;
     height: 33px;
-    left: 288px;
+    left: 320px;
     top: 475px;
     background: #FFFFFF;
     border: 1px solid #3A57E8;
@@ -76,7 +68,7 @@
 
 .dateofbirth{
     position: absolute;
-    left: 290px;
+    left: 320px;
     top: 505px;
     font-family: Inter;
     font-style: normal;
@@ -91,8 +83,10 @@
 }
 .put2{
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 530px;
+    width: 250px;
+    height: 33px;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -108,7 +102,7 @@
 }
 .put3{
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 585px;
     display: flex;
     flex-direction: row;
@@ -122,10 +116,12 @@
     order: 1;
     flex-grow: 0;
     margin: 0px 710px;
+    width: 250px;
+    height: 33px;
 }
 .EM{
     position: absolute;
-    left: 290px;
+    left: 320px;
     top: 615px;
     font-family: Inter;
     font-style: normal;
@@ -140,7 +136,7 @@
 }
 .put4{
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 640px;
     display: flex;
     flex-direction: row;
@@ -154,10 +150,12 @@
     order: 1;
     flex-grow: 0;
     margin: 0px 710px;
+    width: 250px;
+    height: 33px;
 }
 .pass{
     position: absolute;
-    left: 290px;
+    left: 320px;
     top: 670px;
     font-family: Inter;
     font-style: normal;
@@ -173,7 +171,7 @@
 .put5
 {
     position: absolute;
-    left: 288px;
+    left: 320px;
     top: 700px;
     display: flex;
     flex-direction: row;
@@ -187,4 +185,262 @@
     order: 1;
     flex-grow: 0;
     margin: 0px 710px;
+    width: 250px;
+    height: 33px;
+}
+@media screen and (max-width: 859px) and (min-width:768px)
+{
+    .btn{
+        left: -12%;
+        top: 70%;
+
+    
+    }
+    .ssn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -15%;
+        top: 55%;
+    }
+    .fn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        font-size:15px;
+        left: -15%;
+        top: 45%;
+    }
+    .put1{
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        padding: 8px 16px;
+    
+        width: 250px;
+        height: 33px;
+        left: -15%;
+        top: 47%;
+        background: #FFFFFF;
+        border: 1px solid #3A57E8;
+        box-sizing: border-box;
+        border-radius: 4px;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+    
+    .dateofbirth{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        position: absolute;
+        left: -15%;
+        top: 50%;
+        font-family: Inter;
+        font-style: normal;
+        font-weight: normal;
+        font-size: 16px;
+        line-height: 175%;
+        color: #8A92A6;
+        flex: none;
+        order: 0;
+        flex-grow: 0;
+        margin: 0px 710px;
+    }
+    .put2{
+        left: -15%;
+        top: 52%;
+
+    }
+    .put3{
+        left: -15%;
+        top: 57%;
+
+    }
+    .EM{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        position: absolute;
+        left: -15%;
+        top: 60%;
+
+   
+    }
+    .put4{
+        left: -15%;
+        top: 62%;
+
+    }
+    .pass{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -15%;
+        top: 65%;
+
+    }
+    .put5
+    {
+        left: -15%;
+        top: 67%;
+
+    }
+}
+@media screen and (max-width: 1023px) and (min-width:860px)
+{
+    .btn{
+        left: -22%;
+        top: 65%;
+
+    
+    }
+    .ssn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -26%;
+        top: 50%;
+    }
+    .fn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        font-size:15px;
+        left: -26%;
+        top: 40%;
+    }
+    .put1{
+    
+        left: -26%;
+        top: 42%;
+      
+    }
+    
+    .dateofbirth{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -26%;
+        top: 45%;
+    
+    }
+    .put2{
+        left: -26%;
+        top: 47%;
+
+    }
+    .put3{
+        left: -26%;
+        top: 52%;
+
+    }
+    .EM{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -26%;
+        top: 55%;
+
+   
+    }
+    .put4{
+        left: -26%;
+        top: 57%;
+
+    }
+    .pass{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: -26%;
+        top: 60%;
+
+    }
+    .put5
+    {
+        left: -26%;
+        top: 62%;
+
+    }
+}
+@media screen and (max-width: 1200px) and (min-width:1024px)
+{   
+    .btn{
+        left: 8%;
+        top: 73%;
+
+    
+    }
+    .ssn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 5%;
+        top: 56%;
+    }
+    .fn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        font-size:15px;
+        left: 5%;
+        top: 45%;
+    }
+    .put1{
+    
+        left: 5%;
+        top: 47%;
+      
+    }
+    
+    .dateofbirth{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 5%;
+        top: 50%;
+    
+    }
+    .put2{
+        left: 5%;
+        top: 53%;
+
+    }
+    .put3{
+        left: 5%;
+        top: 59%;
+
+    }
+    .EM{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 5%;
+        top: 62%;
+
+   
+    }
+    .put4{
+        left: 5%;
+        top: 64%;
+
+    }
+    .pass{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 5%;
+        top: 67%;
+
+    }
+    .put5
+    {
+        left: 5%;
+        top: 70%;
+
+    }
+
 }
