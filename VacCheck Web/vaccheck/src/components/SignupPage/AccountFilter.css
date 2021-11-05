@@ -476,7 +476,7 @@
         
 
     }
-    @media screen and (max-width: 1440px) and (min-width:1341px){
+    @media screen and (max-width: 1440px) and (min-width:1341px) {
         .title
         {
             left: 55%;
@@ -490,7 +490,7 @@
         .logo
         {
         
-            left: 50%;
+            left: 48%;
             top: 20%;
             
             font-family: Inter;
