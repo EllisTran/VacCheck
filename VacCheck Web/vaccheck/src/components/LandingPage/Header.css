@@ -1,0 +1,34 @@
+.header {
+  font-family: Lato;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  position: absolute;
+  width: 100%;
+}
+
+.header .links {
+  font-family: Lato;
+  font-size: 20px;
+  color: white;
+  font-weight: 1000;
+}
+
+.header .navbar li {
+  font-family: Lato;
+  font-weight: 10;
+  font-size: larger;
+  margin-right: 70px;
+  list-style: none;
+}
+
+.header .navbar li a {
+  color: white;
+}
+
+.header .navbar li :hover {
+    color: grey;
+    transition: 0.5s;
+  }
+  
