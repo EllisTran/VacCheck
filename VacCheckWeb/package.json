@@ -2,7 +2,7 @@
   "name": "vaccheck",
   "version": "0.1.0",
   "private": true,
-  "homepage": "http://EllisTran.github.io/",
+  "homepage": "http://EllisTran.github.io/VacCheck",
   "dependencies": {
     "@firebase/storage": "^0.8.4",
     "@testing-library/jest-dom": "^5.14.1",
