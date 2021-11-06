@@ -51,7 +51,7 @@ const PersonalUserForm = (props) => {
       email: enteredEmailAddress,
       numVac: 0,
       password: enteredPassword,
-      imageUrl: "",
+      imageUrl: "https://firebasestorage.googleapis.com/v0/b/vaccheck-6a24b.appspot.com/o/avatar_115.jpg?alt=media&token=75c1e503-8269-4e17-9e5f-4c1ac99e5801",
     };
     console.log(accountInfo);
     clearAccountInfo();

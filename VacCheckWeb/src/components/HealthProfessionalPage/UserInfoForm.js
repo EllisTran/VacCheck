@@ -308,7 +308,7 @@ const UserInfoForm = forwardRef((props, ref) => {
     };
 
     const enteredNumberOfVaccinationsChangeHandler = (event) => {
-    setEnteredNumberOfVaccinations(event.target.value);
+    setEnteredNumberOfVaccinations(parseInt(event.target.value));
     };
 
     const street1ChangeHandler = (event) => {
