@@ -11,6 +11,8 @@ import 'package:vaccheck/constants.dart';
 import 'package:intl/intl.dart';
 import 'dart:math';
 
+import '../show_bottom_view.dart';
+
 class PersonalUserView extends StatefulWidget {
   final PersonalUserModel user;
   const PersonalUserView({Key? key, required this.user}) : super(key: key);
@@ -59,10 +61,20 @@ class _PersonalUserViewState extends State<PersonalUserView> {
     Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
-        title: Text('${widget.user.name}'),
+        backgroundColor: kPrimaryColor,
+        foregroundColor: kWhiteColor,
+        elevation: 0,
+        title: Text(widget.user.name,
+        style: const TextStyle(
+                color: kWhiteColor,
+                fontFamily: 'SF',
+                fontSize: 22,
+                fontWeight: FontWeight.w200,
+              ),),
         actions: [
           IconButton(
-            icon: const Icon(Icons.exit_to_app),
+            icon: const Icon(Icons.exit_to_app,size: 28,),
+        
             onPressed: () {
               context.read<AuthService>().signOut();
             },
@@ -86,7 +98,7 @@ class _PersonalUserViewState extends State<PersonalUserView> {
               // const Text(
               //     'Insert Image here or somewhere around here'), // Do this*****
 
-              SizedBox(height: size.height * 0.09),
+              SizedBox(height: size.height * 0.084),
               Stack(
                 
                 children: <Widget>[
@@ -157,13 +169,12 @@ class _PersonalUserViewState extends State<PersonalUserView> {
                 ),
                 SizedBox(width: size.width * 0.39),
 
-                IconButton(
-                  onPressed: (){
-                    showBottomSheet(context);
-                  }, //NEED TO SHOW MODAL BOTTOM SHEET
-                  icon: SvgPicture.asset("assets/showMe.svg"),
-                  iconSize: 45.0,
-                  ),
+                ShowBottomSheet(
+                  imageUrl: widget.user.imageUrl!,
+                  fullName: widget.user.name,
+                  dob: widget.user.dateOfBirth,
+                  vacNum: widget.user.numVac!,
+                 ),
               ]),
             ],
           ),
@@ -172,174 +183,6 @@ class _PersonalUserViewState extends State<PersonalUserView> {
     );
   }
 
-void showBottomSheet(context){
-  Size size = MediaQuery.of(context).size;
-  String formattedDate = DateFormat.yMMMMd('en_US').format(widget.user.dateOfBirth);
-  showModalBottomSheet(
-    shape: const RoundedRectangleBorder(
-    borderRadius: BorderRadius.vertical(
-      top: Radius.circular(20),
-    ),
-  ),
-  isDismissible: true,
-  context: context,
-  builder: (BuildContext bc) {
-    return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              const Text(
-                "Information",
-                style: TextStyle(
-                  color: kPrimeColor,
-                  fontFamily: 'SF',
-                  fontSize: 18,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-              const Spacer(),
-              IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                icon: const Icon(
-                  Icons.cancel_outlined,
-                  color: kPrimeColor,
-                  size: 25,
-                ),
-              ),
-            ],
-          ),
-
-          Container(
-            width: 100.0,
-            height: 100.0,
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    fit: BoxFit.fitWidth,
-                    image: NetworkImage(widget.user.imageUrl!)))
-          ),
-          const SizedBox(
-            height: 27,
-          ),
-          // Padding(
-          //   padding: const EdgeInsets.only(right: 13),
-          //   child: Container(
-          //     height: 10,
-          //     width: MediaQuery.of(context).size.width,
-          //     color: kBorderColor,
-          //   ),
-          // ),
-          // const SizedBox(
-          //   height: 20,
-          // ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: const Text(
-                  "Full Name:",
-                  style: TextStyle(
-                    color: kTextColor,
-                    fontFamily: 'SF',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w200,
-                  ),
-                ),
-              ),
-              const Spacer(),
-              Container(
-                padding: const EdgeInsets.only(bottom: 10, right: 14),
-                child: Text(
-                  widget.user.name,
-                  style: const TextStyle(
-                    color: kTextColor,
-                    fontFamily: 'SF',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w200,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: const Text(
-                  "Date of Birth:",
-                  style: TextStyle(
-                    color: kTextColor,
-                    fontFamily: 'SF',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w200,
-                  ),
-                ),
-              ),
-              const Spacer(),
-              Container(
-                padding: const EdgeInsets.only(bottom: 10, right: 14),
-                child: Text(
-                  formattedDate,
-                  style: const TextStyle(
-                    color: kTextColor,
-                    fontFamily: 'SF',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w200,
-                  ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: const Text(
-                  "Vaccinated:",
-                  style: TextStyle(
-                    color: kTextColor,
-                    fontFamily: 'SF',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w200,
-                  ),
-                ),
-              ),
-              const Spacer(),
-              Container(
-                padding: const EdgeInsets.only(bottom: 10, right: 16),
-                child: Text(
-                  "${widget.user.numVac}",
-                  style: const TextStyle(
-                    color: kPrimeColor,
-                    fontFamily: 'SF',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w800,
-                  ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
-  });
-}
 
   String generateCode() {
     PersonalUserModel currentUser = widget.user;
