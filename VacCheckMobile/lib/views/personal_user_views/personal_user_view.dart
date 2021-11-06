@@ -1,12 +1,14 @@
 import 'dart:async';
-
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:provider/src/provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:vaccheck/firebase/auth_service.dart';
 import 'package:vaccheck/firebase/firebase_wrapper.dart';
 import 'package:vaccheck/model/user_models/personal_user_model.dart';
 import '../../controller/qr_code_controller.dart';
+import 'package:vaccheck/constants.dart';
+import 'package:intl/intl.dart';
 import 'dart:math';
 
 class PersonalUserView extends StatefulWidget {
@@ -54,6 +56,7 @@ class _PersonalUserViewState extends State<PersonalUserView> {
 
   @override
   Widget build(BuildContext context) {
+    Size size = MediaQuery.of(context).size;
     return Scaffold(
       appBar: AppBar(
         title: Text('${widget.user.name}'),
@@ -66,31 +69,277 @@ class _PersonalUserViewState extends State<PersonalUserView> {
           ),
         ],
       ),
-      body: Column(
-        children: [
-          Text('Full Name: ${widget.user.name}'),
-          Text('Number of times vaccinated: ${widget.user.numVac}'),
-          Text('Date of Birth: ${widget.user.dateOfBirth}'),
-          const Text(
-              'Insert Image here or somewhere around here'), // Do this*****
-          QrImage(
-            // This string will be pulled from cache
-            // This info, on signup, will be saved in cache so it can be accessed offline... don't know what to do about images tho... still thinking
-            data: generatedString,
-            version: QrVersions.auto,
-            size: 320,
+      body: Container(
+        constraints: const BoxConstraints.expand(),
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/backgroundQR.png"),
+                fit: BoxFit.cover)),
+        child: SafeArea(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              // Text('Full Name: ${widget.user.name}'),
+              // Text('Number of times vaccinated: ${widget.user.numVac}'),
+              // Text('Date of Birth: ${widget.user.dateOfBirth}'),
+              // const Text(
+              //     'Insert Image here or somewhere around here'), // Do this*****
+
+              SizedBox(height: size.height * 0.09),
+              Stack(
+                
+                children: <Widget>[
+                  Center(
+                    child: SizedBox(
+                        width: 300,
+                        height: 300,
+                        child: SvgPicture.asset(
+                          "assets/qrBorder.svg",
+                          color: kWhiteColor,
+                          ),
+                      ),
+                  ),
+                  Center(
+                    child: Container(
+                      padding: const EdgeInsets.symmetric(vertical: 6.5),
+                      child: QrImage(
+                      // This string will be pulled from cache
+                      // This info, on signup, will be saved in cache so it can be accessed offline... don't know what to do about images tho... still thinking
+                      data: generatedString,
+                      version: QrVersions.auto,
+                      size: 300 *0.95,
+                      foregroundColor: kWhiteColor,
+                                      ),
+                    ),
+                  ),
+                ],
+              ),
+              SizedBox(height: size.height * 0.007),
+
+              Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: <Widget>[
+                  Text("$number",
+                  style: const TextStyle(
+                        color: kWhiteColor,
+                        fontSize: 14,
+                        fontFamily: 'SF',
+                      ),
+                    )
+                ],
+              ),
+
+              Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                SizedBox(width: size.width * 0.10),
+
+                Column(
+                  children: [
+                    SizedBox(height: size.height * 0.009),
+                    TextButton(
+                      onPressed: () {
+                        generateNewNowTime(true);
+                        },
+                      child: const Text("Generate QR",
+                       style: TextStyle(
+                            color: kWhiteColor,
+                            fontSize: 14,
+                            fontFamily: 'SF',
+                            fontWeight: FontWeight.w700
+                          ),
+                        ),
+                      ),
+                  ],
+                ),
+                SizedBox(width: size.width * 0.39),
+
+                IconButton(
+                  onPressed: (){
+                    showBottomSheet(context);
+                  }, //NEED TO SHOW MODAL BOTTOM SHEET
+                  icon: SvgPicture.asset("assets/showMe.svg"),
+                  iconSize: 45.0,
+                  ),
+              ]),
+            ],
           ),
-          TextButton(
-            onPressed: () {
-              generateNewNowTime(true);
-            },
-            child: const Text("Generate New Code"),
-          ),
-          Text("$number"),
-        ],
+        ),
       ),
     );
   }
+
+void showBottomSheet(context){
+  Size size = MediaQuery.of(context).size;
+  String formattedDate = DateFormat.yMMMMd('en_US').format(widget.user.dateOfBirth);
+  showModalBottomSheet(
+    shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.vertical(
+      top: Radius.circular(20),
+    ),
+  ),
+  isDismissible: true,
+  context: context,
+  builder: (BuildContext bc) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const Text(
+                "Information",
+                style: TextStyle(
+                  color: kPrimeColor,
+                  fontFamily: 'SF',
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const Spacer(),
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.cancel_outlined,
+                  color: kPrimeColor,
+                  size: 25,
+                ),
+              ),
+            ],
+          ),
+
+          Container(
+            width: 100.0,
+            height: 100.0,
+            decoration: BoxDecoration(
+                shape: BoxShape.circle,
+                image: DecorationImage(
+                    fit: BoxFit.fitWidth,
+                    image: NetworkImage(widget.user.imageUrl!)))
+          ),
+          const SizedBox(
+            height: 27,
+          ),
+          // Padding(
+          //   padding: const EdgeInsets.only(right: 13),
+          //   child: Container(
+          //     height: 10,
+          //     width: MediaQuery.of(context).size.width,
+          //     color: kBorderColor,
+          //   ),
+          // ),
+          // const SizedBox(
+          //   height: 20,
+          // ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: const Text(
+                  "Full Name:",
+                  style: TextStyle(
+                    color: kTextColor,
+                    fontFamily: 'SF',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
+              ),
+              const Spacer(),
+              Container(
+                padding: const EdgeInsets.only(bottom: 10, right: 14),
+                child: Text(
+                  widget.user.name,
+                  style: const TextStyle(
+                    color: kTextColor,
+                    fontFamily: 'SF',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: const Text(
+                  "Date of Birth:",
+                  style: TextStyle(
+                    color: kTextColor,
+                    fontFamily: 'SF',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
+              ),
+              const Spacer(),
+              Container(
+                padding: const EdgeInsets.only(bottom: 10, right: 14),
+                child: Text(
+                  formattedDate,
+                  style: const TextStyle(
+                    color: kTextColor,
+                    fontFamily: 'SF',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: const Text(
+                  "Vaccinated:",
+                  style: TextStyle(
+                    color: kTextColor,
+                    fontFamily: 'SF',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
+              ),
+              const Spacer(),
+              Container(
+                padding: const EdgeInsets.only(bottom: 10, right: 16),
+                child: Text(
+                  "${widget.user.numVac}",
+                  style: const TextStyle(
+                    color: kPrimeColor,
+                    fontFamily: 'SF',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  });
+}
 
   String generateCode() {
     PersonalUserModel currentUser = widget.user;

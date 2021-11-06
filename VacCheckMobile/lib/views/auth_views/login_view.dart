@@ -48,27 +48,54 @@ class _LoginViewState extends State<LoginView> {
       //   title: const Text('Firebase Authentication'),
       // ),
       body: Container(
-        constraints: BoxConstraints.expand(),
+      
+        constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/splashScreen.jpg"),
+                image: AssetImage("assets/backgroundScreen.png"),
                 fit: BoxFit.cover)),
         child: SafeArea(
           child: SingleChildScrollView(
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
-                SizedBox(height: size.height * 0.10),
-                SizedBox(
-                  width: 190,
-                  height: 190,
-                  child: SvgPicture.asset(
-                    "assets/logoVac.svg",
-                    color: kWhiteColor,
-                  ),
-                ),
+                SizedBox(height: size.height * 0.24),
 
-                SizedBox(height: size.height * 0.08),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                  SizedBox(width: size.width * 0.07),
+                  SizedBox(
+                    width: 50,
+                    height: 50,
+                    child: SvgPicture.asset(
+                      "assets/logoVac.svg",
+                      color: kPrimeColor,
+                      ),
+                  ),
+
+                  SizedBox(width: size.width * 0.015),
+
+                  Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                      SizedBox(height: size.height * 0.016),
+                      const Text(
+                      "VacCheck",
+                      style: TextStyle(
+                        color: kPrimeColor,
+                        fontWeight: FontWeight.w600,
+                        fontFamily: 'SF',
+                        fontSize: 36)
+                      ),
+                    ]
+                  ),
+                ],              
+                ),
+                
+                SizedBox(height: size.height * 0.02),
 
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 30),
@@ -79,6 +106,7 @@ class _LoginViewState extends State<LoginView> {
                     decoration: BoxDecoration(
                       color: kWhiteColor,
                       borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: kPrimeColor,)
                     ),
                     child: TextField(
                       style:
@@ -90,7 +118,7 @@ class _LoginViewState extends State<LoginView> {
                           Icons.person,
                           color: kPrimaryColor,
                         ),
-                        border: InputBorder.none,
+                        border: InputBorder.none
                       ),
                     ),
                   ),
@@ -107,6 +135,7 @@ class _LoginViewState extends State<LoginView> {
                     decoration: BoxDecoration(
                       color: kWhiteColor,
                       borderRadius: BorderRadius.circular(10),
+                      border: Border.all(color: kPrimeColor,)
                     ),
                     child: TextField(
                       style:
@@ -141,7 +170,7 @@ class _LoginViewState extends State<LoginView> {
                   padding:
                       const EdgeInsets.symmetric(horizontal: 134, vertical: 3),
                   decoration: BoxDecoration(
-                    color: kWhiteColor,
+                    color: kPrimeColor,
                     borderRadius: BorderRadius.circular(29),
                   ),
                   child: TextButton(
@@ -153,7 +182,7 @@ class _LoginViewState extends State<LoginView> {
                     child: const Text(
                       "Sign In",
                       style: TextStyle(
-                        color: kPrimaryLightColor,
+                        color: kWhiteColor,
                         fontFamily: "SF",
                         fontSize: 17,
                         fontWeight: FontWeight.w600,
@@ -170,7 +199,7 @@ class _LoginViewState extends State<LoginView> {
                   text: TextSpan(
                       text: "Don't have an account? ",
                       style: const TextStyle(
-                        color: kWhiteColor,
+                        color: kPrimeColor,
                         fontSize: 14,
                         fontFamily: 'SF',
                       ),
@@ -186,7 +215,7 @@ class _LoginViewState extends State<LoginView> {
                                 );
                               },
                             style: const TextStyle(
-                                color: kWhiteColor,
+                                color: kPrimeColor,
                                 fontWeight: FontWeight.w800,
                                 fontFamily: 'SF',
                                 fontSize: 16))

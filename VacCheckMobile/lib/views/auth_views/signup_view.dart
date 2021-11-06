@@ -5,6 +5,7 @@ import 'package:provider/src/provider.dart';
 import 'package:vaccheck/controller/auth_controller.dart';
 import 'package:vaccheck/firebase/auth_service.dart';
 import 'package:vaccheck/model/user_models/personal_user_model.dart';
+import 'package:vaccheck/constants.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);
@@ -65,21 +66,29 @@ class _SignUpViewState extends State<SignUpView> {
                     ),
                   ],
                 ),
-                Center(
-                  child: ElevatedButton(
-                    onPressed: () {
+                
+                Container(
+                margin: const EdgeInsets.symmetric(vertical: 5),
+                padding:
+                    const EdgeInsets.symmetric(horizontal: 134, vertical: 3),
+                decoration: BoxDecoration(
+                  color: kPrimeColor,
+                  borderRadius: BorderRadius.circular(29),
+                ),
+                child: TextButton(
+                  onPressed: () {
                       if (_formKey.currentState!.validate()) {
-                        if (email != null &&
-                            password != null &&
-                            name != null &&
-                            dateOfBirth != null) {
-                          PersonalUserModel newUser =
-                              PersonalUserModel.initalSignup(
-                                  name: name!,
-                                  email: email!,
-                                  dateOfBirth: dateOfBirth!);
-                          try {
-                            context
+                      if (email != null &&
+                          password != null &&
+                          name != null &&
+                          dateOfBirth != null) {
+                        PersonalUserModel newUser =
+                            PersonalUserModel.initalSignup(
+                                name: name!,
+                                email: email!,
+                                dateOfBirth: dateOfBirth!);
+                        try {
+                           context
                                 .read<AuthService>()
                                 .signUp(newUser: newUser, password: password!)
                                 .then((value) => Navigator.pop(context));
