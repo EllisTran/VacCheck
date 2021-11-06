@@ -82,13 +82,24 @@ class _LoginViewState extends State<LoginView> {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
                       SizedBox(height: size.height * 0.016),
-                      const Text(
-                      "VacCheck",
-                      style: TextStyle(
-                        color: kPrimeColor,
-                        fontWeight: FontWeight.w600,
-                        fontFamily: 'SF',
-                        fontSize: 36)
+                      Row(
+                        children: const <Widget>[
+                          Text(
+                          "Vac",
+                          style: TextStyle(
+                            color: kPrimeColor,
+                            fontFamily: 'Roboto-Bold',
+                            fontSize: 36)
+                          ),
+                          Text(
+                          "Check",
+                          style: TextStyle(
+                            color: kPrimeColor,
+                            fontFamily: 'Roboto-Light',
+                            fontSize: 36)
+                          ),
+                          
+                        ],
                       ),
                     ]
                   ),
@@ -165,34 +176,36 @@ class _LoginViewState extends State<LoginView> {
                   ),
                 ),
                 SizedBox(height: size.height * 0.03),
-                Container(
-                  margin: const EdgeInsets.symmetric(vertical: 5),
-                  padding:
-                      const EdgeInsets.symmetric(horizontal: 134, vertical: 3),
-                  decoration: BoxDecoration(
-                    color: kPrimeColor,
-                    borderRadius: BorderRadius.circular(29),
-                  ),
-                  child: TextButton(
+                SizedBox(
+                  width: size.width * 0.85,
+                  height: size.height * 0.0657,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        splashFactory: NoSplash.splashFactory,
+                        primary: kPrimeColor, // background
+                        onPrimary: Colors.white, // foreground
+                        shape: const RoundedRectangleBorder(
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(29)))),
                     onPressed: () {
                       context.read<AuthService>().signIn(
-                          email: authController.emailController.text,
-                          password: authController.passwordController.text);
+                        email: authController.emailController.text,
+                        password: authController.passwordController.text);
                     },
                     child: const Text(
-                      "Sign In",
-                      style: TextStyle(
-                        color: kWhiteColor,
-                        fontFamily: "SF",
-                        fontSize: 17,
-                        fontWeight: FontWeight.w600,
-                        // fontWeight: FontWeight.w400,
+                        "Sign In",
+                        style: TextStyle(
+                          color: kWhiteColor,
+                          fontFamily: "SF",
+                          fontSize: 17,
+                          fontWeight: FontWeight.w600,
+                        ),
                       ),
                     ),
-                  ),
                 ),
 
-                SizedBox(height: size.height * 0.01),
+                SizedBox(height: size.height * 0.015),
 
                 RichText(
                   textAlign: TextAlign.center,

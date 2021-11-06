@@ -73,14 +73,33 @@ class _SplashScreenState extends State<SplashScreen> {
                   ),
                 ),
                 SizedBox(height: size.height * 0.05),
-                const Text(
-                  "VacCheck",
-                style: TextStyle(
-                  color: kWhiteColor,
-                  fontWeight: FontWeight.w800,
-                  fontFamily: 'SF',
-                  fontSize: 36)
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: const <Widget>[
+                    Text(
+                    "Vac",
+                    style: TextStyle(
+                      color: kWhiteColor,
+                      fontFamily: 'Roboto-Bold',
+                      fontSize: 36)
+                    ),
+                    Text(
+                    "Check",
+                    style: TextStyle(
+                      color: kWhiteColor,
+                      fontFamily: 'Roboto-Light',
+                      fontSize: 36)
+                    ),                   
+                  ],
                 ),
+                // const Text(
+                //   "VacCheck",
+                // style: TextStyle(
+                //   color: kWhiteColor,
+                //   fontWeight: FontWeight.w800,
+                //   fontFamily: 'SF',
+                //   fontSize: 36)
+                // ),
 
                 SizedBox(height: size.height * 0.15),
                 const CircularProgressIndicator(

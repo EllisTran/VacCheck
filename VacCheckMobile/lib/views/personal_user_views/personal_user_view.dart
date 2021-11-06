@@ -122,7 +122,7 @@ class _PersonalUserViewState extends State<PersonalUserView> {
                       version: QrVersions.auto,
                       size: 300 *0.95,
                       foregroundColor: kWhiteColor,
-                                      ),
+                      ),
                     ),
                   ),
                 ],
@@ -156,6 +156,9 @@ class _PersonalUserViewState extends State<PersonalUserView> {
                       onPressed: () {
                         generateNewNowTime(true);
                         },
+                      style: ButtonStyle(
+                      overlayColor: MaterialStateColor.resolveWith((states) => Colors.transparent),
+                      ),
                       child: const Text("Generate QR",
                        style: TextStyle(
                             color: kWhiteColor,
