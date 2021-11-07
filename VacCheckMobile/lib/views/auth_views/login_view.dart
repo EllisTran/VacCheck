@@ -48,7 +48,6 @@ class _LoginViewState extends State<LoginView> {
       //   title: const Text('Firebase Authentication'),
       // ),
       body: Container(
-      
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(
             image: DecorationImage(
@@ -95,7 +94,7 @@ class _LoginViewState extends State<LoginView> {
                           "Check",
                           style: TextStyle(
                             color: kPrimeColor,
-                            fontFamily: 'Roboto-Light',
+                            fontFamily: 'Roboto-Thin',
                             fontSize: 36)
                           ),
                           

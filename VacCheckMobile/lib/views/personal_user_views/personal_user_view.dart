@@ -85,7 +85,7 @@ class _PersonalUserViewState extends State<PersonalUserView> {
         constraints: const BoxConstraints.expand(),
         decoration: const BoxDecoration(
             image: DecorationImage(
-                image: AssetImage("assets/backgroundQR.png"),
+                image: AssetImage("assets/backgroundScreenbuscus.png"),
                 fit: BoxFit.cover)),
         child: SafeArea(
           child: Column(
@@ -100,7 +100,6 @@ class _PersonalUserViewState extends State<PersonalUserView> {
 
               SizedBox(height: size.height * 0.084),
               Stack(
-                
                 children: <Widget>[
                   Center(
                     child: SizedBox(

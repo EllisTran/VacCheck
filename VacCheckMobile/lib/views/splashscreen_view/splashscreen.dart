@@ -87,7 +87,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     "Check",
                     style: TextStyle(
                       color: kWhiteColor,
-                      fontFamily: 'Roboto-Light',
+                      fontFamily: 'Roboto-Thin',
                       fontSize: 36)
                     ),                   
                   ],

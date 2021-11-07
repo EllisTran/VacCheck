@@ -2,7 +2,9 @@ import 'dart:io';
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 import 'package:qr_code_scanner/qr_code_scanner.dart';
+import 'package:vaccheck/constants.dart';
 import 'package:vaccheck/controller/qr_code_controller.dart';
 import 'package:vaccheck/firebase/firebase_wrapper.dart';
 import 'package:vaccheck/model/user_models/personal_user_model.dart';
@@ -45,46 +47,58 @@ class _QRScanViewState extends State<QRScanView> {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: <Widget>[
-        Expanded(
-          flex: 1,
-          child: Container(),
-        ), // I think there is a better way to do this? I am not sure.. remove this and change flex on the the next expanded and youll know what i mean
-        Expanded(
-          flex: 5,
-          child: SizedBox(
-            width: MediaQuery.of(context).size.width * .90,
-            child: QRView(
-              key: qrKey,
-              onQRViewCreated: _onQRViewCreated,
-              overlay: QrScannerOverlayShape(),
-            ),
-          ),
+    Size size = MediaQuery.of(context).size;
+    return Container(
+      constraints: const BoxConstraints.expand(),
+        decoration: const BoxDecoration(
+            image: DecorationImage(
+                image: AssetImage("assets/backgroundScreenbuscus.png"),
+                fit: BoxFit.cover)),
+      child: SafeArea(
+        child: Column(
+          children: <Widget>[
+            SizedBox(height: size.height * 0.05),
+
+            // QRView(
+            //       key: qrKey,
+            //       onQRViewCreated: _onQRViewCreated,
+            //       overlay: QrScannerOverlayShape(borderColor: kWhiteColor),
+            //     ),
+            
+            SizedBox(
+                width: MediaQuery.of(context).size.width * .90,
+                child: QRView(
+                  key: qrKey,
+                  onQRViewCreated: _onQRViewCreated,
+                  overlay: QrScannerOverlayShape(borderColor: kWhiteColor),
+                ),
+              ),
+
+            // Expanded(flex: 1, child: Container()),
+            // Expanded(
+            //   flex: 3,
+            //   child: (result != null)
+            //       ? Container(
+            //           color: Colors.white,
+            //           width: MediaQuery.of(context).size.width,
+            //           child: (isValidCode == "true")
+            //               ? Column(
+            //                   children: [
+            //                     Text('Name: $name'),
+            //                     Text('Date of Birth: $dateOfBirth'),
+            //                     Text('Number of times Vaccinated: $numVac'),
+            //                     ScannedUser(
+            //                         user: readScannedUser(
+            //                             userId!)) // Gets image... maybe i need to move this im not sure yet
+            //                   ],
+            //                 )
+            //               : const Center(child: Text("Invalid Code!")))
+            //       : const Text('Scan a code'),
+            // ),
+          ],
+          // ),
         ),
-        Expanded(flex: 1, child: Container()),
-        Expanded(
-          flex: 3,
-          child: (result != null)
-              ? Container(
-                  color: Colors.white,
-                  width: MediaQuery.of(context).size.width,
-                  child: (isValidCode == "true")
-                      ? Column(
-                          children: [
-                            Text('Name: $name'),
-                            Text('Date of Birth: $dateOfBirth'),
-                            Text('Number of times Vaccinated: $numVac'),
-                            ScannedUser(
-                                user: readScannedUser(
-                                    userId!)) // Gets image... maybe i need to move this im not sure yet
-                          ],
-                        )
-                      : const Center(child: Text("Invalid Code!")))
-              : const Text('Scan a code'),
-        ),
-      ],
-      // ),
+      ),
     );
   }
 
