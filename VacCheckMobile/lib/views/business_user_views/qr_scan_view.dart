@@ -1,5 +1,4 @@
 import 'dart:io';
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
@@ -10,6 +9,7 @@ import 'package:vaccheck/firebase/firebase_wrapper.dart';
 import 'package:vaccheck/model/user_models/personal_user_model.dart';
 import 'package:vaccheck/model/user_models/user_model.dart';
 import 'package:vaccheck/views/business_user_views/scanned_user.dart';
+import 'package:intl/intl.dart';
 
 class QRScanView extends StatefulWidget {
   const QRScanView(
@@ -29,7 +29,7 @@ class _QRScanViewState extends State<QRScanView> {
 
   String? name;
   String? dateTime;
-  String? dateOfBirth;
+  DateTime? dateOfBirth;
   String? numVac;
   String? userId;
   String? isValidCode;
@@ -57,15 +57,11 @@ class _QRScanViewState extends State<QRScanView> {
       child: SafeArea(
         child: Column(
           children: <Widget>[
-            SizedBox(height: size.height * 0.05),
-
-            // QRView(
-            //       key: qrKey,
-            //       onQRViewCreated: _onQRViewCreated,
-            //       overlay: QrScannerOverlayShape(borderColor: kWhiteColor),
-            //     ),
-            
-            SizedBox(
+            Expanded(flex: 1, child: Container()),
+       
+            Expanded(
+              flex: 5,
+              child: SizedBox(
                 width: MediaQuery.of(context).size.width * .90,
                 child: QRView(
                   key: qrKey,
@@ -73,28 +69,57 @@ class _QRScanViewState extends State<QRScanView> {
                   overlay: QrScannerOverlayShape(borderColor: kWhiteColor),
                 ),
               ),
+            ),
+      
+            Expanded(flex: 1, child: Container()),
+            Expanded(
+              flex: 3,
+              child: (result != null)
+                  ? Container(
+                      color: Colors.white,
+                      width: MediaQuery.of(context).size.width,
+                      child: (isValidCode == "true")
+                          ? Column(
+                              children: [
+                                Text('Name: $name'),
+                                Text('Date of Birth: $dateOfBirth'),
+                                Text('Number of times Vaccinated: $numVac'),
+                                ScannedUser(
+                                user: readScannedUser(
+                                    userId!)) // Gets image
+                              ],
+                            )
+                          : const Center(child: Text("Invalid Code!")))
+                  : Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    children: const [
+                      Text("Searching...",style: 
+                            TextStyle(
+                              color: kWhiteColor,
+                              fontSize: 18,
+                              fontFamily: 'SF',
+                              fontWeight: FontWeight.w700
+                            ),
+                      ),
+                      SizedBox(height: 5),
+                      Padding(
+                        padding: EdgeInsets.only(right: 3),
+                        child: Text("please put QR code under the camera",
+                        style: 
+                        TextStyle(
+                          color: kWhiteColor,
+                          fontSize: 14,
+                          fontFamily: 'SF',
+                        ),
+                        ),
+                      ),
+                    ],
+                  ),
 
-            // Expanded(flex: 1, child: Container()),
-            // Expanded(
-            //   flex: 3,
-            //   child: (result != null)
-            //       ? Container(
-            //           color: Colors.white,
-            //           width: MediaQuery.of(context).size.width,
-            //           child: (isValidCode == "true")
-            //               ? Column(
-            //                   children: [
-            //                     Text('Name: $name'),
-            //                     Text('Date of Birth: $dateOfBirth'),
-            //                     Text('Number of times Vaccinated: $numVac'),
-            //                     ScannedUser(
-            //                         user: readScannedUser(
-            //                             userId!)) // Gets image... maybe i need to move this im not sure yet
-            //                   ],
-            //                 )
-            //               : const Center(child: Text("Invalid Code!")))
-            //       : const Text('Scan a code'),
-            // ),
+                
+                  
+            ),
           ],
           // ),
         ),
@@ -139,4 +164,176 @@ class _QRScanViewState extends State<QRScanView> {
     controller.dispose();
     super.dispose();
   }
+
+  void showBottomSheet(context, String name, DateTime dob, String numVac){
+  Size size = MediaQuery.of(context).size;
+  String formattedDate = DateFormat.yMMMMd('en_US').format(dob);
+  showModalBottomSheet(
+    shape: const RoundedRectangleBorder(
+    borderRadius: BorderRadius.vertical(
+      top: Radius.circular(20),
+    ),
+  ),
+  isDismissible: true,
+  context: context,
+  builder: (BuildContext bc) {
+    return Padding(
+      padding: const EdgeInsets.all(16),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        mainAxisSize: MainAxisSize.min,
+        children: <Widget>[
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              const Text(
+                "Information",
+                style: TextStyle(
+                  color: kPrimeColor,
+                  fontFamily: 'SF',
+                  fontSize: 18,
+                  fontWeight: FontWeight.w800,
+                ),
+              ),
+              const Spacer(),
+              IconButton(
+                onPressed: () {
+                  Navigator.pop(context);
+                },
+                icon: const Icon(
+                  Icons.cancel_outlined,
+                  color: kPrimeColor,
+                  size: 25,
+                ),
+              ),
+            ],
+          ),
+
+          // Container(
+          //   width: 100.0,
+          //   height: 100.0,
+          //   decoration: BoxDecoration(
+          //       shape: BoxShape.circle,
+          //       image: DecorationImage(
+          //           fit: BoxFit.fitWidth,
+          //           image: NetworkImage(this.imageUrl!)))
+          // ),
+          // const SizedBox(
+          //   height: 27,
+          // ),
+
+          // Padding(
+          //   padding: const EdgeInsets.only(right: 13),
+          //   child: Container(
+          //     height: 10,
+          //     width: MediaQuery.of(context).size.width,
+          //     color: kBorderColor,
+          //   ),
+          // ),
+          // const SizedBox(
+          //   height: 20,
+          // ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: const Text(
+                  "Full Name:",
+                  style: TextStyle(
+                    color: kTextColor,
+                    fontFamily: 'SF',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
+              ),
+              const Spacer(),
+              Container(
+                padding: const EdgeInsets.only(bottom: 10, right: 14),
+                child: Text(
+                  name,
+                  style: const TextStyle(
+                    color: kTextColor,
+                    fontFamily: 'SF',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: const Text(
+                  "Date of Birth:",
+                  style: TextStyle(
+                    color: kTextColor,
+                    fontFamily: 'SF',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
+              ),
+              const Spacer(),
+              Container(
+                padding: const EdgeInsets.only(bottom: 10, right: 14),
+                child: Text(
+                  formattedDate,
+                  style: const TextStyle(
+                    color: kTextColor,
+                    fontFamily: 'SF',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(
+            height: 5,
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: <Widget>[
+              Container(
+                padding: const EdgeInsets.only(bottom: 10),
+                child: const Text(
+                  "Vaccinated:",
+                  style: TextStyle(
+                    color: kTextColor,
+                    fontFamily: 'SF',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w200,
+                  ),
+                ),
+              ),
+              const Spacer(),
+              Container(
+                padding: const EdgeInsets.only(bottom: 10, right: 16),
+                child: Text(
+                  numVac,
+                  style: const TextStyle(
+                    color: kPrimeColor,
+                    fontFamily: 'SF',
+                    fontSize: 14,
+                    fontWeight: FontWeight.w800,
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ],
+      ),
+    );
+  });
+  }
 }
+
+
