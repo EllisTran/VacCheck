@@ -587,3 +587,106 @@
     }
 
 }
+
+
+@media screen and (max-width: 2880px) and (min-width:2700px){
+    .btn2{
+        left: 44%;
+        top: 56%;
+    }
+    .wa{
+        left: 44%;
+        top: 41%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+    .full{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 44%;
+        top: 33%;
+    }
+    .puth1{
+        left: 44%;
+        top: 35%;
+        width: 150px;
+    }
+    
+    .npi{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 44%;
+        top: 37%;
+    }
+    .puth2{
+        left: 44%;
+        top: 39%;
+        width: 150px;
+       
+    }
+    .puth3{
+        left: 44%;
+        top: 43%;
+        width: 150px;
+    }
+    
+    .puth4{
+        left: 49%;
+        top: 43%;
+        width: 150px;
+    }
+    
+    .puth5
+    {
+        left: 54%;
+        top: 43%;
+        width: 150px;
+       
+    }
+    
+    .ea1{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left:44%;
+        top: 47%;
+    }
+    
+    .pass3{
+        left:44%;
+        top: 51%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+    }
+    
+    .puth6
+    {   
+        left: 44%;
+        top: 45%;
+        width: 150px;
+    }
+    .puth7
+    {
+        left: 50%;
+        top: 45%;
+        width: 150px;
+    }
+    
+    .puth8
+    {
+        left:44%;
+        top: 49%;
+        width: 150px;
+    }
+    .puth9
+    {
+        left:44%;
+        top: 53%;
+        width: 150px;
+    }
+
+}

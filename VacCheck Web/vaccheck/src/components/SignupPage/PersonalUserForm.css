@@ -372,6 +372,7 @@
         left: 8%;
         top: 73%;
 
+
     
     }
     .ssn{
@@ -440,6 +441,84 @@
     {
         left: 5%;
         top: 70%;
+
+    }
+
+}
+
+@media screen and (max-width: 2880px) and (min-width:2700px){
+    .btn{
+        left: 45%;
+        top: 55%;
+
+    
+    }
+    .ssn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 44%;
+        top: 41%;
+    }
+    .fn{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        font-size:15px;
+        left: 44%;
+        top: 34%;
+    }
+    .put1{
+    
+        left: 44%;
+        top: 35%;
+      
+    }
+    
+    .dateofbirth{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 44%;
+        top: 37%;
+    
+    }
+    .put2{
+        left: 44%;
+        top: 39%;
+
+    }
+    .put3{
+        left: 44%;
+        top: 43%;
+
+    }
+    .EM{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 44%;
+        top: 45%;
+
+   
+    }
+    .put4{
+        left: 44%;
+        top: 47%;
+
+    }
+    .pass{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: clip;
+        left: 44%;
+        top: 49%;
+
+    }
+    .put5
+    {
+        left: 44%;
+        top: 51%;
 
     }
 
