@@ -1,5 +1,4 @@
 .header {
-  font-family: Lato;
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -9,16 +8,16 @@
 }
 
 .header .links {
-  font-family: Lato;
+  font-family: 'Montserrat', sans-serif;
   font-size: 20px;
   color: white;
-  font-weight: 1000;
+  font-weight: 100;
 }
 
-.header .navbar li {
-  font-family: Lato;
-  font-weight: 10;
-  font-size: larger;
+.header .navbar li  {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+  font-size: 18px;
   margin-right: 70px;
   list-style: none;
 }

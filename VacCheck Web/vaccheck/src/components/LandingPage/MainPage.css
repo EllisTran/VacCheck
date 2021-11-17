@@ -4,11 +4,11 @@
   background-size: cover;
   background-repeat: no-repeat;
   background-attachment: fixed;
-  width:100%;
   height:100%;
 }
 
 .mainpage .overlay {
+  /* background-color: rgba(0,0,0,0.4); */
   display: flex;
   flex-direction: column;
   align-items: left;
@@ -16,16 +16,19 @@
   height: 900px;
   color: white;
   margin-left: 5%;
+  /* background-color: rgba(0,0,0,0.4); */
 }
 
 .mainpage .overlay h1 {
-  font-family: "Roboto";
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 1000;
   font-size: 50px;
   padding-bottom: 20px;
 }
 
 .mainpage .overlay p1 {
-  font-family: "Roboto";
-  font-size: 25px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 23px;
+  margin-top: 2%;
   text-align: left;
 }

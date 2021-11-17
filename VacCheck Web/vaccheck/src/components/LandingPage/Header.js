@@ -1,11 +1,8 @@
-import React, { useState } from "react";
-// import MenuIcon from "@material-ui/icons/Menu";
-// import Sidebar from "./Sidebar";
-import { Link, NavLink } from "react-router-dom";
+import React from "react";
+import { Link } from "react-scroll";
 import "./Header.css";
-import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
-import UserInput from "../LoginPage/UserInput";
-import Login from "../LoginPage/Login";
+import { Link as Linker } from "react-router-dom";
+
 
 const Header = () => {
   return (
@@ -17,25 +14,34 @@ const Header = () => {
       </div>
 
       <nav className="navbar">
-        <Router>
-          <li>
-            <Link to="welcome" smooth={true} style={{ textDecoration: "none" }}>
-              Welcome
-            </Link>
-          </li>
+        <li>
+          <Link
+            to="demo"
+            smooth={true}
+            duration={10}
+            style={{ textDecoration: "none" }}
+          >
+            Demo
+          </Link>
+        </li>
 
-          <li>
-            <Link to="about" smooth={true} style={{ textDecoration: "none" }}>
-              About
-            </Link>
-          </li>
+        <li>
+          <Link
+            to="about"
+            smooth={true}
+            offset={70}
+            duration={10}
+            style={{ textDecoration: "none" }}
+          >
+            About
+          </Link>
+        </li>
 
-          <li>
-            <Link to={"/Login"} style={{ textDecoration: "none" }}>
-              LogIn
-            </Link>
-          </li>
-        </Router>
+        <li>
+          <Linker to="/userInput" style={{ textDecoration: "none" }}>
+            Login
+          </Linker>
+        </li>
       </nav>
     </header>
   );

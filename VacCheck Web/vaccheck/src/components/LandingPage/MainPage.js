@@ -1,28 +1,33 @@
 import React from "react";
-import { Route, Router, Link } from "react-router-dom";
 import "./MainPage.css";
-import UserInput from "../LoginPage/UserInput";
-import Login from "../LoginPage/Login";
-
+import Header from "./Header";
+import About from "./About";
+import Demo from "./Demo";
+import ScrollButton from "./ScrollButton";
 
 const Mainpage = () => {
   return (
     <>
+      <Header />
+
       <section className="mainpage">
         <div className="overlay">
           <h1>
-            Keep a digital version of your  <br/> COVID-19 vaccine card <br/>right in your phone.
+            Keep a digital version of your <br /> COVID-19 vaccination card{" "}
+            <br />
+            right on your phone.
           </h1>
           <p1>
             VacCheck offers the easiest and safest way for the community to help
-            cutting the transmission of the virus <br />
+            cutting the transmission <br />
             by allowing safe and clear communication between health
             professionals, businesses, and the community
           </p1>
         </div>
       </section>
-
-      
+      <Demo />
+      <About />
+      <ScrollButton />
     </>
   );
 };
