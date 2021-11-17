@@ -63,16 +63,29 @@ class _QRScanViewState extends State<QRScanView> {
             Expanded(
               flex: 5,
               child: Stack(alignment: Alignment.center, children: [
-                Container(
-                    width: MediaQuery.of(context).size.width,
-                    color: Colors.pink),
-                SizedBox(
-                  width: MediaQuery.of(context).size.width * .65,
-                  height: MediaQuery.of(context).size.height * 0.30,
-                  child: QRView(
-                    key: qrKey,
-                    onQRViewCreated: _onQRViewCreated,
-                    // overlay: QrScannerOverlayShape(borderColor: kWhiteColor),
+                //debug
+                // Container(
+                //     width: MediaQuery.of(context).size.width,
+                //     color: Colors.pink),
+                 Center(
+                    child: SizedBox(
+                        width: 300,
+                        height: 300,
+                        child: SvgPicture.asset(
+                          "assets/qrBorder.svg",
+                          color: kWhiteColor,
+                          ),
+                      ),
+                  ),
+                Center(
+                  child: SizedBox(
+                    width: MediaQuery.of(context).size.width * .68,
+                    height: MediaQuery.of(context).size.height * 0.34,
+                    child: QRView(
+                      key: qrKey,
+                      onQRViewCreated: _onQRViewCreated,
+                      // overlay: QrScannerOverlayShape(borderColor: kWhiteColor),
+                    ),
                   ),
                 ),
               ]),
@@ -168,7 +181,7 @@ class _QRScanViewState extends State<QRScanView> {
     super.dispose();
   }
 
-  void showBottomSheet(context, String name, DateTime dob, String numVac) {
+  void showSuccessBottomSheet(context, String name, DateTime dob, String numVac, String imageUrl) {
     Size size = MediaQuery.of(context).size;
     String formattedDate = DateFormat.yMMMMd('en_US').format(dob);
     showModalBottomSheet(
@@ -212,18 +225,18 @@ class _QRScanViewState extends State<QRScanView> {
                   ],
                 ),
 
-                // Container(
-                //   width: 100.0,
-                //   height: 100.0,
-                //   decoration: BoxDecoration(
-                //       shape: BoxShape.circle,
-                //       image: DecorationImage(
-                //           fit: BoxFit.fitWidth,
-                //           image: NetworkImage(this.imageUrl!)))
-                // ),
-                // const SizedBox(
-                //   height: 27,
-                // ),
+                Container(
+                  width: 100.0,
+                  height: 100.0,
+                  decoration: BoxDecoration(
+                      shape: BoxShape.circle,
+                      image: DecorationImage(
+                          fit: BoxFit.fitWidth,
+                          image: NetworkImage(imageUrl!)))
+                ),
+                const SizedBox(
+                  height: 27,
+                ),
 
                 // Padding(
                 //   padding: const EdgeInsets.only(right: 13),

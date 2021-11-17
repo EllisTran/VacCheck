@@ -6,6 +6,7 @@ import 'package:vaccheck/controller/auth_controller.dart';
 import 'package:vaccheck/firebase/auth_service.dart';
 import 'package:vaccheck/model/user_models/personal_user_model.dart';
 import 'package:vaccheck/constants.dart';
+import 'package:intl/intl.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);
@@ -26,11 +27,13 @@ class _SignUpViewState extends State<SignUpView> {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Stack(
-        alignment: Alignment.topLeft,
-        children: <Widget>[
-          IconButton(
+    Size size = MediaQuery.of(context).size;
+    
+    return Scaffold(
+        
+        appBar: AppBar(
+          titleSpacing: 4,
+          leading: IconButton(
             icon: const Icon(Icons.arrow_back),
             onPressed: (){
               Navigator.pop(context);
@@ -66,17 +69,21 @@ class _SignUpViewState extends State<SignUpView> {
                     ),
                   ],
                 ),
-                
-                Container(
-                margin: const EdgeInsets.symmetric(vertical: 5),
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 134, vertical: 3),
-                decoration: BoxDecoration(
-                  color: kPrimeColor,
-                  borderRadius: BorderRadius.circular(29),
-                ),
-                child: TextButton(
-                  onPressed: () {
+                SizedBox(height: size.height * 0.2),
+
+                SizedBox(
+                  width: size.width * 0.85,
+                  height: size.height * 0.0657,
+                  child: ElevatedButton(
+                    style: ElevatedButton.styleFrom(
+                        elevation: 0,
+                        splashFactory: NoSplash.splashFactory,
+                        primary: kPrimeColor, // background
+                        onPrimary: Colors.white, // foreground
+                        shape: const RoundedRectangleBorder(
+                            borderRadius:
+                            BorderRadius.all(Radius.circular(29)))),
+                    onPressed: () {
                       if (_formKey.currentState!.validate()) {
                       if (email != null &&
                           password != null &&
@@ -149,6 +156,6 @@ class _SignUpViewState extends State<SignUpView> {
               )),
         ],
       ),
-    );
+    ));
   }
 }
