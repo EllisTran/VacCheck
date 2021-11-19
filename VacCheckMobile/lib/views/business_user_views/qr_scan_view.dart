@@ -11,6 +11,8 @@ import 'package:vaccheck/model/user_models/user_model.dart';
 import 'package:vaccheck/views/business_user_views/scanned_user.dart';
 import 'package:intl/intl.dart';
 
+import '../show_bottom_view.dart';
+
 class QRScanView extends StatefulWidget {
   const QRScanView(
       {Key? key, void Function(QRViewController controller)? onQRViewCreated})
@@ -98,16 +100,23 @@ class _QRScanViewState extends State<QRScanView> {
                       color: Colors.white,
                       width: MediaQuery.of(context).size.width,
                       child: (isValidCode == "true")
-                          ? Column(
-                              children: [
-                                Text('Name: $name'),
-                                Text('Date of Birth: $dateOfBirth'),
-                                Text('Number of times Vaccinated: $numVac'),
-                                ScannedUser(
-                                    user:
-                                        readScannedUser(userId!)) // Gets image
-                              ],
-                            )
+                          ? ShowBottomSheet(
+                                  imageUrl: userId!,
+                                  fullName: name!,
+                                  dob: dateOfBirth!,
+                                  vacNum: int.parse(numVac!),
+                                )
+                            //      Column(
+                            //   children: [
+                                
+                            //     // Text('Name: $name'),
+                            //     // Text('Date of Birth: $dateOfBirth'),
+                            //     // Text('Number of times Vaccinated: $numVac'),
+                            //     // ScannedUser(
+                            //     //     user:
+                            //     //         readScannedUser(userId!)) // Gets image
+                            //   ],
+                            // )
                           : const Center(child: Text("Invalid Code!")))
                   : Column(
                       mainAxisAlignment: MainAxisAlignment.start,
@@ -136,6 +145,7 @@ class _QRScanViewState extends State<QRScanView> {
                       ],
                     ),
             ),
+
           ],
           // ),
         ),
@@ -179,175 +189,5 @@ class _QRScanViewState extends State<QRScanView> {
   void dispose() {
     controller.dispose();
     super.dispose();
-  }
-
-  void showSuccessBottomSheet(context, String name, DateTime dob, String numVac, String imageUrl) {
-    Size size = MediaQuery.of(context).size;
-    String formattedDate = DateFormat.yMMMMd('en_US').format(dob);
-    showModalBottomSheet(
-        shape: const RoundedRectangleBorder(
-          borderRadius: BorderRadius.vertical(
-            top: Radius.circular(20),
-          ),
-        ),
-        isDismissible: true,
-        context: context,
-        builder: (BuildContext bc) {
-          return Padding(
-            padding: const EdgeInsets.all(16),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: <Widget>[
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    const Text(
-                      "Information",
-                      style: TextStyle(
-                        color: kPrimeColor,
-                        fontFamily: 'SF',
-                        fontSize: 18,
-                        fontWeight: FontWeight.w800,
-                      ),
-                    ),
-                    const Spacer(),
-                    IconButton(
-                      onPressed: () {
-                        Navigator.pop(context);
-                      },
-                      icon: const Icon(
-                        Icons.cancel_outlined,
-                        color: kPrimeColor,
-                        size: 25,
-                      ),
-                    ),
-                  ],
-                ),
-
-                Container(
-                  width: 100.0,
-                  height: 100.0,
-                  decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      image: DecorationImage(
-                          fit: BoxFit.fitWidth,
-                          image: NetworkImage(imageUrl!)))
-                ),
-                const SizedBox(
-                  height: 27,
-                ),
-
-                // Padding(
-                //   padding: const EdgeInsets.only(right: 13),
-                //   child: Container(
-                //     height: 10,
-                //     width: MediaQuery.of(context).size.width,
-                //     color: kBorderColor,
-                //   ),
-                // ),
-                // const SizedBox(
-                //   height: 20,
-                // ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.only(bottom: 10),
-                      child: const Text(
-                        "Full Name:",
-                        style: TextStyle(
-                          color: kTextColor,
-                          fontFamily: 'SF',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w200,
-                        ),
-                      ),
-                    ),
-                    const Spacer(),
-                    Container(
-                      padding: const EdgeInsets.only(bottom: 10, right: 14),
-                      child: Text(
-                        name,
-                        style: const TextStyle(
-                          color: kTextColor,
-                          fontFamily: 'SF',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w200,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.only(bottom: 10),
-                      child: const Text(
-                        "Date of Birth:",
-                        style: TextStyle(
-                          color: kTextColor,
-                          fontFamily: 'SF',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w200,
-                        ),
-                      ),
-                    ),
-                    const Spacer(),
-                    Container(
-                      padding: const EdgeInsets.only(bottom: 10, right: 14),
-                      child: Text(
-                        formattedDate,
-                        style: const TextStyle(
-                          color: kTextColor,
-                          fontFamily: 'SF',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w200,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 5,
-                ),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: <Widget>[
-                    Container(
-                      padding: const EdgeInsets.only(bottom: 10),
-                      child: const Text(
-                        "Vaccinated:",
-                        style: TextStyle(
-                          color: kTextColor,
-                          fontFamily: 'SF',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w200,
-                        ),
-                      ),
-                    ),
-                    const Spacer(),
-                    Container(
-                      padding: const EdgeInsets.only(bottom: 10, right: 16),
-                      child: Text(
-                        numVac,
-                        style: const TextStyle(
-                          color: kPrimeColor,
-                          fontFamily: 'SF',
-                          fontSize: 14,
-                          fontWeight: FontWeight.w800,
-                        ),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          );
-        });
   }
 }
