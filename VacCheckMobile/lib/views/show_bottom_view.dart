@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:provider/src/provider.dart';
+import 'package:qr_code_scanner/qr_code_scanner.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:vaccheck/firebase/auth_service.dart';
 import 'package:vaccheck/firebase/firebase_wrapper.dart';
@@ -16,26 +17,19 @@ class ShowBottomSheet extends StatelessWidget {
   final String fullName;
   final DateTime dob;
   final int vacNum;
-  
-  const ShowBottomSheet({ Key? key , 
-  required this.imageUrl,
-  required this.fullName, 
-  required this.dob, 
-  required this.vacNum}) : super(key: key);
 
+  const ShowBottomSheet(
+      {Key? key,
+      required this.imageUrl,
+      required this.fullName,
+      required this.dob,
+      required this.vacNum})
+      : super(key: key);
 
-  void showBottomSheet(context){
-  Size size = MediaQuery.of(context).size;
-  String formattedDate = DateFormat.yMMMMd('en_US').format(this.dob);
-  showModalBottomSheet(
-    shape: const RoundedRectangleBorder(
-    borderRadius: BorderRadius.vertical(
-      top: Radius.circular(20),
-    ),
-  ),
-  isDismissible: true,
-  context: context,
-  builder: (BuildContext bc) {
+  showBottomSheet(context) {
+    Size size = MediaQuery.of(context).size;
+    // String formattedDate = DateFormat.yMMMMd('en_US').format(this.dob);
+
     return Padding(
       padding: const EdgeInsets.all(16),
       child: Column(
@@ -69,14 +63,13 @@ class ShowBottomSheet extends StatelessWidget {
           ),
 
           Container(
-            width: 100.0,
-            height: 100.0,
-            decoration: BoxDecoration(
-                shape: BoxShape.circle,
-                image: DecorationImage(
-                    fit: BoxFit.fitWidth,
-                    image: NetworkImage(this.imageUrl!)))
-          ),
+              width: 100.0,
+              height: 100.0,
+              decoration: BoxDecoration(
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      fit: BoxFit.fitWidth,
+                      image: NetworkImage(this.imageUrl!)))),
           const SizedBox(
             height: 27,
           ),
@@ -143,7 +136,7 @@ class ShowBottomSheet extends StatelessWidget {
               Container(
                 padding: const EdgeInsets.only(bottom: 10, right: 14),
                 child: Text(
-                  formattedDate,
+                  this.dob.toString(),
                   style: const TextStyle(
                     color: kTextColor,
                     fontFamily: 'SF',
@@ -190,20 +183,17 @@ class ShowBottomSheet extends StatelessWidget {
         ],
       ),
     );
-  });
   }
-  
+
+  test(BuildContext context) {
+    print('in here');
+  }
+
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
     String formattedDate = DateFormat.yMMMMd('en_US').format(dob);
-    return IconButton(
-      onPressed: (){
-        showBottomSheet(context);
-        },
-        icon: SvgPicture.asset("assets/showMe.svg"),
-        iconSize: 45.0,       
-    );
+    // print('hello world');
+    return showBottomSheet(context);
   }
 }
-

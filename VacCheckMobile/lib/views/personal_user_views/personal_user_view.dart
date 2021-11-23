@@ -171,12 +171,12 @@ class _PersonalUserViewState extends State<PersonalUserView> {
                 ),
                 SizedBox(width: size.width * 0.39),
 
-                ShowBottomSheet(
-                  imageUrl: widget.user.imageUrl!,
-                  fullName: widget.user.name,
-                  dob: widget.user.dateOfBirth,
-                  vacNum: widget.user.numVac!,
-                 ),
+                // ShowBottomSheet(
+                //   imageUrl: widget.user.imageUrl!,
+                //   fullName: widget.user.name,
+                //   dob: widget.user.dateOfBirth,
+                //   vacNum: widget.user.numVac!,
+                //  ),
               ]),
             ],
           ),
