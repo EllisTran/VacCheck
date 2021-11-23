@@ -1,13 +1,16 @@
 import React from "react";
 import "./About.css";
 import image1 from "../../assets/Ellis3.jpeg";
-import image2 from "../../assets/Patrick3.jpeg";
+import image2 from "../../assets/Patrick5.JPEG";
 import image3 from "../../assets/Sungwoo.jpeg";
 import image4 from "../../assets/Yaling.jpeg";
 import image5 from "../../assets/Yudong3.jpeg";
 
 const About = () => {
+
+
   return (
+    
     <div className="about">
       <section className="grid">
         <h5> Meet The Team </h5>
