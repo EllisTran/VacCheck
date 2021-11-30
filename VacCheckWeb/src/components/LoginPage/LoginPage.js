@@ -3,9 +3,9 @@ import Login from "./Login";
 import { BrowserRouter as Router, Route, useHistory } from "react-router-dom";
 import SignupPage from "../SignupPage/SignupPage";
 import { auth, db } from "../../firebase";
-import MainPage from "../HealthProfessionalPage/MainPage";
+import MainPage from "../HealthProfessionalPage/HealthProfessionalPage";
 
-const UserInput = () => {
+const LoginPage = () => {
   const history = useHistory();
   const [user, setUser] = useState("");
   const [email, setEmail] = useState("");
@@ -31,7 +31,7 @@ const UserInput = () => {
       db.collection("users").where('email', '==', email).get().then(result => {
         result.docs.forEach(doc => {
             if (doc.data().userType.isHealthProfessional) {
-              history.push("/healthprofessional");
+              history.push("/VacCheck/HealthProfessional");
             }
         })
       });
@@ -51,11 +51,12 @@ const UserInput = () => {
   };
 
   const handleSignup = () => {
-    history.push("/SignupPage");
+    history.push("/VacCheck/SignupPage");
   };
 
   const handleSignupSuccess = () => {
-    history.push("/");
+    console.log("Success");
+      history.push("/VacCheck/Login");
   }
 
   const handleLogOut = () => {
@@ -84,10 +85,10 @@ const UserInput = () => {
   return (
     <div className="userinput">
       <switch>
-        <Route exact path="/healthprofessional" component={MainPage}>
+        <Route exact path="/VacCheck/healthprofessional" component={MainPage}>
           <MainPage handleLogOut={handleLogOut}/>
         </Route>
-        <Route exact path="/" component={Login}>
+        <Route exact path="/VacCheck/Login" component={Login}>
           <Login //props for Login.
             email={email}
             setEmail={setEmail}
@@ -101,7 +102,7 @@ const UserInput = () => {
             passwordError={passwordError}
           />
         </Route>
-        <Route exact path="/SignupPage" component={SignupPage}>
+        <Route exact path="/VacCheck/SignupPage" component={SignupPage}>
           <SignupPage handleSignupSuccess={handleSignupSuccess}/>
         </Route>
       </switch>
@@ -109,4 +110,4 @@ const UserInput = () => {
   );
 };
 
-export default UserInput;
+export default LoginPage;

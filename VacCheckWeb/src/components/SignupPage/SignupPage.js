@@ -6,6 +6,8 @@ import PersonalUserForm from "./PersonalUserForm";
 import { db, auth } from "../../firebase";
 
 const SignupPage = (props) => {
+  
+  // const history = useHistory();
   const [accountType, setAccountType] = useState("");
   const [emailError, setEmailError] = useState(""); //for error-case(email)
   const [passwordError, setPasswordError] = useState(""); //for error-case(password)Ï
@@ -85,7 +87,7 @@ const SignupPage = (props) => {
         } else if (accountType === "HealthProfessional") {
           healthProfessionalAccountSignupHandler({ ...newAccountInfo, userId: data.user.uid });
         }
-        props.handleSignupSuccess()
+        props.history.push("/VacCheck/Login");
       })
       .catch((err) => {
         switch (err.code) {

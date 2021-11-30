@@ -2,7 +2,7 @@ import { useContext, useEffect, useRef, useState } from "react";
 import { auth, db } from "../../firebase";
 import UserInfoForm from "./UserInfoForm";
 
-const MainPage = (props) => {
+const HealthProfessionalPage = (props) => {
     const childRef = useRef();
     const [currentUser, setCurrentUser] = useState();
     const [enteredEmailAddress, setEnteredEmailAddress] = useState("");
@@ -87,4 +87,4 @@ const MainPage = (props) => {
     </div>);
 };
 
-export default MainPage;
+export default HealthProfessionalPage;
