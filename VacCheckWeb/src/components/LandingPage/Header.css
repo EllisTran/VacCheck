@@ -1,0 +1,33 @@
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 40px;
+  position: absolute;
+  width: 100%;
+}
+
+.header .links {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 20px;
+  color: white;
+  font-weight: 100;
+}
+
+.header .navbar li  {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 100;
+  font-size: 18px;
+  margin-right: 70px;
+  list-style: none;
+}
+
+.header .navbar li a {
+  color: white;
+}
+
+.header .navbar li :hover {
+    color: grey;
+    transition: 0.5s;
+  }
+  
