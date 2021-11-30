@@ -38,7 +38,7 @@ const Header = () => {
         </li>
 
         <li>
-          <Linker to="/VacCheck/Login" style={{ textDecoration: "none" }}>
+          <Linker to="/VacCheckWeb/Login" style={{ textDecoration: "none" }}>
             Login
           </Linker>
         </li>

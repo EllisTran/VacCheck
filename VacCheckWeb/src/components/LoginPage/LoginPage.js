@@ -31,7 +31,7 @@ const LoginPage = () => {
       db.collection("users").where('email', '==', email).get().then(result => {
         result.docs.forEach(doc => {
             if (doc.data().userType.isHealthProfessional) {
-              history.push("/VacCheck/HealthProfessional");
+              history.push("/VacCheckWeb/HealthProfessional");
             }
         })
       });
@@ -51,12 +51,12 @@ const LoginPage = () => {
   };
 
   const handleSignup = () => {
-    history.push("/VacCheck/SignupPage");
+    history.push("/VacCheckWeb/SignupPage");
   };
 
   const handleSignupSuccess = () => {
     console.log("Success");
-      history.push("/VacCheck/Login");
+      history.push("/VacCheckWeb/Login");
   }
 
   const handleLogOut = () => {
@@ -85,10 +85,10 @@ const LoginPage = () => {
   return (
     <div className="userinput">
       <switch>
-        <Route exact path="/VacCheck/healthprofessional" component={MainPage}>
+        <Route exact path="/VacCheckWeb/healthprofessional" component={MainPage}>
           <MainPage handleLogOut={handleLogOut}/>
         </Route>
-        <Route exact path="/VacCheck/Login" component={Login}>
+        <Route exact path="/VacCheckWeb/Login" component={Login}>
           <Login //props for Login.
             email={email}
             setEmail={setEmail}
