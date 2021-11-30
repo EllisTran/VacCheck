@@ -87,7 +87,7 @@ const SignupPage = (props) => {
         } else if (accountType === "HealthProfessional") {
           healthProfessionalAccountSignupHandler({ ...newAccountInfo, userId: data.user.uid });
         }
-        props.history.push("/VacCheck/Login");
+        props.history.push("/VacCheckWeb/Login");
       })
       .catch((err) => {
         switch (err.code) {

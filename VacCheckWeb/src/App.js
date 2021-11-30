@@ -11,10 +11,10 @@ const App = () => {
     <Router>
   
       <Switch>
-        <Route exact path="/VacCheck" component={MainPage}/>
-        <Route path="/VacCheck/Login" component={LoginPage}/>
-        <Route path="/VacCheck/SignupPage" component={SignupPage} />
-        <Route path="/VacCheck/HealthProfessional" component={HealthProfessionalPage}/>
+        <Route exact path="/VacCheckWeb" component={MainPage}/>
+        <Route path="/VacCheckWeb/Login" component={LoginPage}/>
+        <Route path="/VacCheckWeb/SignupPage" component={SignupPage} />
+        <Route path="/VacCheckWeb/HealthProfessional" component={HealthProfessionalPage}/>
       </Switch>
 
     </Router>
