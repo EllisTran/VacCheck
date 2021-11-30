@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import '../styling/HealthProfessionalForm.css'
 const HealthProfessionalForm = (props) => {
   const states = [
     {
@@ -321,41 +321,45 @@ const HealthProfessionalForm = (props) => {
   };
 
   return (
-    <form onSubmit={submitHandler}>
+    <form className="l" onSubmit={submitHandler}>
       <div>
         <div>
-          <label>Full Name</label>
+          <label className="full">Full Name</label>
           <input
+          className="puth1"
             type="text"
             value={fullName}
             onChange={fullNameChangeHandler}
           />
         </div>
         <div>
-          <label>National Provider Identifier</label>
-          <input type="text" value={nip} onChange={nipChangeHandler} />
+          <label className="npi">National Provider Identifier</label>
+          <input className="puth2" type="text" value={nip} onChange={nipChangeHandler} />
         </div>
         <div>
-          <label>Work Address</label>
+          <label className = "wa">Work Address</label>
           <input
+          className="puth3"
             type="text"
             value={street1}
             onChange={street1ChangeHandler}
             placeholder="Street Address 1"
           />
           <input
+          className="puth4"
             type="text"
             value={street2}
             onChange={street2ChangeHandler}
             placeholder="Street Address 2"
           />
           <input
+          className="puth5"
             type="text"
             value={city}
             onChange={cityChangeHandler}
             placeholder="City"
           ></input>
-          <select value={state} onChange={stateChangeHandler}>
+          <select className="puth6" value={state} onChange={stateChangeHandler}>
             <option value="" disabled selected>
               State
             </option>
@@ -364,6 +368,7 @@ const HealthProfessionalForm = (props) => {
             ))}
           </select>
           <input
+          className="puth7"
             type="number"
             value={postalCode}
             onChange={postalCodeChangeHandler}
@@ -371,16 +376,16 @@ const HealthProfessionalForm = (props) => {
           />
         </div>
         <div>
-          <label>Email Address</label>
-          <input type="email" value={emailAddress} onChange={emailAddressChangeHandler}/> 
+          <label className="ea1">Email Address</label>
+          <input className="puth8" type="email" value={emailAddress} onChange={emailAddressChangeHandler}/> 
         </div>
         <div>
-          <label>Password</label>
-          <input type="password" value={password} onChange={passwordChangeHandler}/>
+          <label className="pass3">Password</label>
+          <input className="puth9"type="password" value={password} onChange={passwordChangeHandler}/>
         </div>
       </div>
       <div>
-        <button type="submit">Sign up</button>
+        <button className="btn2"type="submit">Sign up</button>
       </div>
     </form>
   );

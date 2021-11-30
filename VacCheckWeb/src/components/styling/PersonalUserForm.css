@@ -1,0 +1,186 @@
+.l {
+    margin: 0% 60%;
+}
+.btn3{
+    position: absolute;
+    width: 140px;
+    height: 30px;
+    /* left: 330px; */
+    top: 680px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 175%;
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #FFFFFF;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    /* margin: 10px 710px; */
+    background: #3A57E8;
+    border-radius: 4px;
+}
+.ssn{
+    position: absolute;
+    /* left: 320px; */
+    top: 560px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    /* margin: 0px 710px; */
+}
+.fn{
+    position: absolute;
+    /* left: 320px; */
+    top: 450px;
+    font-family: Inter;
+    font-size: 16px;
+    color: #8A92A6;
+    /* margin: 0px 710px; */
+}
+.put1{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+
+    position: absolute;
+    width: 250px;
+    height: 33px;
+    /* left: 320px; */
+    top: 475px;
+    background: #FFFFFF;
+    border: 1px solid #3A57E8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    /* margin: 0px 710px; */
+}
+
+.dateofbirth{
+    position: absolute;
+    /* left: 320px; */
+    top: 505px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    /* margin: 0px 710px; */
+}
+.put2{
+    position: absolute;
+    /* left: 320px; */
+    top: 530px;
+    width: 250px;
+    height: 33px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    border: 1px solid #3A57E8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    /* margin: 0px 710px; */
+}
+.put3{
+    position: absolute;
+    /* left: 320px; */
+    top: 585px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    border: 1px solid #3A57E8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    /* margin: 0px 710px; */
+    width: 250px;
+    height: 33px;
+}
+
+.EM{
+    position: absolute;
+    /* left: 320px; */
+    top: 560px;
+    font-family: Inter;
+    font-size: 16px;
+    color: #8A92A6;
+}
+.put4{
+    position: absolute;
+    /* left: 320px; */
+    top: 585px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    border: 1px solid #3A57E8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    /* margin: 0px 710px; */
+    width: 250px;
+    height: 33px;
+}
+.pass{
+    position: absolute;
+    /* left: 320px; */
+    top: 618px;
+    font-family: Inter;
+    font-style: normal;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 175%;
+    color: #8A92A6;
+    flex: none;
+    order: 0;
+    flex-grow: 0;
+    /* margin: 0px 710px; */
+}
+.put5
+{
+    position: absolute;
+    /* left: 320px; */
+    top: 643px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 8px 16px;
+    background: #FFFFFF;
+    border: 1px solid #3A57E8;
+    box-sizing: border-box;
+    border-radius: 4px;
+    flex: none;
+    order: 1;
+    flex-grow: 0;
+    /* margin: 0px 710px; */
+    width: 250px;
+    height: 33px;
+}
