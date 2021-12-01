@@ -1,17 +1,12 @@
 .l {
 	padding: 0;
-	/* margin: 0% 0%; */
 	margin-top: 0%;
-	
     }
-    
     .rightColumn {
 	position: relative;
 	left: 5%;
     }
     .labelMargin {
-	/* display: flex; */
-	/* justify-content: center; */
 	position: relative;
 	margin-bottom: 5px;
     }
@@ -27,11 +22,9 @@
 	border: none;
 	border: 1px solid #3A57E8;
 	border-radius: 5px;
-	/* border-color: #3A57E8; */
     }
     .rightColumnTextBox {
 	position: relative;
-	/* left: 5%; */
 	color: #3A57E8;
 	width: 45%;
     }
@@ -41,7 +34,6 @@
     }
     .btn3{
 	position: relative;
-	/* left: 32%; */
 	width: 140px;
 	height: 44px;
 	top: 25px;
@@ -66,25 +58,8 @@
 	color: #8A92A6;
 	width: 45%;
     }
-    
-    
     .rightColumnLabel{
 	position: relative;
 	width:45%;
 	overflow: visible;
-	/* left: 153px; */
     }
-    .rightColumnLabelPw {
-	position: relative;
-	left: 123px;
-    }
-    .rightColumnLabelCN {
-	position: relative;
-	left: 111px;
-    }
-    
-    .rightColumnLabelHP {
-	position: relative;
-	left: 153px;
-    }
-    

@@ -1,6 +1,4 @@
 import '../styling/AccountFilter.css'
-import graphic from '../../assets/Graphic.png';
-import PersonalUserForm from './PersonalUserForm';
 const AccountFilter = (props) => {
   const selectChangeHandler = (event) => {
     props.onSelectAccountType(event.target.value);
