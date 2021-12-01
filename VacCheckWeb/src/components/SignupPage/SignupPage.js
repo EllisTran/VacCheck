@@ -4,9 +4,14 @@ import BusinessForm from "./BusinessForm";
 import HealthProfessionalForm from "./HealthProfessionalForm";
 import PersonalUserForm from "./PersonalUserForm";
 import { db, auth } from "../../firebase";
+import { ReactComponent as Vector2 } from '../styling/Vector2.svg';
+import Graphic from "../../assets/Graphic.png";
+import '../styling/AccountFilter.css';
+import { ReactComponent as Vector1 } from '../styling/Vector1.svg';
+import { ReactComponent as Vector4 } from '../styling/Vector4.svg';
 
 const SignupPage = (props) => {
-  
+
   // const history = useHistory();
   const [accountType, setAccountType] = useState("");
   const [emailError, setEmailError] = useState(""); //for error-case(email)
@@ -105,22 +110,38 @@ const SignupPage = (props) => {
   };
 
   return (
-    <div>
-      <AccountFilter
-        select={accountType}
-        onSelectAccountType={selectAccountTypeHandler}
-      />
-      {accountType === "PersonalUser" && (
-        <PersonalUserForm onSignup={handleSignup} />
-      )}
-      {accountType === "Business" && (
-        <BusinessForm onSignup={handleSignup} />
-      )}
-      {accountType === "HealthProfessional" && (
-        <HealthProfessionalForm
-          onSignup={handleSignup}
-        />
-      )}
+    <div className="grid-container">
+      <div>
+        <img src={Graphic} alt="graphic" className="photo" />
+      </div>
+      <div className="center">
+        <div className="logo-container">
+          <Vector2 />
+          <h1 className="logo">VacCheck</h1>
+        </div>
+        <div>
+          <h3 className="title">Sign Up</h3>
+          <AccountFilter
+            select={accountType}
+            onSelectAccountType={selectAccountTypeHandler}
+          />
+          {accountType === "PersonalUser" && (
+            <PersonalUserForm onSignup={handleSignup} />
+          )}
+          {accountType === "Business" && (
+            <BusinessForm onSignup={handleSignup} />
+          )}
+          {accountType === "HealthProfessional" && (
+            <HealthProfessionalForm
+              onSignup={handleSignup}
+            />
+          )}
+        </div>
+        
+
+      </div>
+      <Vector1 className="Vector1"/>
+      <Vector4 className="Vector4"/>
     </div>
   );
 };

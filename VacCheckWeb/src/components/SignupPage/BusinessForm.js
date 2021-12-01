@@ -1,5 +1,4 @@
 import { useState } from "react";
-import '../styling/BusinessForm.css'
 const BusinessForm = (props) => {
   const states = [
     {

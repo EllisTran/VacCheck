@@ -1,0 +1,90 @@
+.l {
+	padding: 0;
+	/* margin: 0% 0%; */
+	margin-top: 0%;
+	
+    }
+    
+    .rightColumn {
+	position: relative;
+	left: 5%;
+    }
+    .labelMargin {
+	/* display: flex; */
+	/* justify-content: center; */
+	position: relative;
+	margin-bottom: 5px;
+    }
+    input {
+	position: relative;
+	margin-bottom: 15px !important;
+    }
+    
+    .textBox {
+	position: relative;
+	width: 45%;
+	padding: 5px 10px 5px 10px;
+	border: none;
+	border: 1px solid #3A57E8;
+	border-radius: 5px;
+	/* border-color: #3A57E8; */
+    }
+    .rightColumnTextBox {
+	position: relative;
+	/* left: 5%; */
+	color: #3A57E8;
+	width: 45%;
+    }
+    .btndiv {
+	display: flex;
+	justify-content: center;
+    }
+    .btn3{
+	position: relative;
+	/* left: 32%; */
+	width: 140px;
+	height: 44px;
+	top: 25px;
+	background: #3A57E8;
+	border-radius: 4px;
+	padding: 0 0 0 0;
+    
+    }
+    .help {
+	/* font-family: Inter; */
+	font-style: normal;
+	font-weight: normal;
+	font-size: 16px; 
+	line-height: 175%;
+	/* padding: 0; */
+	color: #FFFFFF;
+    }
+    
+    .labels{
+	/* font-family: Inter; */
+	font-size: 16px;
+	color: #8A92A6;
+	width: 45%;
+    }
+    
+    
+    .rightColumnLabel{
+	position: relative;
+	width:45%;
+	overflow: visible;
+	/* left: 153px; */
+    }
+    .rightColumnLabelPw {
+	position: relative;
+	left: 123px;
+    }
+    .rightColumnLabelCN {
+	position: relative;
+	left: 111px;
+    }
+    
+    .rightColumnLabelHP {
+	position: relative;
+	left: 153px;
+    }
+    

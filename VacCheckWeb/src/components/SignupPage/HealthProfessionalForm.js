@@ -1,5 +1,4 @@
 import { useState } from "react";
-import '../styling/HealthProfessionalForm.css'
 const HealthProfessionalForm = (props) => {
   const states = [
     {

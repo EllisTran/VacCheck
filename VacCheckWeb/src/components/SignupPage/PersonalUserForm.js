@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../styling/PersonalUserForm.css';
+import '../styling/SignupPage.css';
 const PersonalUserForm = (props) => {
   const [enteredName, setEnteredName] = useState("");
   const [enteredDateOfBirth, setEnteredDateOfBirth] = useState("");
@@ -61,14 +61,16 @@ const PersonalUserForm = (props) => {
   return (
     <form className="l" onSubmit={submitHandler}>
       <div className="">
-        <div className="">
-          <label className="fn">Full Name</label>
-          <input className="put1" type="text" value={enteredName} onChange={nameChangeHandler} />
+        <div className="labelMargin">
+          <label className="labels">Full Name</label>
+          <span style={{ padding: "5%"}}></span>
+          <label className="labels rightColumnLabel">Date of Birth</label>
         </div>
         <div className="">
-          <label className="dateofbirth">Date of Birth</label>
+          <input className="textBox" type="text" value={enteredName} onChange={nameChangeHandler} />
+          <span style={{ padding: "5%"}}></span>
           <input
-          className="put2"
+            className="textBox rightColumnTextBox"
             type="date"
             min="1900-1-1"
             max="2021-12-31"
@@ -77,25 +79,28 @@ const PersonalUserForm = (props) => {
           />
         </div>
 
-        <div>
-          <label className="EM">Email Address</label>
+        <div className="labelMargin">
+          <label className="labels">Email Address</label>
+          <span style={{ padding: "5%"}}></span>
+          <label className="labels rightColumnLabel">Password</label>
+
+        </div>
+        <div className="inputMargin">
           <input
-            className="put4"
+            className="textBox"
             type="email"
             value={enteredEmailAddress}
             onChange={enteredEmailAddressChangeHandler}
           />
-        </div>
-        <div>
-          <label className="pass">Password</label>
+          <span style={{ padding: "5%"}}></span>
           <input
-          className="put5"
+            className="textBox rightColumnTextBox"
             type="password"
             value={enteredPassword}
             onChange={enteredPasswordChangeHandler}
           />
         </div>
-        <div>
+        <div className="btndiv">
           <button className="btn3" type="submit">Sign up</button>
         </div>
       </div>
