@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../styling/HealthProfessionalForm.css'
+import '../styling/SignupPage.css';
 const HealthProfessionalForm = (props) => {
   const states = [
     {
@@ -323,43 +323,50 @@ const HealthProfessionalForm = (props) => {
   return (
     <form className="l" onSubmit={submitHandler}>
       <div>
-        <div>
-          <label className="full">Full Name</label>
+        <div className="labelMargin">
+          <label className="labels">Full Name</label>
+          <span style={{ padding: "5%"}}></span>
+          <label className="labels">National Provider ID</label>
+        </div>
+        <div className="inputMargin">
+          
           <input
-          className="puth1"
+          className="textBox"
             type="text"
             value={fullName}
             onChange={fullNameChangeHandler}
           />
+          <span style={{ padding: "5%"}}></span>
+          <input className="textBox rightColumnTextBox" type="text" value={nip} onChange={nipChangeHandler} />
         </div>
-        <div>
-          <label className="npi">National Provider Identifier</label>
-          <input className="puth2" type="text" value={nip} onChange={nipChangeHandler} />
+        <div className="labelMargin">
+          <label className = "labels">Employer Address</label>
         </div>
-        <div>
-          <label className = "wa">Work Address</label>
+        <div className="inputMargin">
           <input
-          className="puth3"
+          className="textBox"
             type="text"
             value={street1}
             onChange={street1ChangeHandler}
             placeholder="Street Address 1"
           />
+          <span style={{ padding: "5%"}}></span>
           <input
-          className="puth4"
+          className="textBox rightColumnTextBox"
             type="text"
             value={street2}
             onChange={street2ChangeHandler}
             placeholder="Street Address 2"
           />
           <input
-          className="puth5"
+          className="textBox"
             type="text"
             value={city}
             onChange={cityChangeHandler}
             placeholder="City"
           ></input>
-          <select className="puth6" value={state} onChange={stateChangeHandler}>
+          <span style={{ padding: "5%"}}></span>
+          <select className="textBox rightColumnTextBox" value={state} onChange={stateChangeHandler}>
             <option value="" disabled selected>
               State
             </option>
@@ -368,24 +375,26 @@ const HealthProfessionalForm = (props) => {
             ))}
           </select>
           <input
-          className="puth7"
+          className="textBox"
             type="number"
             value={postalCode}
             onChange={postalCodeChangeHandler}
             placeholder="Postal Code"
           />
         </div>
-        <div>
-          <label className="ea1">Email Address</label>
-          <input className="puth8" type="email" value={emailAddress} onChange={emailAddressChangeHandler}/> 
+        <div className="labelMargin">
+          <label className="labels">Email Address</label>
+          <span style={{ padding: "5%"}}></span>
+          <label className="labels rightColumnLabel">Password</label>
         </div>
-        <div>
-          <label className="pass3">Password</label>
-          <input className="puth9"type="password" value={password} onChange={passwordChangeHandler}/>
+        <div className="inputMargin">
+          <input className="textBox" type="email" value={emailAddress} onChange={emailAddressChangeHandler}/> 
+          <span style={{ padding: "5%"}}></span>
+          <input className="textBox rightColumnTextBox"type="password" value={password} onChange={passwordChangeHandler}/>
         </div>
       </div>
-      <div>
-        <button className="btn2"type="submit">Sign up</button>
+      <div className="btndiv">
+        <button className="btn3"type="submit">Sign up</button>
       </div>
     </form>
   );

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import '../styling/BusinessForm.css'
+import '../styling/SignupPage.css';
 const BusinessForm = (props) => {
   const states = [
     {
@@ -322,38 +322,45 @@ const BusinessForm = (props) => {
   return (
     <form class="l"onSubmit={submitHandler}>
       <div>
-        <div>
-          <label className="cn">Company Name</label>
-          <input className="putb1"type="text" value={name} onChange={nameChangeHandler} />
+        <div className="labelMargin">
+          <label className="labels">Company Name</label>
+          <span style={{ padding: "5%"}}></span>
+          <label className="labels rightColumnLabel">Company ID</label>
         </div>
-        <div className="">
-          <label className="cnn">Company Identification Number</label>
-          <input className="putb2" type="text" value={ein} onChange={einChangeHandler} />
+        <div className="inputMargin">
+          <input className="textBox" type="text" value={name} onChange={nameChangeHandler} />
+          <span style={{ padding: "5%"}}></span>
+          <input className="textBox rightColumnTextBox" type="text" value={ein} onChange={einChangeHandler} />
         </div>
-        <div>
-          <label className="ba">Business Address</label>
+        <div className="labelMargin">
+          <label className="labels">Business Address</label>
+        </div>
+        <div className="inputMargins">
+          
           <input
-          className="putb3"
+          className="textBox"
             type="text"
             value={street1}
             onChange={street1ChangeHandler}
             placeholder="Street Address 1"
           />
+          <span style={{ padding: "5%"}}></span>
           <input
-          className="putb4"
+          className="textBox rightColumnTextBox"
             type="text"
             value={street2}
             onChange={street2ChangeHandler}
             placeholder="Street Address 2"
           />
           <input
-          className="putb5"
+          className="textBox"
             type="text"
             value={city}
             onChange={cityChangeHandler}
             placeholder="City"
           ></input>
-          <select className="putb6" value={state} onChange={stateChangeHandler}>
+          <span style={{ padding: "5%"}}></span>
+          <select className="textBox rightColumnTextBox" value={state} onChange={stateChangeHandler}>
             <option value="" disabled selected>
               State
             </option>
@@ -362,24 +369,26 @@ const BusinessForm = (props) => {
             ))}
           </select>
           <input
-          className="putb7"
+          className="textBox"
             type="number"
             value={postalCode}
             onChange={postalCodeChangeHandler}
             placeholder="Postal Code"
           />
         </div>
-        <div>
-          <label className="ea">Email Address</label>
-          <input className="putb8" type="email" value={emailAddress} onChange={emailAddressChangeHandler}/> 
+        <div className="labelMargin">
+          <label className="labels">Email Address</label>
+          <span style={{ padding: "5%" }}></span>
+          <label className="labels rightColumnLabel">Password</label>
         </div>
-        <div>
-          <label className="pass1">Password</label>
-          <input className="putb9"type="password" value={password} onChange={passwordChangeHandler}/>
+        <div className="inputMargin">
+          <input className="textBox" type="email" value={emailAddress} onChange={emailAddressChangeHandler}/> 
+          <span style={{ padding: "5%" }}></span>
+          <input className="textBox rightColumnTextBox"type="password" value={password} onChange={passwordChangeHandler}/>
         </div>
       </div>
-      <div>
-        <button className="btn5" type="submit">Sign up</button>
+      <div className="btndiv">
+        <button className="btn3" type="submit">Sign up</button>
       </div>
     </form>
   );
