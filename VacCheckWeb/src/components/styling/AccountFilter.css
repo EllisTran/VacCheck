@@ -10,14 +10,14 @@
 html, body {
     max-width: 100%;
     overflow-x: hidden;
-    overflow-y: hidden;
     max-height: 100%;
 }
 .grid-container {
-display: grid;
-grid-template-columns: 1fr 1fr;
-height: 100vh;
-width: 100%;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    overflow-y: hidden;
+    height: 100vh;
+    width: 100%;
 }
 .photo {
     padding: 0;
@@ -83,6 +83,18 @@ width: 100%;
     transform: rotate(90deg);
     display: block;
 }
+
+.VectorCardLogin {
+    position: absolute;
+    opacity: 0.1;
+    color: black;
+    left: 0%;
+    top: -10%;
+    bottom: -100%;
+    /* transform: rotate(90deg); */
+    display: block;
+}
+
 .Vector4
 {
     opacity: 0.1;
@@ -92,7 +104,30 @@ width: 100%;
     top: -1%;
     bottom: -100%;
     transform: rotate(85deg);
-
 } 
 
+.VectorCardSquare
+{
+    opacity: 0.1;
+    position: absolute;
+    left: 0.3%;
+    right: -99.71%;
+    top: 15%;
+    transform: rotate(85deg);
+} 
 
+.VectorSyringe {
+    opacity: 0.1;
+    position: absolute;
+    left: 31.7%;
+    top: 70%;
+}
+
+.loginSubtext {
+    color: #8A92A6;
+    display: flex;
+    margin-top:2%;
+    font-size: 16px;
+    justify-content: center;
+    margin-bottom: 24px;
+}

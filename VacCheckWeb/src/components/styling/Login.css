@@ -16,6 +16,12 @@
     background: black;
     cursor: pointer;
   }
+  .signup {
+    display: flex;
+    justify-content: center;
+    /* color: blue; */
+    /* margin-top: 25px;  */
+  }
   
   .login {
     width: 100%;

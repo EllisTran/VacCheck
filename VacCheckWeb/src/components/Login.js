@@ -18,8 +18,8 @@ const Login = (props) => {
   } = props;
 
   return (
-    <section className="login">
-      <div className="loginContainer">
+    <section className="">
+      <div className="">
         <label>Email</label>
         <input
           type="text"

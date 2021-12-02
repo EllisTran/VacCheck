@@ -31,12 +31,14 @@
     .btndiv {
 	display: flex;
 	justify-content: center;
+	margin-top: 25px;
+	margin-bottom: 15px;
     }
     .btn3{
 	position: relative;
 	width: 140px;
 	height: 44px;
-	top: 25px;
+	/* top: 25px; */
 	background: #3A57E8;
 	border-radius: 4px;
 	padding: 0 0 0 0;

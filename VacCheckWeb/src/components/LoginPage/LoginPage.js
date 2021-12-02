@@ -83,7 +83,7 @@ const LoginPage = () => {
   }, []);
 
   return (
-    <div className="userinput">
+    <div className="">
       <switch>
         <Route exact path="/VacCheckWeb/healthprofessional" component={MainPage}>
           <MainPage handleLogOut={handleLogOut}/>
