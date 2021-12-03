@@ -4,6 +4,7 @@ import 'package:vaccheck/firebase/auth_service.dart';
 import 'package:vaccheck/model/user_models/user_model.dart';
 import '../business_user_views/qr_scan_view.dart';
 import '../../controller/qr_code_controller.dart';
+import 'package:vaccheck/constants.dart';
 
 class BusinessUserView extends StatefulWidget {
   final UserModel user;
@@ -23,13 +24,24 @@ class _BusinessUserViewState extends State<BusinessUserView> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Main Business View'),
+        backgroundColor: kPrimaryColor,
+        foregroundColor: kWhiteColor,
+        elevation: 0,
+        title: Text(widget.user.name,
+        style: const TextStyle(
+                color: kWhiteColor,
+                fontFamily: 'SF',
+                fontSize: 22,
+                fontWeight: FontWeight.w200,
+              ),),
         actions: [
           IconButton(
-              onPressed: () {
-                context.read<AuthService>().signOut();
-              },
-              icon: const Icon(Icons.exit_to_app))
+            icon: const Icon(Icons.exit_to_app,size: 28,),
+        
+            onPressed: () {
+              context.read<AuthService>().signOut();
+            },
+          ),
         ],
       ),
       body: const QRScanView()

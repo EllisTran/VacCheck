@@ -6,6 +6,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:provider/provider.dart';
+import 'package:vaccheck/constants.dart';
 import 'package:vaccheck/firebase/auth_service.dart';
 // import 'package:aes_crypt/aes_crypt.dart';
 import 'package:vaccheck/views/auth_views/login_view.dart';
@@ -45,9 +46,12 @@ class _MyAppState extends State<MyApp> {
         )
       ],
       child: MaterialApp(
+        debugShowCheckedModeBanner: false,
         title: 'Flutter Demo',
         theme: ThemeData(
-          primarySwatch: Colors.blue,
+          colorScheme: ThemeData().colorScheme.copyWith(primary: kPrimeColor),
+          // primarySwatch: Colors.blue,
+          fontFamily: 'SF',
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
         home: const SplashScreen(),
