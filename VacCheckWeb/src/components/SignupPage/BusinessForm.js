@@ -320,7 +320,7 @@ const BusinessForm = (props) => {
   };
 
   return (
-    <form class="l"onSubmit={submitHandler}>
+    <form class="l" onSubmit={submitHandler}>
       <div>
         <div className="labelMargin">
           <label className="labels">Company Name</label>

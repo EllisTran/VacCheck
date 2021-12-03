@@ -6,6 +6,7 @@ import SignupPage from "./components/SignupPage/SignupPage";
 import HealthProfessionalPage from "./components/HealthProfessionalPage/HealthProfessionalPage";
 
 const App = () => {
+
   return (
    
     <Router>
