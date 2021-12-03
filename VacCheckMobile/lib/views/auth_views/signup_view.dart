@@ -5,8 +5,6 @@ import 'package:provider/src/provider.dart';
 import 'package:vaccheck/controller/auth_controller.dart';
 import 'package:vaccheck/firebase/auth_service.dart';
 import 'package:vaccheck/model/user_models/personal_user_model.dart';
-import 'package:vaccheck/constants.dart';
-import 'package:intl/intl.dart';
 
 class SignUpView extends StatefulWidget {
   const SignUpView({Key? key}) : super(key: key);
@@ -27,29 +25,77 @@ class _SignUpViewState extends State<SignUpView> {
 
   @override
   Widget build(BuildContext context) {
-    Size size = MediaQuery.of(context).size;
-    
     return Scaffold(
-        
         appBar: AppBar(
-          titleSpacing: 4,
-          leading: IconButton(
-            icon: const Icon(Icons.arrow_back),
-            onPressed: (){
-              Navigator.pop(context);
-            },
-          ),
-          Scaffold(
-            // appBar: AppBar(
-            //   title: Text("Sign Up View"),
-            // ),
-              body: Form(
-                autovalidateMode: AutovalidateMode.always,
-                onChanged: () {
-                  Form.of(primaryFocus!.context!)!.save();
+          title: Text("Sign Up View"),
+        ),
+        body: Form(
+          autovalidateMode: AutovalidateMode.always,
+          onChanged: () {
+            Form.of(primaryFocus!.context!)!.save();
+          },
+          key: _formKey,
+          child: Column(
+            children: [
+              TextFormField(
+                onSaved: (String? value) {
+                  // name = value;
+                  if (value != null) {
+                    name = value;
+                  }
                 },
-                key: _formKey,
-                child: Column(
+                decoration: const InputDecoration(
+                  icon: Icon(Icons.person),
+                  labelText: 'Name',
+                ),
+                // The validator receives the text that the user has entered.
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter some text';
+                  }
+                  return null;
+                },
+              ),
+              TextFormField(
+                onSaved: (String? value) {
+                  // name = value;
+                  if (value != null) {
+                    email = value;
+                  }
+                },
+                decoration: const InputDecoration(
+                  icon: Icon(Icons.email),
+                  labelText: 'Email',
+                ),
+                // The validator receives the text that the user has entered.
+                validator: (value) {
+                  return (value != null && !value.contains('@'))
+                      ? 'Must have be a valid email address'
+                      : null;
+                },
+              ),
+              TextFormField(
+                onSaved: (String? value) {
+                  // name = value;
+                  if (value != null) {
+                    password = value;
+                  }
+                },
+                obscureText: true,
+                decoration: const InputDecoration(
+                  icon: Icon(Icons.password),
+                  labelText: 'Password',
+                ),
+                // The validator receives the text that the user has entered.
+                validator: (value) {
+                  if (value == null || value.isEmpty) {
+                    return 'Please enter a password';
+                  }
+                  return null;
+                },
+              ),
+              Center(
+                child: Row(
                   children: [
                     dateOfBirth == null
                         ? const Text("Pick Birthday")
@@ -69,22 +115,11 @@ class _SignUpViewState extends State<SignUpView> {
                     ),
                   ],
                 ),
-                SizedBox(height: size.height * 0.2),
-
-                SizedBox(
-                  width: size.width * 0.85,
-                  height: size.height * 0.0657,
-                  child: ElevatedButton(
-                    style: ElevatedButton.styleFrom(
-                        elevation: 0,
-                        splashFactory: NoSplash.splashFactory,
-                        primary: kPrimeColor, // background
-                        onPrimary: Colors.white, // foreground
-                        shape: const RoundedRectangleBorder(
-                            borderRadius:
-                            BorderRadius.all(Radius.circular(29)))),
-                    onPressed: () {
-                      if (_formKey.currentState!.validate()) {
+              ),
+              Center(
+                child: ElevatedButton(
+                  onPressed: () {
+                    if (_formKey.currentState!.validate()) {
                       if (email != null &&
                           password != null &&
                           name != null &&
@@ -95,67 +130,22 @@ class _SignUpViewState extends State<SignUpView> {
                                 email: email!,
                                 dateOfBirth: dateOfBirth!);
                         try {
-                           context
-                                .read<AuthService>()
-                                .signUp(newUser: newUser, password: password!)
-                                .then((value) => Navigator.pop(context));
-                          } catch (e) {
-                            // I need to make an error check for this if the user is already in db
-                            print(e);
-                          }
+                          context
+                              .read<AuthService>()
+                              .signUp(newUser: newUser, password: password!)
+                              .then((value) => Navigator.pop(context));
+                        } catch (e) {
+                          // I need to make an error check for this if the user is already in db
+                          print(e);
                         }
-                        return null;
-                      },
-                    ),
-                    Center(
-                      child: Row(
-                        children: [
-                          dateOfBirth == null ? const Text("Pick Birthday") : Text(dateOfBirth!.toString()),
-                          ElevatedButton(
-                            child: const Text("Pick Birthday"),
-                            onPressed: () async {
-                              final DateTime? dob = await showDatePicker(
-                                  context: context,
-                                  initialDate: DateTime.now(),
-                                  firstDate: DateTime(1900),
-                                  lastDate: DateTime(2100));
-                              setState(() {
-                                dateOfBirth = dob;
-                              });
-                            },
-                          ),
-                        ],
-                      ),
-                    ),
-                    Center(
-                      child: ElevatedButton(
-                        onPressed: () {
-                          if (_formKey.currentState!.validate()) {
-                            if (email != null &&
-                                password != null &&
-                                name != null &&
-                                dateOfBirth != null) {
-                              UserModel newUser = UserModel(name!, dateOfBirth!, email!);
-                              try {
-                                context
-                                    .read<AuthService>()
-                                    .signUp(newUser: newUser, password: password!)
-                                    .then((value) => Navigator.pop(context));
-                              } catch (e) {
-                                // I need to make an error check for this if the user is already in db
-                                print(e);
-                              }
-                            }
-                          }
-                        },
-                        child: const Text('Sign up!'),
-                      ),
-                    ),
-                  ],
+                      }
+                    }
+                  },
+                  child: const Text('Sign up!'),
                 ),
-              )),
-        ],
-      ),
-    ));
+              ),
+            ],
+          ),
+        ));
   }
 }
