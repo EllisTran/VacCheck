@@ -1,0 +1,267 @@
+* {
+    padding: 0 0 0 0;
+    margin: 0 0 0 0;
+}
+.hpView {
+    width: 100vw;
+    height: 100vh;
+    padding: 0;
+    position: absolute;
+    overflow-y: hidden;
+}
+
+.headerView {
+    display: flex;
+    position: relative;
+    /* border: 1px solid red; */
+    height: 8%;
+    width: 100%;
+ 
+    text-align: center;
+}
+
+.main {
+    position: relative;
+    /* border: 1px solid blue; */
+    width: 86.6%;
+    height: 95%;
+    background-color: rgb(232, 235, 238);
+}
+.menu {
+    position: relative;
+    display: flex;
+    justify-content: center;
+	/* border: 1px solid green; */
+    width: 13.4%;
+    height: 95%;
+  
+  
+}
+.mainAndMenu {
+    position: relative;
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+
+.logoView {
+    display: flex;
+    justify-content: space-evenly;
+    position: relative;
+    align-self: center;
+    width: 13.4%;
+}
+
+.logoText {
+    align-self: center;
+    font-size: 2vw;
+}
+
+.headerAfterLogo {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 86.6%;
+    height: 100%;
+}
+
+.profileView {
+    position: relative;
+    /* width: 9%; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    left: 1%;
+    
+}
+
+.profileText {
+    display: flex;
+    font-size: 16px;
+    padding-top: 5px;
+}
+
+.profileImage {
+  height: 45px;
+  width: 45px;
+  /* background-color: #bbb; */
+  border-radius: 50%;
+  display: inline-block;
+    
+}
+
+.profileSubtext {
+    font-size: 13px;
+    display: flex;
+    justify-self: left;
+    color: #8A92A6;
+}
+.buttondiv {
+    position: relative;
+	width: 10%;
+    right: 5%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+}
+.headerButton{
+	padding: 0 0 0 0;    
+    height: 50%;
+    /* margin-top: 25%; */
+    border-radius: 5px;
+
+	background: #3A57E8;
+    font-size: 16px;
+	
+    }
+
+.searchView {
+    /* color: red; */
+    background-color: white;
+    position: absolute;
+    z-index: 1000;
+    left: 5%;
+    border-radius: 8px;
+    width: 90%;
+    top: 13.5%;
+    height: 80%;
+    filter: drop-shadow(0 0 0.75rem rgba(17, 38, 146, 0.05));
+}
+
+.textOnGraphicView {
+    position: absolute;
+    z-index: 1000; 
+    color: white;
+    font-size: 33px;
+    left: 5%;
+    top: 2%;
+    height: 15%;
+}
+
+.hospitalName {
+    position: relative;
+    /* left: 1.5%; */
+    font-weight: 700;
+    font-size: 1.5rem;
+    /* top: 4%; */
+}
+
+.topView {
+    padding-top: 2%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+    display: flex;
+    justify-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.dateText {
+    font-size: 16px;
+    font-weight: 600;
+    align-self: center;
+}
+
+.emailSearchView {
+    position: relative;
+    width: 100%;
+    top: 5%;
+    padding-left: 1.5%;
+    padding-right: 1.5%;
+}
+
+.emailSearch {
+    border-radius: 2px;
+    border: none;
+    width: 12%;
+    border-bottom: 1px solid #ADB5BD;
+}
+.emailSearch:focus {
+    /* color: transparent; */
+    outline: none;
+    box-shadow: none;
+}
+
+.searchButton {
+    /* left: 5%; */
+    width: 10%;
+    height: 20%;
+    border-radius: 5px;
+
+	background: #3A57E8;
+    font-size: 16px;
+}
+
+.searchBtnDiv {
+    display: inline;
+    padding-left: 2.5%;
+}
+
+.searchedUserView {
+    /* border: 1px solid black; */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    position: relative;
+    width: 90%;
+    /* height: 100%; */
+    
+    /* left: 5%; */
+    margin-top: 5%;
+}
+.searchedUserImage {
+    
+    height: 200px;
+    width: 200px;
+    /* background-color: #bbb; */
+    border-radius: 50%;
+    border: 3px solid #3A57E8;
+}
+.photoContainer{
+     display: flex;
+    align-self: center;
+    justify-content: center;
+    /* border: 1px solid red; */
+
+}
+
+.photoView {
+    position: relative;   
+}
+.photoUploadView {
+    /* border: 1px solid blue; */
+    position: relative;
+    display: flex;
+    justify-content: center;
+    top: 10%;
+    width: 100%;
+}
+.photoUpload {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    border: 1px solid #3A57E8;
+    border-radius: 4px;
+    /* padding: 5px; */
+    height: 30%;
+    width: 25%;
+}
+
+.photoUploadLabel {
+    cursor: pointer;
+    font-size: 13px;
+    color: #3A57E8;
+}
+
+.submitButtonDiv{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+     top: 5%;
+}
+.submitButton {
+    position: relative;
+    width:20%;
+}

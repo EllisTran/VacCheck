@@ -60,6 +60,7 @@ const LoginPage = () => {
   }
 
   const handleLogOut = () => {
+    console.log("logout");
     auth.signOut().then(function() {
       console.log('Signed Out');
     }, function(error) {
@@ -77,6 +78,9 @@ const LoginPage = () => {
       }
     });
   };
+  const test = () => {
+    console.log("test");
+  }
 
   useEffect(() => {
     authListener();
@@ -86,7 +90,7 @@ const LoginPage = () => {
     <div className="">
       <switch>
         <Route exact path="/VacCheckWeb/healthprofessional" component={MainPage}>
-          <MainPage handleLogOut={handleLogOut}/>
+          <MainPage handleLogOuts={test}/>
         </Route>
         <Route exact path="/VacCheckWeb/Login" component={Login}>
           <Login //props for Login.
