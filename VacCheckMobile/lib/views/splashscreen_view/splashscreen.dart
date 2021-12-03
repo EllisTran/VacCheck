@@ -22,7 +22,7 @@ class _SplashScreenState extends State<SplashScreen> {
   Timer? timer;
   FirebaseWrapper fb = FirebaseWrapper();
   bool ready = false;
-  
+
   Future getUser() async {
     await fb.readUser();
     return _auth.currentUser;
@@ -39,6 +39,11 @@ class _SplashScreenState extends State<SplashScreen> {
               })
             });
   }
+    @override
+  void dispose() {
+    timer?.cancel();
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -50,19 +55,18 @@ class _SplashScreenState extends State<SplashScreen> {
     } else if (ready && fbUser == null) {
       return const LoginView();
     } else {
-
       return Scaffold(
         body: Container(
-        constraints: const BoxConstraints.expand(),
-        decoration: const BoxDecoration(
-            image: DecorationImage(
-                image: AssetImage("assets/splashScreen.jpg"),
-                fit: BoxFit.cover)),
-        child: SafeArea(
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.center,
-              children: <Widget>[
+          constraints: const BoxConstraints.expand(),
+          decoration: const BoxDecoration(
+              image: DecorationImage(
+                  image: AssetImage("assets/splashScreen.jpg"),
+                  fit: BoxFit.cover)),
+          child: SafeArea(
+              child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
                 SizedBox(height: size.height * 0.15),
                 SizedBox(
                   width: 250,
@@ -76,38 +80,23 @@ class _SplashScreenState extends State<SplashScreen> {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: const <Widget>[
-                    Text(
-                    "Vac",
-                    style: TextStyle(
-                      color: kWhiteColor,
-                      fontFamily: 'Roboto-Bold',
-                      fontSize: 36)
-                    ),
-                    Text(
-                    "Check",
-                    style: TextStyle(
-                      color: kWhiteColor,
-                      fontFamily: 'Roboto-Thin',
-                      fontSize: 36)
-                    ),                   
+                    Text("Vac",
+                        style: TextStyle(
+                            color: kWhiteColor,
+                            fontFamily: 'Roboto-Bold',
+                            fontSize: 36)),
+                    Text("Check",
+                        style: TextStyle(
+                            color: kWhiteColor,
+                            fontFamily: 'Roboto-Thin',
+                            fontSize: 36)),
                   ],
                 ),
-                // const Text(
-                //   "VacCheck",
-                // style: TextStyle(
-                //   color: kWhiteColor,
-                //   fontWeight: FontWeight.w800,
-                //   fontFamily: 'SF',
-                //   fontSize: 36)
-                // ),
-
                 SizedBox(height: size.height * 0.15),
                 const CircularProgressIndicator(
-              color: Colors.white,
-            )
-              ]
-            )
-          ), 
+                  color: Colors.white,
+                )
+              ])),
         ),
       );
     }

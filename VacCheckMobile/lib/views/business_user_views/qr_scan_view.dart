@@ -229,14 +229,13 @@ class _QRScanViewState extends State<QRScanView> {
               ),
             ],
           ),
-
           Container(
               width: 100.0,
               height: 100.0,
               decoration: BoxDecoration(
                   shape: BoxShape.circle,
                   image: DecorationImage(
-                      fit: BoxFit.fitWidth, image: NetworkImage(this.img)))),
+                      fit: BoxFit.fitWidth, image: NetworkImage(img)))),
           // ScannedUser(user: userId),
           const SizedBox(
             height: 27,
@@ -304,7 +303,7 @@ class _QRScanViewState extends State<QRScanView> {
               Container(
                 padding: const EdgeInsets.only(bottom: 10, right: 14),
                 child: Text(
-                  this.dateOfBirth.toString(),
+                  DateFormat.yMMMMd('en_US').format(dateOfBirth!).toString(),
                   style: const TextStyle(
                     color: kTextColor,
                     fontFamily: 'SF',
