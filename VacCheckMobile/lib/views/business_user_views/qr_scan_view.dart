@@ -35,6 +35,7 @@ class _QRScanViewState extends State<QRScanView> {
   String? numVac;
   String? userId;
   String? isValidCode;
+  String? imageUrl;
   bool isModalOpen = false;
   // In order to get hot reload to work we need to pause the camera if the platform
   // is android, or resume the camera if the platform is iOS.
@@ -96,61 +97,32 @@ class _QRScanViewState extends State<QRScanView> {
             Expanded(flex: 1, child: Container()),
             Expanded(
               flex: 3,
-              child: (result != null)
-                  ? Container(
-                      color: Colors.white,
-                      width: MediaQuery.of(context).size.width,
-                      child: (isValidCode == "true")
-                          ? Text("Hello world")
-                          // ShowBottomSheet(
-                          //     imageUrl: userId!,
-                          //     fullName: name!,
-                          //     dob: dateOfBirth!,
-                          //     vacNum: int.parse(numVac!),
-                          //   )
-                          //  FutureBuilder(future: null,builder: (context, snapshot) {
-
-                          // return Text("Nothing");
-                          //    })
-
-                          //      Column(
-                          //   children: [
-
-                          //     // Text('Name: $name'),
-                          //     // Text('Date of Birth: $dateOfBirth'),
-                          //     // Text('Number of times Vaccinated: $numVac'),
-                          //     // ScannedUser(
-                          //     //     user:
-                          //         readScannedUser(userId!)) // Gets image
-                          //   ],
-                          // )
-                          : const Center(child: Text("Invalid Code!")))
-                  : Column(
-                      mainAxisAlignment: MainAxisAlignment.start,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: const [
-                        Text(
-                          "Searching...",
-                          style: TextStyle(
-                              color: kWhiteColor,
-                              fontSize: 18,
-                              fontFamily: 'SF',
-                              fontWeight: FontWeight.w700),
-                        ),
-                        SizedBox(height: 5),
-                        Padding(
-                          padding: EdgeInsets.only(right: 3),
-                          child: Text(
-                            "please put QR code under the camera",
-                            style: TextStyle(
-                              color: kWhiteColor,
-                              fontSize: 14,
-                              fontFamily: 'SF',
-                            ),
-                          ),
-                        ),
-                      ],
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: const [
+                  Text(
+                    "Searching...",
+                    style: TextStyle(
+                        color: kWhiteColor,
+                        fontSize: 18,
+                        fontFamily: 'SF',
+                        fontWeight: FontWeight.w700),
+                  ),
+                  SizedBox(height: 5),
+                  Padding(
+                    padding: EdgeInsets.only(right: 3),
+                    child: Text(
+                      "please put QR code under the camera",
+                      style: TextStyle(
+                        color: kWhiteColor,
+                        fontSize: 14,
+                        fontFamily: 'SF',
+                      ),
                     ),
+                  ),
+                ],
+              ),
             ),
           ],
           // ),
@@ -159,12 +131,13 @@ class _QRScanViewState extends State<QRScanView> {
     );
   }
 
-  var img =
-      "https://firebasestorage.googleapis.com/v0/b/vaccheck-6a24b.appspot.com/o/jennieHeadshot.jpg?alt=media&token=64a80196-9e1e-4a4e-81fd-cba100199a83";
+  var img = "";
   Future readScannedUser(String uid) async {
     // Make the Future into its own component and then scan
     FirebaseWrapper fb = FirebaseWrapper();
-    UserModel scannedUser = await fb.readUserById(uid);
+    PersonalUserModel scannedUser = await fb.readUserById(uid);
+    img = scannedUser.imageUrl!;
+
     showModalBottomSheet<void>(
         shape: const RoundedRectangleBorder(
           borderRadius: BorderRadius.vertical(
