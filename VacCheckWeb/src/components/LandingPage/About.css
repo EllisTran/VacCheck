@@ -23,7 +23,8 @@
 }
 
 .grid .grid-items {
-  margin-top: 2%;
+  margin-top: 1%;
+  margin-right: 3%;
   display: grid;
   grid-template-columns: 1fr, 1fr, 1fr, 1fr;
   grid-template-rows: 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr, 1fr;
@@ -32,11 +33,7 @@
   grid-column-gap: 0px; 
 }
 
-.grid .grid-items div {
-  /* margin: 40px ; */
-  padding: 20px;
-  /* text-align: left; */
-}
+
 
 .grid .grid-items div img {
   object-fit: contain;
@@ -137,7 +134,7 @@
   color: white;
   font-size: 30px;
   /* margin-top: 30px; */
-  text-align: center;
+  text-align: left;
   font-weight: bolder;
 }
 
@@ -146,7 +143,7 @@
   color: white;
   font-size: 30px;
   /* margin-top: 30px; */
-  text-align: center;
+  text-align: lefts;
   font-weight: bolder;
 }
 
@@ -155,7 +152,7 @@
   color: white;
   font-size: 30px;
   /* margin-top: 30px; */
-  text-align: center;
+  text-align: left;
   font-weight: bolder;
 }
 

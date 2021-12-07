@@ -8,15 +8,14 @@
 }
 
 .mainpage .overlay {
-  /* background-color: rgba(0,0,0,0.4); */
   display: flex;
   flex-direction: column;
   align-items: left;
   justify-content: center;
   height: 900px;
   color: white;
-  margin-left: 5%;
-  /* background-color: rgba(0,0,0,0.4); */
+  margin-left: 3%;
+
 }
 
 .mainpage .overlay h1 {
@@ -28,7 +27,14 @@
 
 .mainpage .overlay p1 {
   font-family: 'Montserrat', sans-serif;
-  font-size: 23px;
-  margin-top: 2%;
+  font-size: 20px;
+  margin-top: 0%;
   text-align: left;
+}
+
+.mainpage .overlay .img4 img{
+  object-fit: contain;
+  margin-left: 48%;
+  position: absolute;
+  top: 27%;
 }
