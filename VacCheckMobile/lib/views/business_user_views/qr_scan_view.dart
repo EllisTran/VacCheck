@@ -148,8 +148,10 @@ class _QRScanViewState extends State<QRScanView> {
         isDismissible: false,
         builder: (BuildContext context) {
           return Container(
-              height: MediaQuery.of(context).size.height *
-                  .40, // lol this is to my screen size hopefully it is to others too
+              height: (isValidCode! == 'true')
+                  ? MediaQuery.of(context).size.height * .40
+                  : MediaQuery.of(context).size.height *
+                      .20, // lol this is to my screen size hopefully it is to others too
               child: Column(children: [
                 showBottomSheet(context),
               ]));
@@ -197,158 +199,187 @@ class _QRScanViewState extends State<QRScanView> {
     // String formattedDate = DateFormat.yMMMMd('en_US').format(this.dob);
 
     return Padding(
-      padding: const EdgeInsets.all(16),
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              const Text(
-                "Information",
-                style: TextStyle(
-                  color: kPrimeColor,
-                  fontFamily: 'SF',
-                  fontSize: 18,
-                  fontWeight: FontWeight.w800,
-                ),
-              ),
-              const Spacer(),
-              IconButton(
-                onPressed: () {
-                  Navigator.pop(context);
-                  this.isModalOpen = false;
-                  controller.resumeCamera();
-                },
-                icon: const Icon(
-                  Icons.cancel_outlined,
-                  color: kPrimeColor,
-                  size: 25,
-                ),
-              ),
-            ],
-          ),
-          Container(
-              width: 100.0,
-              height: 100.0,
-              decoration: BoxDecoration(
-                  shape: BoxShape.circle,
-                  image: DecorationImage(
-                      fit: BoxFit.fitWidth, image: NetworkImage(img)))),
-          // ScannedUser(user: userId),
-          const SizedBox(
-            height: 27,
-          ),
-          // Padding(
-          //   padding: const EdgeInsets.only(right: 13),
-          //   child: Container(
-          //     height: 10,
-          //     width: MediaQuery.of(context).size.width,
-          //     color: kBorderColor,
-          //   ),
-          // ),
-          // const SizedBox(
-          //   height: 20,
-          // ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: const Text(
-                  "Full Name:",
-                  style: TextStyle(
-                    color: kTextColor,
-                    fontFamily: 'SF',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w200,
+        padding: const EdgeInsets.all(16),
+        child: (isValidCode! == 'true')
+            ? Column(
+                mainAxisAlignment: MainAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: <Widget>[
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      const Text(
+                        "Information",
+                        style: TextStyle(
+                          color: kPrimeColor,
+                          fontFamily: 'SF',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      const Spacer(),
+                      IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          this.isModalOpen = false;
+                          controller.resumeCamera();
+                        },
+                        icon: const Icon(
+                          Icons.cancel_outlined,
+                          color: kPrimeColor,
+                          size: 25,
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ),
-              const Spacer(),
-              Container(
-                padding: const EdgeInsets.only(bottom: 10, right: 14),
-                child: Text(
-                  this.name!,
-                  style: const TextStyle(
-                    color: kTextColor,
-                    fontFamily: 'SF',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w200,
+                  Container(
+                      width: 100.0,
+                      height: 100.0,
+                      decoration: BoxDecoration(
+                          border: Border.all(color: kPrimeColor),
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              fit: BoxFit.fitWidth, image: NetworkImage(img)))),
+                  // ScannedUser(user: userId),
+                  const SizedBox(
+                    height: 27,
                   ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: const Text(
-                  "Date of Birth:",
-                  style: TextStyle(
-                    color: kTextColor,
-                    fontFamily: 'SF',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w200,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: const Text(
+                          "Full Name:",
+                          style: TextStyle(
+                            color: kTextColor,
+                            fontFamily: 'SF',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w200,
+                          ),
+                        ),
+                      ),
+                      const Spacer(),
+                      Container(
+                        padding: const EdgeInsets.only(bottom: 10, right: 14),
+                        child: Text(
+                          this.name!,
+                          style: const TextStyle(
+                            color: kTextColor,
+                            fontFamily: 'SF',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w200,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ),
-              const Spacer(),
-              Container(
-                padding: const EdgeInsets.only(bottom: 10, right: 14),
-                child: Text(
-                  DateFormat.yMMMMd('en_US').format(dateOfBirth!).toString(),
-                  style: const TextStyle(
-                    color: kTextColor,
-                    fontFamily: 'SF',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w200,
+                  const SizedBox(
+                    height: 5,
                   ),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 5,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.start,
-            children: <Widget>[
-              Container(
-                padding: const EdgeInsets.only(bottom: 10),
-                child: const Text(
-                  "Vaccinated:",
-                  style: TextStyle(
-                    color: kTextColor,
-                    fontFamily: 'SF',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w200,
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: const Text(
+                          "Date of Birth:",
+                          style: TextStyle(
+                            color: kTextColor,
+                            fontFamily: 'SF',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w200,
+                          ),
+                        ),
+                      ),
+                      const Spacer(),
+                      Container(
+                        padding: const EdgeInsets.only(bottom: 10, right: 14),
+                        child: Text(
+                          DateFormat.yMMMMd('en_US')
+                              .format(dateOfBirth!)
+                              .toString(),
+                          style: const TextStyle(
+                            color: kTextColor,
+                            fontFamily: 'SF',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w200,
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
-                ),
-              ),
-              const Spacer(),
-              Container(
-                padding: const EdgeInsets.only(bottom: 10, right: 16),
-                child: Text(
-                  "${this.numVac}",
-                  style: const TextStyle(
-                    color: kPrimeColor,
-                    fontFamily: 'SF',
-                    fontSize: 14,
-                    fontWeight: FontWeight.w800,
+                  const SizedBox(
+                    height: 5,
                   ),
-                ),
-              ),
-            ],
-          ),
-        ],
-      ),
-    );
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: <Widget>[
+                      Container(
+                        padding: const EdgeInsets.only(bottom: 10),
+                        child: const Text(
+                          "Vaccinated:",
+                          style: TextStyle(
+                            color: kTextColor,
+                            fontFamily: 'SF',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w200,
+                          ),
+                        ),
+                      ),
+                      const Spacer(),
+                      Container(
+                        padding: const EdgeInsets.only(bottom: 10, right: 16),
+                        child: Text(
+                          "${this.numVac}",
+                          style: const TextStyle(
+                            color: kPrimeColor,
+                            fontFamily: 'SF',
+                            fontSize: 14,
+                            fontWeight: FontWeight.w800,
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
+              )
+            : Container(
+                child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Row(
+                    children: [
+                      const Text(
+                        "Error",
+                        style: TextStyle(
+                          color: kPrimeColor,
+                          fontFamily: 'SF',
+                          fontSize: 18,
+                          fontWeight: FontWeight.w800,
+                        ),
+                      ),
+                      const Spacer(),
+                      IconButton(
+                        onPressed: () {
+                          Navigator.pop(context);
+                          this.isModalOpen = false;
+                          controller.resumeCamera();
+                        },
+                        icon: const Icon(
+                          Icons.cancel_outlined,
+                          color: kPrimeColor,
+                          size: 25,
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Text("Invalid code! Please scan a valid code",
+                      style: TextStyle(
+                          color: Colors.red,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0)),
+                ],
+              )));
   }
 }
