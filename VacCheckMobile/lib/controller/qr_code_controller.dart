@@ -26,9 +26,9 @@ class QRCodeController {
       difference =
           DateTime.now().difference(DateTime.parse(parsedMessage['dateTime']));
       if (difference.inSeconds <= 15) {
-        parsedMessage['isValidCode'] = "true";
+        parsedMessage['isValidCode'] = 'true';
       } else {
-        parsedMessage['isValidCode'] = "false";
+        parsedMessage['isValidCode'] = 'false';
       }
     } catch (e) {
       print(e);
