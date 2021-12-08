@@ -246,6 +246,7 @@ class _PersonalUserViewState extends State<PersonalUserView> {
                     width: 100.0,
                     height: 100.0,
                     decoration: BoxDecoration(
+                        border: Border.all(color: kPrimeColor),
                         shape: BoxShape.circle,
                         image: DecorationImage(
                             fit: BoxFit.fitWidth,
