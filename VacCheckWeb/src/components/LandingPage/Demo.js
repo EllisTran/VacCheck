@@ -10,7 +10,7 @@ const Demo = () => {
       <div className="player-wrapper">
         <ReactPlayer
           className="react-player"
-          url="Demo.MOV"
+          url="Demo.mp4"
           playing
           muted
           loop

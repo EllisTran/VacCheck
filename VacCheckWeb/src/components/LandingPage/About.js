@@ -60,7 +60,7 @@ const About = () => {
               src={image2}
               alt=""
               width="100%"
-              height="70%"
+              height="75%"
             />
           </div>
           <div class="item--6PK_d">
