@@ -2,15 +2,11 @@ import React from "react";
 import "./About.css";
 import image1 from "../../assets/Ellis3.jpeg";
 import image2 from "../../assets/Patrick5.JPEG";
-import image3 from "../../assets/Sungwoo.jpeg";
-import image4 from "../../assets/Yaling.jpeg";
-import image5 from "../../assets/Yudong3.jpeg";
+import image3 from "../../assets/Sungwoo.png";
+import image4 from "../../assets/Yaling.png";
 
 const About = () => {
-
-
   return (
-    
     <div className="about">
       <section className="grid">
         <h5> Meet The Team </h5>
@@ -22,7 +18,7 @@ const About = () => {
               src={image1}
               alt=""
               width="100%"
-              height="60%"
+              height="80%"
             />
           </div>
           <div class="item--2ET_d">
@@ -43,7 +39,7 @@ const About = () => {
               src={image3}
               alt=""
               width="100%"
-              height="70%"
+              height="80%"
             />
           </div>
           <div class="item--4SK_d">
@@ -98,27 +94,6 @@ const About = () => {
               researcher in the fields of cybersecurity and artificial
               intelligence.
             </p8>
-          </div>
-
-          <div class="item--9YD">
-            <img
-              className="image5"
-              src={image5}
-              alt=""
-              width="100%"
-              height="70%"
-            />
-          </div>
-          <div class="item--10YD_d">
-            <h6> Yudong Wang </h6>
-            <p14> Web developer </p14>
-            <p9>
-              Yudong Wang is a senior Computer Science major at the University
-              of Arkansas. He is one of the web developers of VacCheck. He will
-              work as a web developer after graduate. Also, he will try to apply
-              master at University of Arkansas Computer Science and Computer
-              Engineering department.
-            </p9>
           </div>
         </div>
       </section>
