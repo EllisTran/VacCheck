@@ -10,7 +10,7 @@ const Demo = () => {
       <div className="player-wrapper">
         <ReactPlayer
           className="react-player"
-          url="Yonsei-Fever-Demo-Video.mp4"
+          url="Demo.mp4"
           playing
           muted
           loop
@@ -22,15 +22,13 @@ const Demo = () => {
               },
             },
           }}
-          width="1100px"
-          height="600px"
+          width="1000px"
+          height="550px"
           controls={true}
         />
       </div>
-      {/* </VisibilitySensor> */}
       <p4>
-        All you need is your <strong> Phone.</strong> 
-        
+        All you need is your <strong> Phone.</strong>
       </p4>
     </section>
   );
