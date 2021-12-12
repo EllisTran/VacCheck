@@ -46,11 +46,11 @@ const About = () => {
             <h3> SungWoo Kim </h3>
             <p12> Web developer </p12>
             <p7>
-              SungWoo Kim is one of the web developer of vacCheck. He is in his
-              senior year majoring in Computer Science at the University of
-              Arkansas. He's expected graduation date is May 2022. He will
-              actively be in search of further working experience focusing in
-              the area of software engineering.
+              Sung Woo Kim is one of the web developer of vacCheck. He is
+              currently pursuing a B.S. in Computer Science from the University
+              of Arkansas in his senior year. He's expected graduation date is
+              May 2022. He will actively be in search of further working
+              experience focusing in the area of software engineering.
             </p7>
           </div>
 
@@ -67,11 +67,11 @@ const About = () => {
             <h2> Patrick Kwok </h2>
             <p11> Mobile developer </p11>
             <p6>
-              Patrick Kwok is a senior Computer Science major with a minor in
-              Mathematics at the University of Arkansas. He is a proficient
-              Mobile Developer with a demonstrated history of working as a
-              mobile development intern at X/Link Software in Jakarta,
-              Indonesia.
+              Patrick Kwok is the lead UI/UX designer and mobile developer for
+              VacCheck. He will receive his B.S. in Computer Science with minor
+              in Mathematics at the University of Arkansas in May 2022. He is
+              currently seeking other opportunities in software engineering
+              field. 
             </p6>
           </div>
 
